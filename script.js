@@ -1,35 +1,3 @@
-// ===== CÂU HỎI =====
-let baseQuestions = [
-{q:"Rác nào có thể tái chế?",options:["Pin","Chai nhựa","Thức ăn","Lá"],answer:1},
-{q:"Pin thuộc loại rác gì?",options:["Tái chế","Hữu cơ","Nguy hại","Giấy"],answer:2},
-{q:"Khí gây hiệu ứng nhà kính?",options:["O2","CO2","N2","H2"],answer:1},
-{q:"Năng lượng tái tạo?",options:["Than","Dầu","Mặt trời","Khí"],answer:2},
-{q:"Ô nhiễm nước do?",options:["Rác","Gió","Ánh sáng","Âm thanh"],answer:0},
-{q:"Nhựa phân hủy bao lâu?",options:["1 năm","10 năm","100+ năm","1 tháng"],answer:2},
-{q:"Rác hữu cơ gồm?",options:["Pin","Nhựa","Thức ăn","Kim loại"],answer:2},
-{q:"Rác điện tử là?",options:["Điện thoại hỏng","Giấy","Thức ăn","Lá"],answer:0},
-{q:"Hiệu ứng nhà kính gây?",options:["Lạnh","Nóng","Mưa","Gió"],answer:1},
-{q:"Tái chế giúp?",options:["Giảm rác","Tăng rác","Ô nhiễm","Không"],answer:0},
-{q:"Ô nhiễm không khí do?",options:["Xe","Cây","Nước","Đá"],answer:0},
-{q:"Năng lượng gió là?",options:["Tái tạo","Không","Độc","Bẩn"],answer:0},
-{q:"Biến đổi khí hậu do?",options:["CO2","O2","Nước","Đá"],answer:0},
-{q:"Trồng cây giúp?",options:["Ô nhiễm","Giảm CO2","Không","Rác"],answer:1},
-{q:"Nguồn nước sạch?",options:["Suối","Cống","Thải","Bẩn"],answer:0}
-];
-
-// ===== NHÂN LÊN 120 CÂU =====
-let allQuestions = [];
-
-for(let i=0;i<120;i++){
-    let b = baseQuestions[i % baseQuestions.length];
-    allQuestions.push({
-        q: b.q + " ("+(i+1)+")",
-        options: b.options,
-        answer: b.answer
-    });
-}
-
-// ===== GAME =====
 let questions = [];
 let current = 0;
 let score = 0;
@@ -50,7 +18,12 @@ function start(){
 function runTimer(){
     timer = setInterval(()=>{
         time--;
+
         document.getElementById("timer").innerText = "⏳ " + time + "s";
+
+        // thanh thời gian
+        document.getElementById("timeBar").style.width = (time/60*100) + "%";
+
         if(time <= 0){
             finish();
         }
@@ -64,7 +37,7 @@ function showQuestion(){
     }
 
     let q = questions[current];
-    let html = "<h3>"+q.q+"</h3>";
+    let html = `<h3>${q.q}</h3>`;
 
     q.options.forEach((opt,i)=>{
         html += `<button onclick="answer(${i})">${opt}</button><br>`;
@@ -74,7 +47,9 @@ function showQuestion(){
 }
 
 function answer(i){
-    if(i === questions[current].answer) score++;
+    if(i === questions[current].answer){
+        score++;
+    }
     current++;
     showQuestion();
 }
@@ -85,7 +60,7 @@ function finish(){
     let name = document.getElementById("name").value || "Ẩn danh";
 
     document.getElementById("result").innerText =
-        name + " đúng " + score + "/20";
+        `${name} đúng ${score}/20`;
 
     let rank = JSON.parse(localStorage.getItem("rank")) || [];
 
@@ -105,8 +80,8 @@ function showRank(){
     let rank = JSON.parse(localStorage.getItem("rank")) || [];
     let html = "";
 
-    rank.slice(0,5).forEach(r=>{
-        html += `<li>${r.name}: ${r.score}/20 - ${r.time}s</li>`;
+    rank.slice(0,10).forEach((r,i)=>{
+        html += `<li>🥇 ${i+1}. ${r.name} - ${r.score}/20 - ${r.time}s</li>`;
     });
 
     document.getElementById("rank").innerHTML = html;
