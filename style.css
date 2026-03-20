@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    background: #e8f5e9;
+}
+
+h1 {
+    color: green;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: lightgreen;
+    cursor: pointer;
+}
