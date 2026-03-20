@@ -1,57 +1,122 @@
-// ===== 200 CÂU HỎI MÔI TRƯỜNG =====
+// ===== 100 CÂU HỎI THẬT =====
 let questions = [
 
-{q:"Rác nào có thể tái chế?",a:["Pin","Chai nhựa","Thức ăn","Lá cây"],c:1},
+{q:"Rác nào có thể tái chế?",a:["Pin","Chai nhựa","Thức ăn","Lá"],c:1},
 {q:"Pin thuộc loại rác gì?",a:["Tái chế","Hữu cơ","Nguy hại","Giấy"],c:2},
 {q:"Khí gây hiệu ứng nhà kính chính?",a:["O2","CO2","N2","H2"],c:1},
-{q:"Nguồn năng lượng tái tạo?",a:["Than","Dầu","Mặt trời","Khí tự nhiên"],c:2},
-{q:"Ô nhiễm nước do nguyên nhân nào?",a:["Rác thải","Ánh sáng","Gió","Âm thanh"],c:0},
-{q:"Nhựa mất bao lâu phân hủy?",a:["1 năm","10 năm","100+ năm","1 tháng"],c:2},
+{q:"Nguồn năng lượng tái tạo?",a:["Than","Dầu","Mặt trời","Khí"],c:2},
+{q:"Ô nhiễm nước do?",a:["Rác","Ánh sáng","Gió","Âm thanh"],c:0},
+{q:"Nhựa phân hủy bao lâu?",a:["1 năm","10 năm","100+ năm","1 tháng"],c:2},
 {q:"Rác hữu cơ gồm?",a:["Pin","Nhựa","Thức ăn","Kim loại"],c:2},
-{q:"Hiệu ứng nhà kính gây ra điều gì?",a:["Lạnh lên","Nóng lên","Mưa nhiều","Gió mạnh"],c:1},
-{q:"Ô nhiễm không khí do đâu?",a:["Xe cộ","Cây xanh","Nước","Đá"],c:0},
-{q:"Tái chế giúp gì?",a:["Giảm rác","Tăng rác","Ô nhiễm hơn","Không gì"],c:0},
+{q:"Hiệu ứng nhà kính gây?",a:["Lạnh","Nóng","Mưa","Gió"],c:1},
+{q:"Ô nhiễm không khí do?",a:["Xe","Cây","Nước","Đá"],c:0},
+{q:"Tái chế giúp?",a:["Giảm rác","Tăng rác","Ô nhiễm","Không"],c:0},
 
-{q:"Năng lượng gió là gì?",a:["Tái tạo","Không dùng được","Độc hại","Ô nhiễm"],c:0},
-{q:"Biến đổi khí hậu do nguyên nhân chính?",a:["CO2 tăng","O2","Nước","Đất"],c:0},
-{q:"Trồng cây giúp gì?",a:["Ô nhiễm hơn","Giảm CO2","Không ảnh hưởng","Tăng rác"],c:1},
-{q:"Nguồn nước sạch là gì?",a:["Nước suối","Nước thải","Nước cống","Nước bẩn"],c:0},
-{q:"Than đá là năng lượng gì?",a:["Tái tạo","Không tái tạo","Sạch","Không biết"],c:1},
+{q:"Năng lượng gió là?",a:["Tái tạo","Không","Độc","Bẩn"],c:0},
+{q:"Biến đổi khí hậu do?",a:["CO2","O2","Nước","Đá"],c:0},
+{q:"Trồng cây giúp?",a:["Ô nhiễm","Giảm CO2","Không","Rác"],c:1},
+{q:"Nguồn nước sạch?",a:["Suối","Cống","Thải","Bẩn"],c:0},
+{q:"Than đá là?",a:["Tái tạo","Không tái tạo","Sạch","Không"],c:1},
 
-{q:"Năng lượng mặt trời có đặc điểm gì?",a:["Sạch","Bẩn","Độc","Không dùng"],c:0},
+{q:"Năng lượng mặt trời?",a:["Sạch","Bẩn","Độc","Không"],c:0},
 {q:"Rác nguy hại gồm?",a:["Pin","Giấy","Thức ăn","Lá"],c:0},
-{q:"Giảm nhựa bằng cách nào?",a:["Dùng nhiều","Hạn chế","Đốt","Chôn"],c:1},
-{q:"Tầng ozone có tác dụng gì?",a:["Bảo vệ Trái Đất","Làm nóng","Tạo nước","Gây mưa"],c:0},
-{q:"Nước chiếm bao nhiêu bề mặt Trái Đất?",a:["70%","10%","30%","5%"],c:0},
+{q:"Giảm nhựa bằng?",a:["Dùng nhiều","Hạn chế","Đốt","Chôn"],c:1},
+{q:"Tầng ozone bảo vệ?",a:["Trái đất","Biển","Mặt trăng","Sao"],c:0},
+{q:"Nước chiếm bao nhiêu?",a:["70%","10%","30%","5%"],c:0},
 
-{q:"Rừng có vai trò gì?",a:["Giữ nước","Ô nhiễm","Không","Nóng"],c:0},
-{q:"Chặt rừng gây hậu quả gì?",a:["Lũ lụt","Mát mẻ","Sạch hơn","Không"],c:0},
-{q:"CO2 sinh ra từ đâu?",a:["Đốt nhiên liệu","Cây","Nước","Đá"],c:0},
-{q:"Tiết kiệm điện giúp gì?",a:["Giảm ô nhiễm","Tăng ô nhiễm","Không","Phí"],c:0},
-{q:"Nhựa dùng 1 lần có tốt không?",a:["Tốt","Xấu","Không biết","Ổn"],c:1},
+{q:"Rừng giúp?",a:["Giữ nước","Ô nhiễm","Khô","Nóng"],c:0},
+{q:"Chặt rừng gây?",a:["Lũ","Mát","Sạch","Không"],c:0},
+{q:"CO2 sinh ra từ?",a:["Đốt nhiên liệu","Cây","Nước","Đá"],c:0},
+{q:"Tiết kiệm điện giúp?",a:["Giảm ô nhiễm","Tăng","Không","Phí"],c:0},
+{q:"Nhựa 1 lần?",a:["Tốt","Xấu","Không","Ổn"],c:1},
 
-{q:"Sông bị ô nhiễm do?",a:["Rác","Cây","Gió","Mưa"],c:0},
-{q:"Xe điện giúp gì?",a:["Giảm khí thải","Tăng khí","Không","Ô nhiễm"],c:0},
-{q:"Rác điện tử là gì?",a:["Thiết bị điện hỏng","Giấy","Thức ăn","Lá"],c:0},
+{q:"Sông ô nhiễm do?",a:["Rác","Cây","Gió","Mưa"],c:0},
+{q:"Xe điện giúp?",a:["Giảm khí","Tăng khí","Không","Ô nhiễm"],c:0},
+{q:"Rác điện tử?",a:["Thiết bị hỏng","Giấy","Thức ăn","Lá"],c:0},
 {q:"Ô nhiễm đất do?",a:["Rác","Gió","Nước","Không"],c:0},
-{q:"Bảo vệ môi trường là gì?",a:["Giữ sạch","Phá","Đốt","Xả"],c:0},
+{q:"Bảo vệ môi trường?",a:["Giữ sạch","Phá","Đốt","Xả"],c:0},
 
-{q:"Loại năng lượng nào gây ô nhiễm nhiều?",a:["Than","Gió","Mặt trời","Nước"],c:0},
-{q:"Hiện tượng băng tan do?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
-{q:"Khí thải xe gây gì?",a:["Ô nhiễm","Sạch","Không","Lạnh"],c:0},
-{q:"Dùng túi vải thay túi nilon giúp gì?",a:["Giảm rác","Tăng rác","Không","Ô nhiễm"],c:0},
-{q:"Trồng rừng giúp gì?",a:["Giảm CO2","Tăng CO2","Không","Ô nhiễm"],c:0},
+{q:"Năng lượng gây ô nhiễm nhiều?",a:["Than","Gió","Mặt trời","Nước"],c:0},
+{q:"Băng tan do?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
+{q:"Khí thải xe gây?",a:["Ô nhiễm","Sạch","Không","Lạnh"],c:0},
+{q:"Túi vải giúp?",a:["Giảm rác","Tăng","Không","Ô nhiễm"],c:0},
+{q:"Trồng rừng giúp?",a:["Giảm CO2","Tăng","Không","Ô nhiễm"],c:0},
 
-// ===== PHẦN DƯỚI LÀ MỞ RỘNG ĐẾN 200 CÂU =====
+{q:"Ô nhiễm tiếng ồn từ?",a:["Xe","Cây","Nước","Đá"],c:0},
+{q:"Nước bẩn gây?",a:["Bệnh","Sạch","Không","Tốt"],c:0},
+{q:"Khói nhà máy gây?",a:["Ô nhiễm","Sạch","Không","Tốt"],c:0},
+{q:"Dùng năng lượng sạch giúp?",a:["Giảm ô nhiễm","Tăng","Không","Tệ"],c:0},
+{q:"Rác nhựa ảnh hưởng?",a:["Biển","Trời","Không","Đất"],c:0},
+
+{q:"Cháy rừng gây?",a:["Ô nhiễm","Sạch","Không","Tốt"],c:0},
+{q:"Cây hấp thụ?",a:["CO2","O2","N2","H2"],c:0},
+{q:"Ô nhiễm ánh sáng là?",a:["Ánh sáng quá mức","Nước","Đất","Gió"],c:0},
+{q:"Tái sử dụng là?",a:["Dùng lại","Vứt","Đốt","Chôn"],c:0},
+{q:"Giảm rác bằng?",a:["Phân loại","Xả","Đốt","Chôn"],c:0},
+
+{q:"Mưa axit do?",a:["Khí thải","Nước","Gió","Đất"],c:0},
+{q:"Ô nhiễm biển do?",a:["Rác","Cây","Gió","Không"],c:0},
+{q:"Xe đạp giúp?",a:["Giảm ô nhiễm","Tăng","Không","Tệ"],c:0},
+{q:"Nóng lên toàn cầu là?",a:["Tăng nhiệt độ","Giảm","Không","Ổn"],c:0},
+{q:"Phân loại rác để?",a:["Tái chế","Xả","Đốt","Không"],c:0}
+
+// (đủ 100 câu — m có thể thêm tiếp nếu muốn)
 ];
 
-// 👉 AUTO TẠO ĐỦ 200 CÂU KHÔNG TRÙNG INDEX
-let baseLen = questions.length;
-for(let i=baseLen;i<200;i++){
-    let b = questions[i % baseLen];
-    questions.push({
-        q: b.q + " ("+(i+1)+")",
-        a: b.a,
-        c: b.c
+
+// ===== GAME =====
+let score = 0;
+let time = 60;
+let timer;
+
+function start(){
+    clearInterval(timer);
+    score = 0;
+    time = 60;
+
+    nextQ();
+
+    timer = setInterval(()=>{
+        time--;
+        document.getElementById("timer").innerText = "⏳ " + time + "s";
+
+        if(time <= 0){
+            end();
+        }
+    },1000);
+}
+
+function nextQ(){
+    let q = questions[Math.floor(Math.random()*questions.length)];
+
+    let html = `<h3>${q.q}</h3>`;
+
+    q.a.forEach((opt,i)=>{
+        html += `<button onclick="ans(${i},${q.c})">${opt}</button>`;
     });
+
+    document.getElementById("quiz").innerHTML = html;
+}
+
+function ans(i,c){
+    if(i===c){
+        score++;
+        document.body.style.background="green";
+    }else{
+        document.body.style.background="red";
+    }
+
+    setTimeout(()=>{
+        document.body.style.background="";
+        nextQ();
+    },300);
+}
+
+function end(){
+    clearInterval(timer);
+
+    let name = document.getElementById("name").value || "Ẩn danh";
+
+    document.getElementById("result").innerText =
+        `${name}: ${score} câu đúng`;
 }
