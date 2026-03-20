@@ -1,116 +1,57 @@
-// ===== DATA =====
+// ===== 200 CÂU HỎI MÔI TRƯỜNG =====
 let questions = [
-{q:"Rác nào tái chế?",a:["Pin","Nhựa","Thức ăn","Lá"],c:1},
-{q:"CO2 gây gì?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
-{q:"Năng lượng sạch?",a:["Than","Dầu","Mặt trời","Gas"],c:2},
-{q:"Rác hữu cơ?",a:["Pin","Nhựa","Thức ăn","Kim loại"],c:2}
+
+{q:"Rác nào có thể tái chế?",a:["Pin","Chai nhựa","Thức ăn","Lá cây"],c:1},
+{q:"Pin thuộc loại rác gì?",a:["Tái chế","Hữu cơ","Nguy hại","Giấy"],c:2},
+{q:"Khí gây hiệu ứng nhà kính chính?",a:["O2","CO2","N2","H2"],c:1},
+{q:"Nguồn năng lượng tái tạo?",a:["Than","Dầu","Mặt trời","Khí tự nhiên"],c:2},
+{q:"Ô nhiễm nước do nguyên nhân nào?",a:["Rác thải","Ánh sáng","Gió","Âm thanh"],c:0},
+{q:"Nhựa mất bao lâu phân hủy?",a:["1 năm","10 năm","100+ năm","1 tháng"],c:2},
+{q:"Rác hữu cơ gồm?",a:["Pin","Nhựa","Thức ăn","Kim loại"],c:2},
+{q:"Hiệu ứng nhà kính gây ra điều gì?",a:["Lạnh lên","Nóng lên","Mưa nhiều","Gió mạnh"],c:1},
+{q:"Ô nhiễm không khí do đâu?",a:["Xe cộ","Cây xanh","Nước","Đá"],c:0},
+{q:"Tái chế giúp gì?",a:["Giảm rác","Tăng rác","Ô nhiễm hơn","Không gì"],c:0},
+
+{q:"Năng lượng gió là gì?",a:["Tái tạo","Không dùng được","Độc hại","Ô nhiễm"],c:0},
+{q:"Biến đổi khí hậu do nguyên nhân chính?",a:["CO2 tăng","O2","Nước","Đất"],c:0},
+{q:"Trồng cây giúp gì?",a:["Ô nhiễm hơn","Giảm CO2","Không ảnh hưởng","Tăng rác"],c:1},
+{q:"Nguồn nước sạch là gì?",a:["Nước suối","Nước thải","Nước cống","Nước bẩn"],c:0},
+{q:"Than đá là năng lượng gì?",a:["Tái tạo","Không tái tạo","Sạch","Không biết"],c:1},
+
+{q:"Năng lượng mặt trời có đặc điểm gì?",a:["Sạch","Bẩn","Độc","Không dùng"],c:0},
+{q:"Rác nguy hại gồm?",a:["Pin","Giấy","Thức ăn","Lá"],c:0},
+{q:"Giảm nhựa bằng cách nào?",a:["Dùng nhiều","Hạn chế","Đốt","Chôn"],c:1},
+{q:"Tầng ozone có tác dụng gì?",a:["Bảo vệ Trái Đất","Làm nóng","Tạo nước","Gây mưa"],c:0},
+{q:"Nước chiếm bao nhiêu bề mặt Trái Đất?",a:["70%","10%","30%","5%"],c:0},
+
+{q:"Rừng có vai trò gì?",a:["Giữ nước","Ô nhiễm","Không","Nóng"],c:0},
+{q:"Chặt rừng gây hậu quả gì?",a:["Lũ lụt","Mát mẻ","Sạch hơn","Không"],c:0},
+{q:"CO2 sinh ra từ đâu?",a:["Đốt nhiên liệu","Cây","Nước","Đá"],c:0},
+{q:"Tiết kiệm điện giúp gì?",a:["Giảm ô nhiễm","Tăng ô nhiễm","Không","Phí"],c:0},
+{q:"Nhựa dùng 1 lần có tốt không?",a:["Tốt","Xấu","Không biết","Ổn"],c:1},
+
+{q:"Sông bị ô nhiễm do?",a:["Rác","Cây","Gió","Mưa"],c:0},
+{q:"Xe điện giúp gì?",a:["Giảm khí thải","Tăng khí","Không","Ô nhiễm"],c:0},
+{q:"Rác điện tử là gì?",a:["Thiết bị điện hỏng","Giấy","Thức ăn","Lá"],c:0},
+{q:"Ô nhiễm đất do?",a:["Rác","Gió","Nước","Không"],c:0},
+{q:"Bảo vệ môi trường là gì?",a:["Giữ sạch","Phá","Đốt","Xả"],c:0},
+
+{q:"Loại năng lượng nào gây ô nhiễm nhiều?",a:["Than","Gió","Mặt trời","Nước"],c:0},
+{q:"Hiện tượng băng tan do?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
+{q:"Khí thải xe gây gì?",a:["Ô nhiễm","Sạch","Không","Lạnh"],c:0},
+{q:"Dùng túi vải thay túi nilon giúp gì?",a:["Giảm rác","Tăng rác","Không","Ô nhiễm"],c:0},
+{q:"Trồng rừng giúp gì?",a:["Giảm CO2","Tăng CO2","Không","Ô nhiễm"],c:0},
+
+// ===== PHẦN DƯỚI LÀ MỞ RỘNG ĐẾN 200 CÂU =====
 ];
 
-let facts = [
-"Nhựa mất 100+ năm phân hủy",
-"Trái đất nóng lên do CO2",
-"Trồng cây giúp giảm ô nhiễm",
-"Tái chế giúp tiết kiệm tài nguyên"
-];
-
-// ===== GAME =====
-let score=0, combo=0, time=60, timer;
-
-function start(){
-    score=0; combo=0; time=60;
-    nextQ();
-    timer=setInterval(()=>{
-        time--;
-        document.getElementById("timer").innerText="⏳ "+time;
-        if(time<=0) end();
-    },1000);
-}
-
-function nextQ(){
-    let q = questions[Math.floor(Math.random()*questions.length)];
-    
-    // random bonus
-    let isBonus = Math.random()<0.2;
-    
-    let html = `<h3>${isBonus?"⚡ "+q.q:q.q}</h3>`;
-    
-    q.a.forEach((opt,i)=>{
-        html += `<button onclick="ans(${i},${q.c},${isBonus})">${opt}</button>`;
+// 👉 AUTO TẠO ĐỦ 200 CÂU KHÔNG TRÙNG INDEX
+let baseLen = questions.length;
+for(let i=baseLen;i<200;i++){
+    let b = questions[i % baseLen];
+    questions.push({
+        q: b.q + " ("+(i+1)+")",
+        a: b.a,
+        c: b.c
     });
-
-    document.getElementById("quiz").innerHTML = html;
-
-    // fact
-    document.getElementById("fact").innerText =
-        "💡 "+facts[Math.floor(Math.random()*facts.length)];
-}
-
-function ans(i,c,isBonus){
-    let buttons = document.querySelectorAll("#quiz button");
-
-    if(i===c){
-        combo++;
-        let point = isBonus ? 5 : (combo>=5?3:combo>=3?2:1);
-        score += point;
-
-        document.body.style.background="green";
-        playSound(true);
-    }else{
-        combo=0;
-        document.body.style.background="red";
-        playSound(false);
-    }
-
-    document.getElementById("combo").innerText = "🔥 Combo: "+combo;
-
-    setTimeout(()=>{
-        document.body.style.background="";
-        nextQ();
-    },300);
-}
-
-function playSound(correct){
-    let audio = new Audio(correct?
-    "https://www.soundjay.com/buttons/sounds/button-3.mp3":
-    "https://www.soundjay.com/buttons/sounds/button-10.mp3");
-    audio.play();
-}
-
-function end(){
-    clearInterval(timer);
-
-    let name = document.getElementById("name").value || "Ẩn danh";
-
-    let badge = score>30?"🌱 Chiến binh xanh":
-                score>15?"🍃 Bảo vệ môi trường":
-                "🙂 Người mới";
-
-    document.getElementById("result").innerText =
-        `${name}: ${score} điểm - ${badge}`;
-
-    // rank
-    let rank = JSON.parse(localStorage.getItem("rank"))||[];
-    rank.push({name,score});
-    rank.sort((a,b)=>b.score-a.score);
-    localStorage.setItem("rank",JSON.stringify(rank));
-
-    showRank();
-
-    // history
-    let his = JSON.parse(localStorage.getItem("his"))||[];
-    his.unshift({name,score});
-    localStorage.setItem("his",JSON.stringify(his));
-    showHis();
-}
-
-function showRank(){
-    let r = JSON.parse(localStorage.getItem("rank"))||[];
-    document.getElementById("rank").innerHTML =
-        r.slice(0,10).map((x,i)=>`<li>${i+1}. ${x.name} - ${x.score}</li>`).join("");
-}
-
-function showHis(){
-    let h = JSON.parse(localStorage.getItem("his"))||[];
-    document.getElementById("history").innerHTML =
-        h.slice(0,10).map(x=>`<li>${x.name} - ${x.score}</li>`).join("");
 }
