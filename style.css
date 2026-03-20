@@ -46,12 +46,9 @@ button:hover {
     border-radius: 5px;
 }
 
-#quiz {
-    margin-top: 20px;
-}
-
 ul {
     list-style: none;
+    padding: 0;
 }
 
 li {
