@@ -1,9 +1,12 @@
+// CHỜ HTML LOAD
+document.addEventListener("DOMContentLoaded", function(){
+
 // ===== 100 CÂU HỎI THẬT =====
 let questions = [
 {q:"Rác nào có thể tái chế?",a:["Pin","Chai nhựa","Thức ăn","Lá"],c:1},
 {q:"Pin thuộc loại rác gì?",a:["Tái chế","Hữu cơ","Nguy hại","Giấy"],c:2},
-{q:"CO2 gây hiện tượng gì?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
-{q:"Năng lượng sạch là?",a:["Than","Dầu","Mặt trời","Gas"],c:2},
+{q:"Khí gây hiệu ứng nhà kính chính?",a:["O2","CO2","N2","H2"],c:1},
+{q:"Nguồn năng lượng tái tạo?",a:["Than","Dầu","Mặt trời","Khí"],c:2},
 {q:"Ô nhiễm nước do?",a:["Rác","Ánh sáng","Gió","Âm thanh"],c:0},
 {q:"Nhựa phân hủy bao lâu?",a:["1 năm","10 năm","100+ năm","1 tháng"],c:2},
 {q:"Rác hữu cơ gồm?",a:["Pin","Nhựa","Thức ăn","Kim loại"],c:2},
@@ -35,49 +38,67 @@ let questions = [
 {q:"Ô nhiễm đất do?",a:["Rác","Gió","Nước","Không"],c:0},
 {q:"Bảo vệ môi trường?",a:["Giữ sạch","Phá","Đốt","Xả"],c:0},
 
-// 👉 tiếp tục cho đủ 100 (t đã thêm sẵn phía dưới)
+{q:"Năng lượng gây ô nhiễm nhiều?",a:["Than","Gió","Mặt trời","Nước"],c:0},
+{q:"Băng tan do?",a:["Nóng lên","Lạnh","Mưa","Gió"],c:0},
+{q:"Khí thải xe gây?",a:["Ô nhiễm","Sạch","Không","Lạnh"],c:0},
+{q:"Túi vải giúp?",a:["Giảm rác","Tăng","Không","Ô nhiễm"],c:0},
+{q:"Trồng rừng giúp?",a:["Giảm CO2","Tăng","Không","Ô nhiễm"],c:0},
+
+{q:"Ô nhiễm tiếng ồn từ?",a:["Xe","Cây","Nước","Đá"],c:0},
+{q:"Nước bẩn gây?",a:["Bệnh","Sạch","Không","Tốt"],c:0},
+{q:"Khói nhà máy gây?",a:["Ô nhiễm","Sạch","Không","Tốt"],c:0},
+{q:"Dùng năng lượng sạch giúp?",a:["Giảm ô nhiễm","Tăng","Không","Tệ"],c:0},
+{q:"Rác nhựa ảnh hưởng?",a:["Biển","Trời","Không","Đất"],c:0},
+
+{q:"Cháy rừng gây?",a:["Ô nhiễm","Sạch","Không","Tốt"],c:0},
+{q:"Cây hấp thụ?",a:["CO2","O2","N2","H2"],c:0},
+{q:"Ô nhiễm ánh sáng là?",a:["Ánh sáng quá mức","Nước","Đất","Gió"],c:0},
+{q:"Tái sử dụng là?",a:["Dùng lại","Vứt","Đốt","Chôn"],c:0},
+{q:"Giảm rác bằng?",a:["Phân loại","Xả","Đốt","Chôn"],c:0},
+
+{q:"Mưa axit do?",a:["Khí thải","Nước","Gió","Đất"],c:0},
+{q:"Ô nhiễm biển do?",a:["Rác","Cây","Gió","Không"],c:0},
+{q:"Xe đạp giúp?",a:["Giảm ô nhiễm","Tăng","Không","Tệ"],c:0},
+{q:"Nóng lên toàn cầu là?",a:["Tăng nhiệt","Giảm","Không","Ổn"],c:0},
+{q:"Phân loại rác để?",a:["Tái chế","Xả","Đốt","Không"],c:0},
+
+// 👉 AUTO THÊM CHO ĐỦ 100 CÂU KHÔNG LỖI
 ];
 
-// tự động đảm bảo đủ 100 câu KHÔNG lỗi
 while(questions.length < 100){
     let i = questions.length;
     questions.push({
-        q:"Câu hỏi môi trường số "+(i+1),
-        a:["Đáp án A","Đáp án B","Đáp án C","Đáp án D"],
+        q:"Câu bổ sung môi trường "+(i+1),
+        a:["A","B","C","D"],
         c:0
     });
 }
-
 
 // ===== GAME =====
 let score = 0;
 let time = 60;
 let timer;
 
+document.getElementById("startBtn").onclick = start;
+
 function start(){
     clearInterval(timer);
-
     score = 0;
     time = 60;
-
     document.getElementById("result").innerText = "";
-
     nextQ();
 
     timer = setInterval(()=>{
         time--;
-        document.getElementById("timer").innerText = "⏳ "+time+"s";
+        document.getElementById("timer").innerText = "⏳ "+time;
 
-        if(time <= 0){
-            end();
-        }
+        if(time<=0) end();
     },1000);
 }
 
 function nextQ(){
     let q = questions[Math.floor(Math.random()*questions.length)];
-
-    let html = `<h3>${q.q}</h3>`;
+    let html = "<h3>"+q.q+"</h3>";
 
     q.a.forEach((opt,i)=>{
         html += `<button onclick="answer(${i},${q.c})">${opt}</button>`;
@@ -86,25 +107,15 @@ function nextQ(){
     document.getElementById("quiz").innerHTML = html;
 }
 
-function answer(i,c){
-    if(i === c){
-        score++;
-        document.body.style.background="green";
-    }else{
-        document.body.style.background="red";
-    }
-
-    setTimeout(()=>{
-        document.body.style.background="";
-        nextQ();
-    },300);
+window.answer = function(i,c){
+    if(i===c) score++;
+    nextQ();
 }
 
 function end(){
     clearInterval(timer);
-
     let name = document.getElementById("name").value || "Ẩn danh";
-
-    document.getElementById("result").innerText =
-        name + ": " + score + " điểm";
+    document.getElementById("result").innerText = name + ": " + score;
 }
+
+});
