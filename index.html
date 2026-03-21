@@ -1,57 +1,87 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Trái Đất Đang Kêu Cứu</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Trái Đất Đang Kêu Cứu</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>🌍 Trái Đất Đang Kêu Cứu</h1>
+<header class="hero">
+    <h1>🌍 TRÁI ĐẤT ĐANG KÊU CỨU</h1>
+    <p>Hiểu – Nhìn thấy – Hành động</p>
 </header>
 
-<section class="intro">
-    <h2>Nếu Trái Đất biến mất, chúng ta còn gì?</h2>
+<!-- THỰC TRẠNG -->
+<section class="section">
+    <h2>🌫 Ô nhiễm không khí</h2>
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
+        <img src="https://images.unsplash.com/photo-1470123808288-1e59739f45f2">
+        <img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d">
+    </div>
+    <p>Khói bụi từ xe cộ và nhà máy làm tăng bệnh hô hấp và ung thư.</p>
 </section>
 
-<!-- THỰC TRẠNG -->
-<section>
-    <h2>🌫 Ô nhiễm không khí</h2>
-    <img src="https://i.imgur.com/1.jpg">
-    <p>Khói bụi đang gây hại nghiêm trọng đến sức khỏe con người.</p>
-
+<section class="section dark">
     <h2>🌊 Ô nhiễm nước</h2>
-    <img src="https://i.imgur.com/2.jpg">
-    <p>Sông ngòi bị ô nhiễm bởi rác thải và hóa chất.</p>
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1508182311256-e3f1f5c5e13f">
+        <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+    </div>
+    <p>Rác thải nhựa đang giết chết hàng triệu sinh vật biển.</p>
+</section>
 
+<section class="section">
     <h2>🌳 Phá rừng</h2>
-    <img src="https://i.imgur.com/3.jpg">
-    <p>Rừng bị tàn phá làm mất cân bằng sinh thái.</p>
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+        <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1">
+    </div>
+    <p>Mất rừng dẫn đến biến đổi khí hậu và mất đa dạng sinh học.</p>
+</section>
+
+<!-- GIẢI PHÁP -->
+<section class="section green">
+    <h2>🟢 Giải pháp</h2>
+    <ul>
+        <li>✔ Tiết kiệm điện, nước</li>
+        <li>✔ Hạn chế nhựa dùng một lần</li>
+        <li>✔ Trồng cây, bảo vệ rừng</li>
+        <li>✔ Tham gia hoạt động môi trường</li>
+    </ul>
 </section>
 
 <!-- QUIZ -->
-<section>
-    <h2>🧠 Mini Quiz</h2>
+<section class="section">
+    <h2>🧠 Kiểm tra kiến thức</h2>
     <div id="quiz"></div>
     <button onclick="submitQuiz()">Nộp bài</button>
-    <p id="result"></p>
+    <h3 id="result"></h3>
 </section>
 
 <!-- GAME -->
-<section>
-    <h2>🎮 Game: Giải cứu Trái Đất</h2>
-    <p>Chọn hành động đúng:</p>
+<section class="section dark">
+    <h2>🎮 Giải cứu Trái Đất</h2>
+    <p>Chọn hành động đúng để làm sạch môi trường</p>
 
-    <button onclick="playGame(1)">Nhặt rác</button>
-    <button onclick="playGame(0)">Xả rác</button>
-    <button onclick="playGame(1)">Trồng cây</button>
-    <button onclick="playGame(0)">Chặt cây</button>
+    <div class="game-buttons">
+        <button onclick="playGame(1)">🌱 Trồng cây</button>
+        <button onclick="playGame(1)">♻ Tái chế</button>
+        <button onclick="playGame(0)">🗑 Xả rác</button>
+        <button onclick="playGame(0)">🔥 Đốt rác</button>
+    </div>
+
+    <div class="earth">
+        <div id="earthBar"></div>
+    </div>
 
     <h3 id="gameResult"></h3>
 </section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
