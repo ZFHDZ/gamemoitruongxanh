@@ -1,67 +1,46 @@
-// ===== QUIZ =====
+// QUIZ
 let questions = [
-    {
-        q: "Chất gây ô nhiễm nguy hiểm nhất?",
-        options: ["O2", "CO2", "PM2.5", "N2"],
-        answer: 2
-    },
-    {
-        q: "Nhựa phân hủy bao lâu?",
-        options: ["50 năm", "100 năm", "300-500 năm", "1000 năm"],
-        answer: 2
-    },
-    {
-        q: "Nguồn ô nhiễm nước lớn nhất?",
-        options: ["Mưa", "Công nghiệp", "Gió", "Ánh sáng"],
-        answer: 1
-    },
-    {
-        q: "Hiệu ứng nhà kính gây?",
-        options: ["Lạnh", "Nóng lên", "Mưa", "Gió"],
-        answer: 1
-    },
-    {
-        q: "Năng lượng sạch?",
-        options: ["Than", "Dầu", "Mặt trời", "Khí"],
-        answer: 2
-    }
+    {q:"PM2.5 là gì?", options:["Khí sạch","Bụi siêu mịn","Nước","Oxy"], answer:1},
+    {q:"Nhựa phân hủy?", options:["10 năm","50 năm","500 năm","1 năm"], answer:2},
+    {q:"Nguồn ô nhiễm nước?", options:["Mưa","Công nghiệp","Gió","Đất"], answer:1},
+    {q:"Hiệu ứng nhà kính?", options:["Lạnh","Nóng lên","Gió","Mưa"], answer:1},
+    {q:"Năng lượng sạch?", options:["Than","Dầu","Mặt trời","Khí"], answer:2}
 ];
 
-let quizDiv = document.getElementById("quiz");
+let quiz = document.getElementById("quiz");
 
-questions.forEach((q, i) => {
+questions.forEach((q,i)=>{
     let html = `<p>${q.q}</p>`;
-    q.options.forEach((opt, j) => {
-        html += `<input type="radio" name="q${i}" value="${j}">${opt}<br>`;
+    q.options.forEach((o,j)=>{
+        html += `<input type="radio" name="q${i}" value="${j}"> ${o}<br>`;
     });
-    quizDiv.innerHTML += html;
+    quiz.innerHTML += html;
 });
 
-function submitQuiz() {
-    let score = 0;
-
-    questions.forEach((q, i) => {
-        let ans = document.querySelector(`input[name="q${i}"]:checked`);
-        if (ans && parseInt(ans.value) === q.answer) {
-            score++;
-        }
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        let ans=document.querySelector(`input[name="q${i}"]:checked`);
+        if(ans && ans.value==q.answer) score++;
     });
-
-    document.getElementById("result").innerText =
-        "Bạn đúng " + score + "/" + questions.length;
+    document.getElementById("result").innerText=
+    "Điểm của bạn: "+score+"/"+questions.length;
 }
 
-// ===== GAME =====
-let gameScore = 0;
+// GAME
+let earth = 50;
 
-function playGame(value) {
-    gameScore += value;
+function playGame(val){
+    earth += val*10;
 
-    if (gameScore >= 3) {
-        document.getElementById("gameResult").innerText =
-            "🌱 Trái Đất đang được cứu!";
-    } else {
-        document.getElementById("gameResult").innerText =
-            "💀 Trái Đất đang nguy hiểm!";
+    if(earth > 100) earth = 100;
+    if(earth < 0) earth = 0;
+
+    document.getElementById("earthBar").style.width = earth + "%";
+
+    if(earth >= 80){
+        document.getElementById("gameResult").innerText="🌱 Trái Đất đang hồi phục!";
+    } else if(earth <= 30){
+        document.getElementById("gameResult").innerText="💀 Nguy hiểm!";
     }
 }
