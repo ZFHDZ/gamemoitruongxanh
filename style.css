@@ -1,59 +1,63 @@
-body {
-font-family: Arial;
+body{
 margin:0;
-background:#f4f4f4;
-line-height:1.8;
+font-family:Arial;
 }
 
-header {
-background:#2c3e50;
+.hero{
+height:100vh;
+background:url("https://upload.wikimedia.org/wikipedia/commons/6/6d/Smog_city.jpg") center/cover;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
 color:white;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
+}
+
+.stats{
+display:flex;
+justify-content:space-around;
+background:#111;
+color:white;
 padding:40px;
 }
 
-section {
-background:white;
-margin:20px auto;
-padding:30px;
-width:85%;
-border-radius:10px;
+.content{
+padding:50px;
+max-width:1000px;
+margin:auto;
 }
 
-/* layout */
-.two-col {
-display:flex;
-gap:30px;
-flex-wrap:wrap;
+.dark{
+background:#222;
+color:white;
+padding:50px;
 }
 
-.img-box {
-display:flex;
-flex-direction:column;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:10px;
+margin:20px 0;
 }
 
-/* FIX ẢNH */
-img {
+.gallery img{
 width:100%;
-height:220px;
+height:200px;
 object-fit:cover;
 border-radius:10px;
 }
 
-/* gallery */
-.gallery {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:10px;
-}
-
-/* button */
-button {
-padding:10px 15px;
+button{
+padding:10px;
+margin:5px;
 background:#27ae60;
 color:white;
 border:none;
 cursor:pointer;
-margin-top:10px;
 }
