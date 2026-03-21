@@ -8,28 +8,88 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
     <h1>🌍 SỐNG XANH MỖI NGÀY</h1>
-    <p>Hành động nhỏ – Thay đổi lớn</p>
+    <p>Chung tay bảo vệ hành tinh của chúng ta</p>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <h2>Hãy cùng bảo vệ Trái Đất 🌱</h2>
+    <h2>Hành động nhỏ – Thay đổi lớn</h2>
 </section>
 
-<!-- KIỂM TRA THÓI QUEN -->
+<!-- GIỚI THIỆU -->
 <section>
+<h2>🌱 Vì sao cần bảo vệ môi trường?</h2>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1508780709619-79562169bc64">
+<p>Ô nhiễm không khí gây ảnh hưởng nghiêm trọng đến sức khỏe.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<p>Rác nhựa đang tàn phá đại dương.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<p>Rừng giúp điều hòa khí hậu và bảo vệ sự sống.</p>
+</div>
+</div>
+</section>
+
+<!-- TÌNH NGUYỆN -->
+<section class="dark">
+<h2>🤝 Hoạt động tình nguyện</h2>
+
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593113630400-ea4288922497">
+<p>Thanh niên tham gia dọn rác bãi biển.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1529390079861-591de354faf5">
+<p>Hoạt động nhặt rác tại công viên.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
+<p>Trồng cây gây rừng.</p>
+</div>
+</div>
+
+</section>
+
+<!-- HÀNH ĐỘNG -->
+<section>
+<h2>✅ Bạn có thể làm gì?</h2>
+
+<ul class="actions">
+<li>🌿 Trồng cây xanh</li>
+<li>🚲 Đi xe đạp</li>
+<li>👜 Dùng túi vải</li>
+<li>💧 Tiết kiệm nước</li>
+<li>🔌 Tắt điện khi không dùng</li>
+</ul>
+
+</section>
+
+<!-- KIỂM TRA -->
+<section class="dark">
 <h2>🧠 Kiểm tra thói quen</h2>
 
-<p>Bạn có thường xuyên dùng túi nilon?</p>
-<button onclick="addScore(0)">Có</button>
-<button onclick="addScore(1)">Không</button>
-
-<p>Bạn có tắt điện khi không dùng?</p>
+<p>Bạn có phân loại rác không?</p>
 <button onclick="addScore(1)">Có</button>
 <button onclick="addScore(0)">Không</button>
 
-<p>Bạn có phân loại rác?</p>
+<p>Bạn có dùng túi vải?</p>
+<button onclick="addScore(1)">Có</button>
+<button onclick="addScore(0)">Không</button>
+
+<p>Bạn có tắt điện khi không dùng?</p>
 <button onclick="addScore(1)">Có</button>
 <button onclick="addScore(0)">Không</button>
 
@@ -39,54 +99,19 @@
 <h3 id="result"></h3>
 </section>
 
-<!-- KIẾN THỨC -->
-<section>
-<h2>📚 Kiến thức môi trường</h2>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" width="300">
-<p>Ô nhiễm không khí đang ảnh hưởng nghiêm trọng đến sức khỏe con người.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" width="300">
-<p>Rác thải nhựa gây hại lớn đến sinh vật biển.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" width="300">
-<p>Rừng là lá phổi xanh của Trái Đất.</p>
-</div>
-
-</section>
-
-<!-- HÀNH ĐỘNG -->
-<section>
-<h2>✅ Hành động xanh</h2>
-<ul>
-<li>🌱 Trồng cây</li>
-<li>🚴 Đi xe đạp</li>
-<li>👜 Dùng túi vải</li>
-<li>💧 Tiết kiệm nước</li>
-</ul>
-</section>
-
-<!-- CAM KẾT -->
-<section>
-<h2>✍ Cam kết</h2>
-<input id="name" placeholder="Nhập tên...">
-<button onclick="commit()">Tôi cam kết sống xanh</button>
-<p id="commitMsg"></p>
-</section>
-
 <!-- GAME -->
 <section>
-<h2>🎮 Mini Game</h2>
+<h2>🎮 Trò chơi kiến thức</h2>
 <button onclick="startGame()">Bắt đầu</button>
 <h3 id="timer"></h3>
 <div id="quiz"></div>
 <h3 id="score"></h3>
 </section>
+
+<!-- FOOTER -->
+<footer>
+<p>🌍 Chung tay vì môi trường xanh</p>
+</footer>
 
 <script src="script.js"></script>
 
