@@ -1,28 +1,88 @@
-function scrollToContent(){
-document.getElementById("main").scrollIntoView({behavior:"smooth"});
+body {
+margin:0;
+font-family:sans-serif;
 }
 
-// QUIZ
-let questions=[
-{q:"PM2.5 là gì?",o:["Khí","Bụi mịn","Nước","Oxy"],a:1},
-{q:"Nhựa phân hủy?",o:["10","50","500","1"],a:2}
-];
+/* HERO */
+.hero {
+height:100vh;
+background:url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") center/cover;
+position:relative;
+}
 
-let quiz=document.getElementById("quiz");
+.overlay {
+background:rgba(0,0,0,0.5);
+color:white;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
 
-questions.forEach((q,i)=>{
-let html=`<p>${q.q}</p>`;
-q.o.forEach((op,j)=>{
-html+=`<input type="radio" name="q${i}" value="${j}">${op}<br>`;
-});
-quiz.innerHTML+=html;
-});
+/* LAYOUT */
+.container {
+padding:60px;
+text-align:center;
+}
 
-function submitQuiz(){
-let score=0;
-questions.forEach((q,i)=>{
-let ans=document.querySelector(`input[name=q${i}]:checked`);
-if(ans && ans.value==q.a) score++;
-});
-result.innerText="Điểm: "+score;
+.cards {
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.card {
+width:300px;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+border-radius:10px;
+overflow:hidden;
+}
+
+.card img {
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.dark {
+background:#2c3e50;
+color:white;
+padding:60px;
+text-align:center;
+}
+
+.green {
+background:#27ae60;
+color:white;
+padding:60px;
+text-align:center;
+}
+
+.grid2 {
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+/* GAME */
+.game-area {
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:20px;
+}
+
+.item {
+font-size:40px;
+cursor:grab;
+}
+
+.bin {
+padding:20px;
+background:#27ae60;
+color:white;
+border-radius:10px;
 }
