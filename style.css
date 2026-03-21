@@ -16,9 +16,10 @@ section {
 background:white;
 margin:20px auto;
 padding:30px;
-width:80%;
+width:85%;
 }
 
+/* layout */
 .two-col {
 display:flex;
 gap:30px;
@@ -29,7 +30,7 @@ align-items:flex-start;
 flex-direction:row-reverse;
 }
 
-/* FIX ẢNH */
+/* ảnh chuẩn */
 .img-box img {
 width:100%;
 max-width:400px;
@@ -39,6 +40,7 @@ margin-bottom:10px;
 border-radius:10px;
 }
 
+/* gallery */
 .gallery {
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -52,7 +54,7 @@ object-fit:cover;
 border-radius:10px;
 }
 
-/* QUIZ + GAME */
+/* nút */
 button {
 padding:10px 15px;
 margin:10px;
