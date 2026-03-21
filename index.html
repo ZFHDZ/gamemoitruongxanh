@@ -8,119 +8,103 @@
 
 <body>
 
-<header class="hero">
-    <h1>🌍 TRÁI ĐẤT ĐANG KÊU CỨU</h1>
-    <p>Hiểu – Nhìn thấy – Hành động</p>
-</header>
+<!-- HERO -->
+<section class="hero">
+    <div class="overlay">
+        <h1>TRÁI ĐẤT ĐANG KÊU CỨU</h1>
+        <p>Hiểu – Phân tích – Hành động</p>
+        <button onclick="scrollToContent()">Khám phá</button>
+    </div>
+</section>
 
-<!-- 1. THỰC TRẠNG -->
-<section class="section">
-<h2>🌫 Ô nhiễm không khí</h2>
-<div class="grid">
+<!-- THỰC TRẠNG -->
+<section class="container" id="main">
+<h2>Thực trạng môi trường</h2>
+
+<div class="cards">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
-<img src="https://images.unsplash.com/photo-1470123808288-1e59739f45f2">
-<img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d">
+<h3>Ô nhiễm không khí</h3>
+<p>Bụi mịn PM2.5 gây ra bệnh hô hấp, tim mạch và ung thư phổi.</p>
 </div>
-<p>Khí thải từ xe cộ và nhà máy làm tăng bệnh hô hấp, ung thư phổi.</p>
-</section>
 
-<section class="section dark">
-<h2>🌊 Ô nhiễm nước</h2>
-<div class="grid">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1508182311256-e3f1f5c5e13f">
-<img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<h3>Ô nhiễm nước</h3>
+<p>Hơn 8 triệu tấn nhựa đổ ra đại dương mỗi năm.</p>
 </div>
-<p>Rác thải nhựa và hóa chất làm ô nhiễm nguồn nước nghiêm trọng.</p>
-</section>
 
-<section class="section">
-<h2>🌳 Phá rừng</h2>
-<div class="grid">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
-<img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1">
+<h3>Phá rừng</h3>
+<p>Rừng biến mất làm tăng CO₂ và phá vỡ hệ sinh thái.</p>
 </div>
-<p>Phá rừng làm mất cân bằng sinh thái và tăng CO₂.</p>
-</section>
-
-<!-- 2. NGUYÊN NHÂN -->
-<section class="section green">
-<h2>⚠ Nguyên nhân</h2>
-<ul>
-<li>Xả rác bừa bãi</li>
-<li>Lạm dụng nhựa</li>
-<li>Khai thác tài nguyên quá mức</li>
-<li>Ý thức con người thấp</li>
-</ul>
-</section>
-
-<!-- 3. HẬU QUẢ -->
-<section class="section dark">
-<h2>💀 Hậu quả</h2>
-<ul>
-<li>Con người: bệnh tật, ung thư</li>
-<li>Động vật: chết do nhựa</li>
-<li>Trái Đất: nóng lên, thiên tai</li>
-</ul>
-</section>
-
-<!-- 4. GIẢI PHÁP -->
-<section class="section">
-<h2>🟢 Giải pháp</h2>
-<ul>
-<li>✔ Tiết kiệm điện</li>
-<li>✔ Dùng túi vải</li>
-<li>✔ Tái chế rác</li>
-<li>✔ Trồng cây</li>
-</ul>
-</section>
-
-<!-- 5. HOẠT ĐỘNG THỰC TẾ -->
-<section class="section">
-<h2>📸 Hành động thực tế</h2>
-<div class="grid">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
 </div>
-<p>Hàng triệu người đang tham gia bảo vệ môi trường mỗi ngày.</p>
 </section>
 
-<!-- 6. QUIZ -->
-<section class="section dark">
-<h2>🧠 Kiểm tra kiến thức</h2>
+<!-- NGUYÊN NHÂN -->
+<section class="dark">
+<h2>Nguyên nhân</h2>
+<div class="grid2">
+<p>🚫 Lạm dụng nhựa dùng 1 lần</p>
+<p>🚫 Xả rác không kiểm soát</p>
+<p>🚫 Công nghiệp hóa nhanh</p>
+<p>🚫 Ý thức kém</p>
+</div>
+</section>
+
+<!-- HẬU QUẢ -->
+<section class="container">
+<h2>Hậu quả</h2>
+<div class="cards">
+<div class="card">
+<h3>Con người</h3>
+<p>Tăng bệnh tật, giảm tuổi thọ.</p>
+</div>
+<div class="card">
+<h3>Động vật</h3>
+<p>Chết do nhựa, mất môi trường sống.</p>
+</div>
+<div class="card">
+<h3>Trái Đất</h3>
+<p>Nóng lên, thiên tai cực đoan.</p>
+</div>
+</div>
+</section>
+
+<!-- GIẢI PHÁP -->
+<section class="green">
+<h2>Giải pháp</h2>
+<div class="grid2">
+<p>✔ Giảm nhựa</p>
+<p>✔ Tái chế</p>
+<p>✔ Trồng cây</p>
+<p>✔ Sử dụng năng lượng sạch</p>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="container">
+<h2>Kiểm tra kiến thức</h2>
 <div id="quiz"></div>
-<button onclick="submitQuiz()">Nộp bài</button>
-<h3 id="result"></h3>
+<button onclick="submitQuiz()">Xem kết quả</button>
+<p id="result"></p>
 </section>
 
-<!-- 7. GAME -->
-<section class="section">
-<h2>🎮 Giải cứu Trái Đất</h2>
+<!-- GAME -->
+<section class="dark">
+<h2>Game: Phân loại rác</h2>
 
-<div class="game">
-<p>Chọn hành động:</p>
+<div class="game-area">
+    <div class="item" draggable="true">🍌</div>
+    <div class="item" draggable="true">🧴</div>
+    <div class="item" draggable="true">🥤</div>
 
-<button onclick="playGame(1)">🌱 Trồng cây</button>
-<button onclick="playGame(1)">♻ Tái chế</button>
-<button onclick="playGame(-1)">🗑 Xả rác</button>
-<button onclick="playGame(-1)">🔥 Đốt rác</button>
-
-<div class="earth">
-<div id="earthBar"></div>
+    <div class="bin">Hữu cơ</div>
+    <div class="bin">Nhựa</div>
 </div>
 
-<h3 id="gameResult"></h3>
-</div>
-</section>
-
-<!-- 8. CAM KẾT -->
-<section class="section green">
-<h2>✍ Cam kết</h2>
-<input id="name" placeholder="Nhập tên của bạn">
-<button onclick="commit()">Cam kết</button>
-<p id="commitResult"></p>
+<p id="gameResult"></p>
 </section>
 
 <script src="script.js"></script>
