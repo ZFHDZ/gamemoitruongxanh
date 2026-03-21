@@ -1,77 +1,67 @@
-body{
-    margin:0;
-    font-family:Arial;
-    background:#e8f5e9;
-    text-align:center;
+// ===== QUIZ =====
+let questions = [
+    {
+        q: "Chất gây ô nhiễm nguy hiểm nhất?",
+        options: ["O2", "CO2", "PM2.5", "N2"],
+        answer: 2
+    },
+    {
+        q: "Nhựa phân hủy bao lâu?",
+        options: ["50 năm", "100 năm", "300-500 năm", "1000 năm"],
+        answer: 2
+    },
+    {
+        q: "Nguồn ô nhiễm nước lớn nhất?",
+        options: ["Mưa", "Công nghiệp", "Gió", "Ánh sáng"],
+        answer: 1
+    },
+    {
+        q: "Hiệu ứng nhà kính gây?",
+        options: ["Lạnh", "Nóng lên", "Mưa", "Gió"],
+        answer: 1
+    },
+    {
+        q: "Năng lượng sạch?",
+        options: ["Than", "Dầu", "Mặt trời", "Khí"],
+        answer: 2
+    }
+];
+
+let quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+    let html = `<p>${q.q}</p>`;
+    q.options.forEach((opt, j) => {
+        html += `<input type="radio" name="q${i}" value="${j}">${opt}<br>`;
+    });
+    quizDiv.innerHTML += html;
+});
+
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((q, i) => {
+        let ans = document.querySelector(`input[name="q${i}"]:checked`);
+        if (ans && parseInt(ans.value) === q.answer) {
+            score++;
+        }
+    });
+
+    document.getElementById("result").innerText =
+        "Bạn đúng " + score + "/" + questions.length;
 }
 
-header{
-    background:#1b5e20;
-    color:white;
-    padding:20px;
-}
+// ===== GAME =====
+let gameScore = 0;
 
-.hero{
-    background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
-    background-size:cover;
-    padding:120px;
-    color:white;
-    font-size:24px;
-}
+function playGame(value) {
+    gameScore += value;
 
-section{
-    padding:40px;
-}
-
-.dark{
-    background:#2e7d32;
-    color:white;
-}
-
-.grid{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:white;
-    color:black;
-    width:300px;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.actions{
-    list-style:none;
-    font-size:20px;
-}
-
-button{
-    padding:10px 20px;
-    margin:5px;
-    border:none;
-    border-radius:10px;
-    background:#2e7d32;
-    color:white;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#66bb6a;
-    transform:scale(1.1);
-}
-
-footer{
-    background:#1b5e20;
-    color:white;
-    padding:20px;
+    if (gameScore >= 3) {
+        document.getElementById("gameResult").innerText =
+            "🌱 Trái Đất đang được cứu!";
+    } else {
+        document.getElementById("gameResult").innerText =
+            "💀 Trái Đất đang nguy hiểm!";
+    }
 }
