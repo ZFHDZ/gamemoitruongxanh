@@ -1,41 +1,77 @@
-body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#4caf50,#81c784);
-    color:white;
-    text-align:center;
+let habitScore = 0;
+
+function addScore(v){
+    habitScore += v;
 }
 
-header{
-    background:#1b5e20;
-    padding:20px;
+function showResult(){
+    let text = habitScore >=2 ? "🌱 Bạn sống xanh!" : "⚠ Cần cải thiện!";
+    document.getElementById("result").innerText = text;
 }
 
-section{
-    margin:40px;
+// ===== GAME =====
+let questions = [
+{
+q:"Rác nào tái chế được?",
+a:["Thức ăn","Nhựa","Lá cây","Pin"],
+c:1
+},
+{
+q:"Khí nào gây hiệu ứng nhà kính?",
+a:["O2","CO2","N2","H2"],
+c:1
+},
+{
+q:"Hành động tốt?",
+a:["Xả rác","Trồng cây","Đốt rác","Phá rừng"],
+c:1
+},
+{
+q:"Nguồn năng lượng sạch?",
+a:["Than","Dầu","Mặt trời","Khí đốt"],
+c:2
+},
+{
+q:"Ô nhiễm nước do?",
+a:["Rác","Cây","Gió","Ánh sáng"],
+c:0
+}
+];
+
+let score=0;
+let time=30;
+let timer;
+
+function startGame(){
+    score=0;
+    time=30;
+
+    timer=setInterval(()=>{
+        time--;
+        document.getElementById("timer").innerText="⏳ "+time;
+
+        if(time<=0){
+            clearInterval(timer);
+            document.getElementById("score").innerText="Điểm: "+score;
+        }
+    },1000);
+
+    nextQ();
 }
 
-.hero{
-    background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
-    background-size:cover;
-    padding:100px;
+function nextQ(){
+    let q=questions[Math.floor(Math.random()*questions.length)];
+
+    let html=`<h3>${q.q}</h3>`;
+
+    q.a.forEach((opt,i)=>{
+        html+=`<button onclick="answer(${i},${q.c})">${opt}</button>`;
+    });
+
+    document.getElementById("quiz").innerHTML=html;
 }
 
-button{
-    padding:10px 20px;
-    margin:5px;
-    border:none;
-    border-radius:10px;
-    background:#2e7d32;
-    color:white;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#66bb6a;
-    transform:scale(1.1);
-}
-
-.card{
-    margin:20px;
+function answer(i,c){
+    if(i===c) score++;
+    nextQ();
 }
