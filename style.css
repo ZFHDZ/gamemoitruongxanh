@@ -1,119 +1,37 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Trái Đất Đang Kêu Cứu</title>
+body {
+font-family: Arial;
+line-height: 1.6;
+margin: 0;
+background: #f5f5f5;
+}
 
-<link rel="stylesheet" href="style.css">
+header {
+background: #2c3e50;
+color: white;
+padding: 30px;
+text-align: center;
+}
 
-<!-- AOS animation -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+section {
+background: white;
+margin: 20px auto;
+padding: 30px;
+width: 70%;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-</head>
-<body>
+h2 {
+color: #27ae60;
+}
 
-<!-- HERO -->
-<section class="hero">
-    <div class="overlay">
-        <h1>🌍 TRÁI ĐẤT ĐANG KÊU CỨU</h1>
-        <p>Hiểu – Phân tích – Hành động</p>
-        <button onclick="scrollToMain()">Khám phá</button>
-    </div>
-</section>
+img {
+width: 100%;
+height: 250px;
+object-fit: cover;
+margin: 15px 0;
+border-radius: 8px;
+}
 
-<!-- STATS -->
-<section class="stats">
-    <div><h1>8M+</h1><p>Tấn nhựa/năm</p></div>
-    <div><h1>7M+</h1><p>Người chết/năm</p></div>
-    <div><h1>30%</h1><p>Rừng biến mất</p></div>
-</section>
-
-<!-- THỰC TRẠNG -->
-<section class="container" id="main">
-<h2 data-aos="fade-up">Thực trạng môi trường</h2>
-
-<div class="cards">
-
-<div class="card" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
-<h3>Ô nhiễm không khí</h3>
-<p>Bụi mịn PM2.5 gây bệnh hô hấp, tim mạch, ung thư.</p>
-</div>
-
-<div class="card" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1508182311256-e3f1f5c5e13f">
-<h3>Ô nhiễm nước</h3>
-<p>Hơn 8 triệu tấn nhựa ra biển mỗi năm.</p>
-</div>
-
-<div class="card" data-aos="fade-up">
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-<h3>Phá rừng</h3>
-<p>Làm tăng CO₂ và mất đa dạng sinh học.</p>
-</div>
-
-</div>
-</section>
-
-<!-- NGUYÊN NHÂN -->
-<section class="dark">
-<h2>Nguyên nhân</h2>
-<div class="grid2">
-<p>🚫 Lạm dụng nhựa</p>
-<p>🚫 Xả rác bừa bãi</p>
-<p>🚫 Công nghiệp hóa</p>
-<p>🚫 Ý thức kém</p>
-</div>
-</section>
-
-<!-- HẬU QUẢ -->
-<section class="container">
-<h2>Hậu quả</h2>
-<div class="cards">
-<div class="card"><h3>Con người</h3><p>Bệnh tật tăng cao</p></div>
-<div class="card"><h3>Động vật</h3><p>Chết do nhựa</p></div>
-<div class="card"><h3>Trái Đất</h3><p>Nóng lên toàn cầu</p></div>
-</div>
-</section>
-
-<!-- GIẢI PHÁP -->
-<section class="green">
-<h2>Giải pháp</h2>
-<div class="grid2">
-<p>✔ Giảm nhựa</p>
-<p>✔ Tái chế</p>
-<p>✔ Trồng cây</p>
-<p>✔ Năng lượng sạch</p>
-</div>
-</section>
-
-<!-- QUIZ -->
-<section class="container">
-<h2>🧠 Kiểm tra kiến thức</h2>
-<div id="quiz"></div>
-<button onclick="submitQuiz()">Nộp bài</button>
-<h3 id="result"></h3>
-</section>
-
-<!-- GAME -->
-<section class="dark">
-<h2>🎮 Phân loại rác</h2>
-
-<div class="game-area">
-<div class="item" draggable="true" id="banana">🍌</div>
-<div class="item" draggable="true" id="bottle">🧴</div>
-<div class="item" draggable="true" id="cup">🥤</div>
-
-<div class="bin" data-type="organic">Hữu cơ</div>
-<div class="bin" data-type="plastic">Nhựa</div>
-</div>
-
-<p id="gameResult"></p>
-</section>
-
-<script src="script.js"></script>
-<script>AOS.init();</script>
-
-</body>
-</html>
+ul {
+padding-left: 20px;
+}
