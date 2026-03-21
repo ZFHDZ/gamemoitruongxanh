@@ -1,117 +1,55 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Sống Xanh Mỗi Ngày</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Trái Đất Đang Kêu Cứu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
-    <h1>🌍 SỐNG XANH MỖI NGÀY</h1>
-    <p>Chung tay bảo vệ hành tinh của chúng ta</p>
+    <h1>🌍 Trái Đất Đang Kêu Cứu</h1>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-    <h2>Hành động nhỏ – Thay đổi lớn</h2>
+<section class="intro">
+    <h2>Nếu Trái Đất biến mất, chúng ta còn gì?</h2>
 </section>
 
-<!-- GIỚI THIỆU -->
+<!-- THỰC TRẠNG -->
 <section>
-<h2>🌱 Vì sao cần bảo vệ môi trường?</h2>
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1508780709619-79562169bc64">
-<p>Ô nhiễm không khí gây ảnh hưởng nghiêm trọng đến sức khỏe.</p>
-</div>
+    <h2>🌫 Ô nhiễm không khí</h2>
+    <img src="https://i.imgur.com/1.jpg">
+    <p>Khói bụi đang gây hại nghiêm trọng đến sức khỏe con người.</p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<p>Rác nhựa đang tàn phá đại dương.</p>
-</div>
+    <h2>🌊 Ô nhiễm nước</h2>
+    <img src="https://i.imgur.com/2.jpg">
+    <p>Sông ngòi bị ô nhiễm bởi rác thải và hóa chất.</p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
-<p>Rừng giúp điều hòa khí hậu và bảo vệ sự sống.</p>
-</div>
-</div>
+    <h2>🌳 Phá rừng</h2>
+    <img src="https://i.imgur.com/3.jpg">
+    <p>Rừng bị tàn phá làm mất cân bằng sinh thái.</p>
 </section>
 
-<!-- TÌNH NGUYỆN -->
-<section class="dark">
-<h2>🤝 Hoạt động tình nguyện</h2>
-
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593113630400-ea4288922497">
-<p>Thanh niên tham gia dọn rác bãi biển.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1529390079861-591de354faf5">
-<p>Hoạt động nhặt rác tại công viên.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
-<p>Trồng cây gây rừng.</p>
-</div>
-</div>
-
-</section>
-
-<!-- HÀNH ĐỘNG -->
+<!-- QUIZ -->
 <section>
-<h2>✅ Bạn có thể làm gì?</h2>
-
-<ul class="actions">
-<li>🌿 Trồng cây xanh</li>
-<li>🚲 Đi xe đạp</li>
-<li>👜 Dùng túi vải</li>
-<li>💧 Tiết kiệm nước</li>
-<li>🔌 Tắt điện khi không dùng</li>
-</ul>
-
-</section>
-
-<!-- KIỂM TRA -->
-<section class="dark">
-<h2>🧠 Kiểm tra thói quen</h2>
-
-<p>Bạn có phân loại rác không?</p>
-<button onclick="addScore(1)">Có</button>
-<button onclick="addScore(0)">Không</button>
-
-<p>Bạn có dùng túi vải?</p>
-<button onclick="addScore(1)">Có</button>
-<button onclick="addScore(0)">Không</button>
-
-<p>Bạn có tắt điện khi không dùng?</p>
-<button onclick="addScore(1)">Có</button>
-<button onclick="addScore(0)">Không</button>
-
-<br><br>
-<button onclick="showResult()">Xem kết quả</button>
-
-<h3 id="result"></h3>
+    <h2>🧠 Mini Quiz</h2>
+    <div id="quiz"></div>
+    <button onclick="submitQuiz()">Nộp bài</button>
+    <p id="result"></p>
 </section>
 
 <!-- GAME -->
 <section>
-<h2>🎮 Trò chơi kiến thức</h2>
-<button onclick="startGame()">Bắt đầu</button>
-<h3 id="timer"></h3>
-<div id="quiz"></div>
-<h3 id="score"></h3>
-</section>
+    <h2>🎮 Game: Giải cứu Trái Đất</h2>
+    <p>Chọn hành động đúng:</p>
 
-<!-- FOOTER -->
-<footer>
-<p>🌍 Chung tay vì môi trường xanh</p>
-</footer>
+    <button onclick="playGame(1)">Nhặt rác</button>
+    <button onclick="playGame(0)">Xả rác</button>
+    <button onclick="playGame(1)">Trồng cây</button>
+    <button onclick="playGame(0)">Chặt cây</button>
+
+    <h3 id="gameResult"></h3>
+</section>
 
 <script src="script.js"></script>
 
