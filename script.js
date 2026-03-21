@@ -1,88 +1,63 @@
-body {
-margin:0;
-font-family:sans-serif;
+function scrollToMain(){
+document.getElementById("main").scrollIntoView({behavior:"smooth"});
 }
 
-/* HERO */
-.hero {
-height:100vh;
-background:url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") center/cover;
-position:relative;
+// QUIZ 10 CÂU
+let questions=[
+{q:"PM2.5 là gì?",o:["Khí","Bụi mịn","Nước","Oxy"],a:1},
+{q:"Nhựa phân hủy?",o:["10","50","500","1"],a:2},
+{q:"Ô nhiễm nước?",o:["Mưa","CN","Gió","Đất"],a:1},
+{q:"Hiệu ứng nhà kính?",o:["Lạnh","Nóng","Gió","Mưa"],a:1},
+{q:"Năng lượng sạch?",o:["Than","Dầu","Mặt trời","Khí"],a:2},
+{q:"Rừng mất gây?",o:["CO2 tăng","Không gì","Gió","Mưa"],a:0},
+{q:"Động vật chết do?",o:["Nước","Nhựa","Gió","Lạnh"],a:1},
+{q:"Giảm rác tốt nhất?",o:["Đốt","Tái chế","Chôn","Xả"],a:1},
+{q:"Khí gây hại?",o:["CO2","O2","N2","H2"],a:0},
+{q:"Biện pháp tốt?",o:["Trồng cây","Xả rác","Đốt","Phá"],a:0}
+];
+
+let quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+let html=`<p>${q.q}</p>`;
+q.o.forEach((op,j)=>{
+html+=`<input type="radio" name="q${i}" value="${j}">${op}<br>`;
+});
+quiz.innerHTML+=html;
+});
+
+function submitQuiz(){
+let score=0;
+questions.forEach((q,i)=>{
+let ans=document.querySelector(`input[name=q${i}]:checked`);
+if(ans && ans.value==q.a) score++;
+});
+result.innerText="Điểm: "+score+"/10";
 }
 
-.overlay {
-background:rgba(0,0,0,0.5);
-color:white;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
+// GAME DRAG
+let items=document.querySelectorAll(".item");
+let bins=document.querySelectorAll(".bin");
 
-/* LAYOUT */
-.container {
-padding:60px;
-text-align:center;
-}
+items.forEach(item=>{
+item.addEventListener("dragstart",e=>{
+e.dataTransfer.setData("id",item.id);
+});
+});
 
-.cards {
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
-}
+bins.forEach(bin=>{
+bin.addEventListener("dragover",e=>e.preventDefault());
 
-.card {
-width:300px;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-border-radius:10px;
-overflow:hidden;
-}
+bin.addEventListener("drop",e=>{
+let id=e.dataTransfer.getData("id");
 
-.card img {
-width:100%;
-height:180px;
-object-fit:cover;
+if(
+(id==="banana" && bin.dataset.type==="organic") ||
+((id==="bottle"||id==="cup") && bin.dataset.type==="plastic")
+){
+gameResult.innerText="✔ Đúng!";
+}else{
+gameResult.innerText="❌ Sai!";
 }
-
-.dark {
-background:#2c3e50;
-color:white;
-padding:60px;
-text-align:center;
-}
-
-.green {
-background:#27ae60;
-color:white;
-padding:60px;
-text-align:center;
-}
-
-.grid2 {
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-/* GAME */
-.game-area {
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:20px;
-}
-
-.item {
-font-size:40px;
-cursor:grab;
-}
-
-.bin {
-padding:20px;
-background:#27ae60;
-color:white;
-border-radius:10px;
-}
+});
+});
