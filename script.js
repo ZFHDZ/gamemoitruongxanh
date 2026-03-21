@@ -1,8 +1,8 @@
 let questions=[
 {q:"PM2.5 là gì?",o:["Khí","Bụi mịn","Nước","Oxy"],a:1},
-{q:"Nhựa tồn tại?",o:["1 năm","10 năm","100-500 năm","1 ngày"],a:2},
-{q:"Ô nhiễm do?",o:["Con người","Gió","Mưa","Nắng"],a:0},
-{q:"Hiệu ứng nhà kính?",o:["Lạnh","Nóng","Gió","Mưa"],a:1},
+{q:"Nhựa tồn tại bao lâu?",o:["1 năm","10 năm","100-500 năm","1 ngày"],a:2},
+{q:"Nguyên nhân chính?",o:["Con người","Gió","Mưa","Nắng"],a:0},
+{q:"Hiệu ứng nhà kính?",o:["Nóng lên","Lạnh đi","Mưa","Gió"],a:0},
 {q:"Năng lượng sạch?",o:["Than","Dầu","Mặt trời","Khí"],a:2},
 {q:"Phá rừng gây?",o:["CO2 tăng","Ko gì","Gió","Mưa"],a:0},
 {q:"Động vật chết do?",o:["Nhựa","Nước","Gió","Lạnh"],a:0},
@@ -31,8 +31,9 @@ result.innerText="Điểm: "+score+"/10";
 }
 
 let total=0;
-function choose(v){
+function answer(v){
 total+=v;
-if(total>=2) gameResult.innerText="🌱 Bạn đang giúp Trái Đất!";
-else if(total<=-2) gameResult.innerText="💀 Bạn đang gây hại!";
+if(total>=2) gameResult.innerText="🌱 Bạn bảo vệ môi trường tốt!";
+else if(total<=-2) gameResult.innerText="💀 Bạn cần thay đổi!";
+else gameResult.innerText="⚖ Trung bình";
 }
