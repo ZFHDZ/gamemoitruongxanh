@@ -1,73 +1,77 @@
-let habitScore = 0;
-
-// ===== KIỂM TRA =====
-function addScore(v){
-    habitScore += v;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#e8f5e9;
+    text-align:center;
 }
 
-function showResult(){
-    let text = "";
-
-    if(habitScore >= 3){
-        text = "🌱 Bạn sống rất xanh!";
-    }else if(habitScore == 2){
-        text = "⚠ Bạn cần cải thiện!";
-    }else{
-        text = "❌ Bạn cần thay đổi!";
-    }
-
-    document.getElementById("result").innerText = text;
+header{
+    background:#1b5e20;
+    color:white;
+    padding:20px;
 }
 
-// ===== CAM KẾT =====
-function commit(){
-    let name = document.getElementById("name").value;
-    document.getElementById("commitMsg").innerText =
-        "🌍 " + name + " đã cam kết bảo vệ môi trường!";
+.hero{
+    background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+    background-size:cover;
+    padding:120px;
+    color:white;
+    font-size:24px;
 }
 
-// ===== GAME =====
-let questions = [
-{q:"Hành động nào tốt?",a:["Xả rác","Trồng cây"],c:1},
-{q:"Cái nào gây ô nhiễm?",a:["Xe máy","Cây"],c:0},
-{q:"Nên dùng gì?",a:["Túi nilon","Túi vải"],c:1}
-];
-
-let score = 0;
-let time = 15;
-let timer;
-
-function startGame(){
-    score = 0;
-    time = 15;
-
-    nextQ();
-
-    timer = setInterval(()=>{
-        time--;
-        document.getElementById("timer").innerText = "⏳ "+time;
-
-        if(time<=0){
-            clearInterval(timer);
-            document.getElementById("score").innerText =
-                "Điểm: " + score;
-        }
-    },1000);
+section{
+    padding:40px;
 }
 
-function nextQ(){
-    let q = questions[Math.floor(Math.random()*questions.length)];
-
-    let html = `<h3>${q.q}</h3>`;
-
-    q.a.forEach((opt,i)=>{
-        html += `<button onclick="answer(${i},${q.c})">${opt}</button>`;
-    });
-
-    document.getElementById("quiz").innerHTML = html;
+.dark{
+    background:#2e7d32;
+    color:white;
 }
 
-function answer(i,c){
-    if(i===c) score++;
-    nextQ();
+.grid{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    color:black;
+    width:300px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.actions{
+    list-style:none;
+    font-size:20px;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:10px;
+    background:#2e7d32;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#66bb6a;
+    transform:scale(1.1);
+}
+
+footer{
+    background:#1b5e20;
+    color:white;
+    padding:20px;
 }
