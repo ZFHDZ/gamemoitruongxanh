@@ -1,40 +1,126 @@
-body {
-font-family: Arial;
-margin:0;
-background:#f4f4f4;
-line-height:1.8;
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Khủng hoảng môi trường</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-header {
-background:#2c3e50;
-color:white;
-text-align:center;
-padding:40px;
-}
+<body>
 
-section {
-background:white;
-margin:20px auto;
-padding:30px;
-width:85%;
-}
+<header>
+<h1>🌍 KHỦNG HOẢNG MÔI TRƯỜNG TOÀN CẦU</h1>
+<p>Phân tích chuyên sâu – Dành cho thuyết trình 30 phút</p>
+</header>
 
-.two-col {
-display:flex;
-gap:30px;
-}
+<!-- GIỚI THIỆU -->
+<section>
+<h2>I. Giới thiệu</h2>
+<p>
+Môi trường là yếu tố quan trọng quyết định sự sống trên Trái Đất.
+Tuy nhiên, hiện nay môi trường đang bị suy thoái nghiêm trọng do tác động của con người.
+</p>
+<p>
+Ô nhiễm không khí, nước và đất đang diễn ra trên phạm vi toàn cầu,
+đe dọa trực tiếp đến sức khỏe và tương lai của nhân loại.
+</p>
+</section>
 
-/* ảnh chuẩn */
-img {
-width:100%;
-max-width:500px;
-height:250px;
-object-fit:cover;
-border-radius:10px;
-}
+<!-- THỰC TRẠNG -->
+<section class="two-col">
+<div>
+<h2>II. Thực trạng</h2>
+<p>
+Ô nhiễm không khí tại các thành phố lớn đã vượt mức an toàn.
+Bụi mịn PM2.5 gây ra nhiều bệnh nguy hiểm.
+</p>
+<p>
+Nguồn nước bị ô nhiễm do rác thải và hóa chất.
+Rừng bị chặt phá làm mất cân bằng sinh thái.
+</p>
+</div>
 
-.gallery {
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
+<div class="img-box">
+<img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=60">
+<img src="https://images.unsplash.com/photo-1508182311256-e3f1f5c5e13f?auto=format&fit=crop&w=800&q=60">
+</div>
+</section>
+
+<!-- VIỆT NAM -->
+<section>
+<h2>III. Việt Nam</h2>
+<p>
+Tại Việt Nam, ô nhiễm môi trường đang ngày càng nghiêm trọng.
+Rác thải nhựa xuất hiện ở khắp nơi.
+</p>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=60">
+<img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=60">
+</div>
+</section>
+
+<!-- NGUYÊN NHÂN -->
+<section>
+<h2>IV. Nguyên nhân</h2>
+<ul>
+<li>Lạm dụng nhựa</li>
+<li>Xả rác bừa bãi</li>
+<li>Phá rừng</li>
+<li>Khai thác tài nguyên</li>
+</ul>
+</section>
+
+<!-- HẬU QUẢ -->
+<section>
+<h2>V. Hậu quả</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60">
+<img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=60">
+</div>
+
+<p>
+Ô nhiễm gây ra bệnh tật, cái chết của động vật và biến đổi khí hậu.
+</p>
+</section>
+
+<!-- TÌNH NGUYỆN -->
+<section>
+<h2>VI. Hành động</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=60">
+</div>
+
+<p>
+Các hoạt động bảo vệ môi trường như dọn rác và trồng cây đang được thực hiện.
+</p>
+</section>
+
+<!-- GIẢI PHÁP -->
+<section>
+<h2>VII. Giải pháp</h2>
+<ul>
+<li>Giảm nhựa</li>
+<li>Tái chế</li>
+<li>Trồng cây</li>
+<li>Nâng cao ý thức</li>
+</ul>
+</section>
+
+<!-- QUIZ -->
+<section>
+<h2>VIII. Quiz</h2>
+<div id="quiz"></div>
+<button onclick="submitQuiz()">Nộp</button>
+<h3 id="result"></h3>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
