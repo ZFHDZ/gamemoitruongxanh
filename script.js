@@ -1,26 +1,28 @@
-// Quiz logic
-function check(isCorrect) {
-    const res = document.getElementById('result');
-    if(isCorrect) {
-        res.innerHTML = "✅ Chính xác! Việt Nam là một trong những nước xả rác nhựa ra biển nhiều nhất thế giới.";
-        res.style.color = "green";
+// 1. Progress Bar
+window.onscroll = function() {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("pb").style.width = scrolled + "%";
+};
+
+// 2. Game Choice
+function ecoChoice(type) {
+    const feedback = document.getElementById('game-feedback');
+    if(type === 'coal') {
+        feedback.innerHTML = "<h3 style='color: #ff4444'>❌ SAI LẦM! Ngân sách tăng nhưng chỉ số ô nhiễm khiến dân cư rời đi.</h3>";
     } else {
-        res.innerHTML = "❌ Chưa đúng, con số thực tế là Thứ 4.";
-        res.style.color = "red";
+        feedback.innerHTML = "<h3 style='color: #5efc82'>✅ TUYỆT VỜI! Đây là đầu tư cho tương lai 50 năm tới.</h3>";
     }
 }
 
-// Drag & Drop
-function allow(ev) { ev.preventDefault(); }
-function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
-function drop(ev) {
-    ev.preventDefault();
-    const id = ev.dataTransfer.getData("text");
-    const el = document.getElementById(id);
-    if(ev.target.dataset.type === el.dataset.type) {
-        ev.target.appendChild(el);
-        el.style.fontSize = "12px";
-    } else {
-        alert("Nhầm thùng rồi!");
-    }
-}
+// 3. Hiệu ứng hiện dần khi cuộn trang
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.chapter').forEach(c => observer.observe(c));
