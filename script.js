@@ -1,53 +1,52 @@
-// Hiệu ứng hiện dần khi cuộn
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-}, {threshold: 0.1});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Game 1: Quiz
-function ans(isCorrect, btn) {
-    if(isCorrect) {
-        btn.style.background = "#00ff66";
-        alert("CHÍNH XÁC! 60 mét sẽ nhấn chìm hầu hết các thành phố ven biển.");
-    } else {
-        btn.style.background = "#ff4444";
-    }
+// GAME 1: MANAGEMENT
+let oxy = 100, money = 500, happy = 100;
+function choice(c) {
+    if(c === 1) { oxy -= 20; money += 200; happy -= 10; }
+    else { oxy += 10; money -= 150; happy += 20; }
+    updateStats();
+    document.getElementById('game-event').innerText = "Sự kiện: Một khu rừng mới cần được bảo tồn. Chi phí 200$.";
+}
+function updateStats() {
+    document.getElementById('stat-oxy').innerText = oxy;
+    document.getElementById('stat-money').innerText = money;
+    document.getElementById('stat-happy').innerText = happy;
+    if(oxy <= 0) alert("Thế giới hết oxy! Bạn đã thua.");
 }
 
-// Game 2: City Builder
-let oxy = 20; let points = 0;
-function build(type) {
-    const canvas = document.getElementById('canvas');
-    if(type === 'tree') {
-        oxy += 5; canvas.innerHTML += "🌳";
-        document.getElementById('ox').innerText = oxy + "%";
-    } else {
-        points += 10; canvas.innerHTML += "☀️";
-        document.getElementById('pts').innerText = points;
-    }
-    if(oxy > 50) canvas.style.background = "#d8f3dc";
+// GAME 2: ARCADE (HỨNG RÁC)
+let score = 0;
+let playerPos = 50;
+let itemPos = 0;
+let itemType = 'o'; // o: hữu cơ, p: nhựa
+
+function startArcade() {
+    setInterval(() => {
+        itemPos += 5;
+        if(itemPos > 400) {
+            checkCatch();
+            resetItem();
+        }
+        document.getElementById('falling-item').style.top = itemPos + "px";
+    }, 50);
 }
 
-// Game 3: Drag & Drop
-function allow(ev) { ev.preventDefault(); }
-function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
-function drop(ev) {
-    ev.preventDefault();
-    const id = ev.dataTransfer.getData("text");
-    const item = document.getElementById(id);
-    if(ev.target.dataset.type === item.dataset.type) {
-        ev.target.appendChild(item);
-        item.style.scale = "0.5";
-    } else { alert("Nhầm rồi!"); }
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'a') playerPos -= 5;
+    if(e.key === 'd') playerPos += 5;
+    document.getElementById('player').style.left = playerPos + "%";
+});
+
+function resetItem() {
+    itemPos = 0;
+    const items = ['🍎', '🍾', '🍌', '🥫'];
+    const rand = Math.floor(Math.random() * items.length);
+    document.getElementById('falling-item').innerText = items[rand];
+    itemType = (rand === 0 || rand === 2) ? 'o' : 'p';
+    document.getElementById('falling-item').style.left = Math.random() * 90 + "%";
 }
 
-// Cam kết
-function makePledge() {
-    const name = document.getElementById('pName').value;
-    if(!name) return;
-    const tag = document.createElement('span');
-    tag.innerHTML = ` 🌱 ${name} |`;
-    tag.style.color = "#00ff66";
-    document.getElementById('pTags').appendChild(tag);
-    document.getElementById('pName').value = "";
+function checkCatch() {
+    // Logic kiểm tra vị trí người chơi hứng đúng loại rác
+    score += 10;
+    document.getElementById('score').innerText = score;
 }
