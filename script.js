@@ -1,42 +1,22 @@
-// Progress bar
+// 1. Cập nhật thanh tiến trình cuộn
 window.onscroll = () => {
-    let scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    document.querySelector(".reading-progress").style.width = scrolled + "%";
-}
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.querySelector(".scroll-progress").style.width = scrolled + "%";
+};
 
-// Game 1: Strategy
-let money = 500, oxy = 50;
-function play(choice) {
-    if(choice === 1) { money -= 100; oxy += 20; }
-    else if(choice === 2) { money += 200; oxy -= 30; }
-    else { money -= 50; oxy += 10; }
+// 2. Logic Game Eco-Leader
+let budget = 1000, environment = 30;
+
+function choice(type) {
+    if(type === 1) { budget -= 200; environment += 20; }
+    else if(type === 2) { budget -= 50; environment += 5; }
+    else { budget += 100; environment -= 15; }
     
-    document.getElementById('money').innerText = money;
-    document.getElementById('oxy').innerText = oxy;
+    document.getElementById('budget').innerText = budget;
+    document.getElementById('env').innerText = environment;
     
-    if(oxy <= 0) alert("Thành phố diệt vong vì ô nhiễm!");
-    if(money <= 0) alert("Thành phố phá sản!");
+    if(environment >= 80) alert("Chúc mừng! Bạn đã cứu được thành phố!");
+    if(environment <= 0) alert("Thảm họa! Môi trường đã bị hủy diệt hoàn toàn!");
 }
-
-// Game 2: Arcade (Hứng rác)
-let basketPos = 50;
-let trashPos = 0;
-let trashLeft = Math.random() * 90;
-
-document.addEventListener('keydown', (e) => {
-    if(e.key === 'a' && basketPos > 0) basketPos -= 5;
-    if(e.key === 'd' && basketPos < 95) basketPos += 5;
-    document.getElementById('basket').style.left = basketPos + "%";
-});
-
-function gameLoop() {
-    trashPos += 2;
-    if(trashPos > 100) {
-        trashPos = 0;
-        trashLeft = Math.random() * 90;
-    }
-    document.getElementById('trash').style.top = trashPos + "%";
-    document.getElementById('trash').style.left = trashLeft + "%";
-    requestAnimationFrame(gameLoop);
-}
-gameLoop();
