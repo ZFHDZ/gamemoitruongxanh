@@ -3,74 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoVision 2026 | Tương Lai Xanh</title>
+    <title>EcoPulse - Hành Trình Tái Sinh</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="loader"><span>ECO</span></div>
-
-    <section class="hero">
-        <div class="vignette"></div>
+    <header class="hero-dark">
         <div class="hero-content">
-            <h1 class="reveal">HƠI THỞ <br><span class="gradient-text">CUỐI CÙNG?</span></h1>
-            <p class="reveal-delay">Trái Đất không cần lời hứa, nó cần hành động.</p>
-            <div class="mouse-icon"></div>
+            <h1 class="reveal">TIẾNG VỌNG <br><span>TỪ ĐẤT MẸ</span></h1>
+            <p class="reveal-delay">Bạn đang lắng nghe, hay đang ngó lơ?</p>
         </div>
-    </section>
+    </header>
 
-    <section class="game-section-1">
-        <div class="glass-card quiz-box reveal">
-            <div class="badge">CHALLENGE 01</div>
-            <h2>Dấu Chân Carbon</h2>
-            <p id="q-text">Mỗi năm, một người trung bình thải ra bao nhiêu CO2?</p>
-            <div class="options">
-                <button class="opt-btn" onclick="check(false)">500 kg</button>
-                <button class="opt-btn" onclick="check(true)">4.8 tấn</button>
-                <button class="opt-btn" onclick="check(false)">10 tấn</button>
-            </div>
-            <div id="feedback"></div>
-        </div>
-    </section>
-
-    <section class="magazine">
-        <div class="mag-grid">
-            <div class="mag-item large reveal">
-                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?auto=format&fit=crop&w=1000')"></div>
-                <div class="mag-text">
-                    <h3>Rừng phổi đang rực cháy</h3>
-                    <p>Diện tích rừng nguyên sinh đang mất đi với tốc độ 30 sân bóng đá mỗi phút...</p>
+    <section class="section-dark">
+        <div class="container">
+            <div class="split-content">
+                <div class="text-block reveal">
+                    <span class="step-num">01</span>
+                    <h2>Đại dương đang "nghẹt thở"</h2>
+                    <p>Mỗi năm, hơn <b>8 triệu tấn rác thải nhựa</b> đổ vào đại dương. Đến năm 2050, các nhà khoa học dự báo lượng nhựa sẽ nhiều hơn cả lượng cá. Những hạt vi nhựa đang len lỏi vào chuỗi thức ăn, và cuối cùng, chính con người là nạn nhân.</p>
                 </div>
-            </div>
-            <div class="mag-item reveal">
-                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=600')"></div>
-                <h3>Rác thải trắng</h3>
-            </div>
-            <div class="mag-item reveal">
-                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600')"></div>
-                <h3>Giải pháp Gen Z</h3>
+                <div class="image-block reveal">
+                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800" alt="Ocean Pollution">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="game-section-2">
-        <div class="sort-container reveal">
-            <h2>PHÂN LOẠI CẤP BÁCH</h2>
-            <div class="drop-zone-wrapper">
-                <div class="bin" data-type="bio" ondrop="drop(event)" ondragover="allow(event)">
-                    <span>HỮU CƠ</span>
-                </div>
-                <div class="bin" data-type="plastic" ondrop="drop(event)" ondragover="allow(event)">
-                    <span>NHỰA/KIM LOẠI</span>
-                </div>
+    <section class="quiz-transition">
+        <div class="glass-quiz reveal">
+            <h3>⚡ KIỂM TRA NHẬN THỨC</h3>
+            <p>Nếu không thay đổi, bao nhiêu loài sinh vật sẽ có nguy cơ tuyệt chủng do biến đổi khí hậu?</p>
+            <div class="quiz-btns">
+                <button onclick="check(false)">100,000 loài</button>
+                <button onclick="check(true)">Hơn 1 triệu loài</button>
+                <button onclick="check(false)">500,000 loài</button>
             </div>
-            <div class="items-dock">
-                <div class="drag-item" id="i1" data-type="bio" draggable="true" ondragstart="drag(event)">Vỏ trái cây</div>
-                <div class="drag-item" id="i2" data-type="plastic" draggable="true" ondragstart="drag(event)">Lon nước ngọt</div>
+            <p id="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section-green">
+        <div class="container">
+            <div class="center-text reveal">
+                <h2>Hy vọng bắt đầu từ hành động</h2>
+                <p class="subtitle">Chúng ta không thể quay lại quá khứ, nhưng có thể kiến tạo tương lai.</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500" alt="Forest">
+                    <h3>Trồng rừng đô thị</h3>
+                    <p>Một cây trưởng thành có thể hấp thụ 22kg CO2 mỗi năm. Việc phủ xanh thành phố giúp giảm nhiệt độ bề mặt tới 12°C.</p>
+                </div>
+                <div class="info-card reveal">
+                    <img src="https://images.unsplash.com/photo-1509391366360-fe5bb584850a?auto=format&fit=crop&w=500" alt="Solar">
+                    <h3>Năng lượng vĩnh cửu</h3>
+                    <p>Mặt trời cung cấp năng lượng trong 1 giờ đủ cho cả thế giới dùng trong 1 năm. Chuyển đổi sang điện mặt trời là chìa khóa bền vững.</p>
+                </div>
+                <div class="info-card reveal">
+                    <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?auto=format&fit=crop&w=500" alt="Lifestyle">
+                    <h3>Lối sống tối giản</h3>
+                    <p>Mua ít đi, chọn kỹ hơn. Thay thế đồ dùng một lần bằng các sản phẩm bền vững (vải, thủy tinh, tre).</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="deep-content">
+        <div class="container">
+            <div class="text-full reveal">
+                <h2>Chiến dịch 5R: Tôn chỉ của kỷ nguyên mới</h2>
+                <ul>
+                    <li><strong>Refuse (Từ chối):</strong> Nói không với những thứ không cần thiết.</li>
+                    <li><strong>Reduce (Cắt giảm):</strong> Tiết kiệm tài nguyên điện, nước, thực phẩm.</li>
+                    <li><strong>Reuse (Tái sử dụng):</strong> Kéo dài vòng đời sản phẩm.</li>
+                    <li><strong>Repurpose (Chuyển đổi mục đích):</strong> Biến rác thành vật dụng trang trí.</li>
+                    <li><strong>Recycle (Tái chế):</strong> Giải pháp cuối cùng khi không thể tận dụng.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-game">
+        <div class="container">
+            <div class="game-wrapper reveal">
+                <h2>🗑️ HÀNH ĐỘNG CUỐI CÙNG</h2>
+                <p>Thực hành phân loại để trở thành công dân toàn cầu xanh!</p>
+                
+                <div class="drop-zones">
+                    <div class="bin organic" data-type="bio" ondrop="drop(event)" ondragover="allow(event)">RÁC HỮU CƠ</div>
+                    <div class="bin plastic" data-type="re" ondrop="drop(event)" ondragover="allow(event)">RÁC TÁI CHẾ</div>
+                </div>
+
+                <div class="drag-items">
+                    <div class="item" id="i1" data-type="bio" draggable="true" ondragstart="drag(event)">🌿 Bã trà</div>
+                    <div class="item" id="i2" data-type="re" draggable="true" ondragstart="drag(event)">🥫 Vỏ lon</div>
+                    <div class="item" id="i3" data-type="bio" draggable="true" ondragstart="drag(event)">🍎 Lõi táo</div>
+                    <div class="item" id="i4" data-type="re" draggable="true" ondragstart="drag(event)">📦 Thùng carton</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>EcoPulse Project © 2026 - Thuyết trình bởi [Tên của bạn]</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
