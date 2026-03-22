@@ -1,67 +1,49 @@
-// 1. Custom Cursor Logic
-const cursor = document.querySelector('.custom-cursor');
-document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+// 1. Hiệu ứng Glow chuột
+const glow = document.querySelector('.cursor-glow');
+document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
 });
 
-document.addEventListener('mousedown', () => cursor.style.transform = "scale(0.8)");
-document.addEventListener('mouseup', () => cursor.style.transform = "scale(1)");
+// 2. Thanh tiến trình Scroll
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.querySelector(".scroll-bar").style.width = scrolled + "%";
+});
 
-// 2. Counter Animation for Dashboard
-function animateCounter(id, target) {
-    let count = 0;
-    let obj = document.getElementById(id);
-    let speed = target / 100;
-    
-    let timer = setInterval(() => {
-        count += speed;
-        if (count >= target) {
-            obj.innerText = target.toLocaleString();
-            clearInterval(timer);
-        } else {
-            obj.innerText = Math.floor(count).toLocaleString();
-        }
-    }, 20);
-}
+// 3. Game Logic
+let state = { oxy: 50, money: 1000 };
 
-// Chạy counter khi scroll đến section
-let started = false;
-window.onscroll = () => {
-    let statsSection = document.getElementById('stats');
-    if (window.scrollY + window.innerHeight > statsSection.offsetTop && !started) {
-        animateCounter('count1', 1200000000); // 1.2 tỷ tấn rác
-        animateCounter('count2', 2000000);   // 2 triệu TNV
-        animateCounter('count3', 50000000);  // 50 triệu cây
-        started = true;
-    }
-};
-
-// 3. Simulation Game v2.0
-let gameState = { money: 1500, health: 40, support: 60 };
-
-function gameLogic(choice) {
-    const msg = document.getElementById('game-message');
-    
+function play(choice) {
+    const scenario = document.getElementById('scenario');
     if (choice === 1) {
-        gameState.money -= 500; gameState.health += 30;
-        msg.innerText = "HỆ THỐNG: Nhà máy Plasma đã đi vào hoạt động. Không khí thành phố sạch hơn 30%!";
-    } else if (choice === 2) {
-        gameState.money -= 100; gameState.health += 10; gameState.support -= 20;
-        msg.innerText = "BÁO CÁO: Lệnh cấm nhựa gây ra biểu tình từ các doanh nghiệp, nhưng môi trường đang hồi phục.";
+        if(state.money >= 300) {
+            state.money -= 300;
+            state.oxy += 20;
+            scenario.innerText = "Robot đã dọn sạch kênh! Oxy tăng mạnh.";
+        } else {
+            scenario.innerText = "Bạn không đủ tiền!";
+        }
     } else {
-        gameState.money -= 50; gameState.support += 20;
-        msg.innerText = "SỰ KIỆN: Đại nhạc hội thu hút hàng triệu người tham gia. Chỉ số ủng hộ tăng vọt!";
+        state.money -= 50;
+        state.oxy += 5;
+        scenario.innerText = "Người dân bắt đầu có ý thức hơn. Chậm nhưng chắc.";
     }
-
-    updateUI();
+    
+    document.getElementById('oxy').innerText = state.oxy;
+    document.getElementById('money').innerText = state.money;
+    
+    if(state.oxy >= 100) alert("CHÚC MỪNG! HÀNH TINH ĐÃ ĐƯỢC CỨU!");
 }
 
-function updateUI() {
-    document.getElementById('money').innerText = gameState.money;
-    document.getElementById('health').innerText = gameState.health;
-    document.getElementById('support').innerText = gameState.support;
-
-    if(gameState.health >= 80) alert("CHIẾN THẮNG: Bạn đã kiến tạo một hành tinh xanh!");
-    if(gameState.money <= 0) alert("THẤT BẠI: Ngân sách cạn kiệt, thành phố sụp đổ.");
-}
+// 4. Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
