@@ -1,221 +1,93 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Hành Trình Sống Xanh</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPulse - Hành Trình Cứu Lấy Trái Đất</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="hero">
-<div class="overlay">
-<h1>TRÁI ĐẤT ĐANG KÊU CỨU</h1>
-<p>Mỗi hành động nhỏ quyết định tương lai</p>
-</div>
-</header>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>HÀNH TRÌNH XANH</h1>
+            <p>Chúng ta không thừa kế Trái Đất từ tổ tiên, chúng ta mượn nó từ con cháu.</p>
+            <a href="#start" class="btn-scroll">Khám phá ngay</a>
+        </div>
+    </header>
 
-<nav>
-<a href="#p1">Giới thiệu</a>
-<a href="#p2">Thực trạng</a>
-<a href="#p3">Việt Nam</a>
-<a href="#p4">Nguyên nhân</a>
-<a href="#p5">Hậu quả</a>
-<a href="#p6">Giải pháp</a>
-</nav>
+    <main id="start">
+        <section class="story-section">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2>Vết sẹo của hành tinh</h2>
+                        <p>Mỗi năm, hàng triệu tấn rác thải nhựa đổ ra đại dương, giết chết hàng ngàn sinh vật biển. Biến đổi khí hậu không còn là dự báo, nó đang diễn ra ngay lúc này.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=800" alt="Ô nhiễm nhựa">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="p1" class="section">
-<h2>I. Giới thiệu</h2>
+        <section class="game-area-1">
+            <div class="container">
+                <div class="quiz-card">
+                    <h3>⚡ Thử thách hiểu biết</h3>
+                    <p id="q-text">Bạn có biết: Một chiếc túi nilon cần bao nhiêu năm để phân hủy?</p>
+                    <div class="quiz-options">
+                        <button onclick="checkQuiz(false)">50 năm</button>
+                        <button onclick="checkQuiz(true)">500 năm</button>
+                        <button onclick="checkQuiz(false)">1000 năm</button>
+                    </div>
+                    <p id="q-feedback"></p>
+                </div>
+            </div>
+        </section>
 
-<p>Môi trường là nền tảng của sự sống.</p>
-<p>Môi trường cung cấp không khí, nước và tài nguyên.</p>
-<p>Con người phụ thuộc hoàn toàn vào môi trường.</p>
-<p>Nhưng con người đang làm tổn hại môi trường.</p>
-<p>Ô nhiễm đang tăng nhanh.</p>
-<p>Đây là vấn đề cấp bách.</p>
-<p>Cần hành động ngay.</p>
+        <section class="solution-section">
+            <div class="container">
+                <h2 class="center-title">Lối sống bền vững</h2>
+                <div class="solution-grid">
+                    <div class="solution-item">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400" alt="Tái chế">
+                        <h4>Tái chế (Recycle)</h4>
+                        <p>Biến rác thải thành nguyên liệu mới để tiết kiệm tài nguyên.</p>
+                    </div>
+                    <div class="solution-item">
+                        <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?auto=format&fit=crop&w=400" alt="Sống xanh">
+                        <h4>Giảm thiểu (Reduce)</h4>
+                        <p>Hạn chế đồ dùng một lần và ưu tiên các sản phẩm thân thiện.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</section>
+        <section class="game-area-2">
+            <div class="container">
+                <div class="sort-game-box">
+                    <h3>🗑️ Trạm Phân Loại Rác Mini</h3>
+                    <p>Hãy kéo rác vào đúng thùng để hoàn thành bài viết!</p>
+                    
+                    <div class="bins">
+                        <div class="bin-item" data-type="organic" ondrop="drop(event)" ondragover="allowDrop(event)">🌿 Hữu cơ</div>
+                        <div class="bin-item" data-type="plastic" ondrop="drop(event)" ondragover="allowDrop(event)">♻️ Tái chế</div>
+                    </div>
 
-<section id="p2" class="section dark">
-<h2>II. Thực trạng</h2>
+                    <div class="trash-items">
+                        <span class="trash" id="item1" data-type="organic" draggable="true" ondragstart="drag(event)">Vỏ cam</span>
+                        <span class="trash" id="item2" data-type="plastic" draggable="true" ondragstart="drag(event)">Chai nhựa</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<div class="grid">
-<img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
-<img src="https://images.unsplash.com/photo-1508182311256-e3f1f5c5e13f">
-<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
-</div>
+    <footer>
+        <p>&copy; 2026 EcoPulse Project - Vì một tương lai xanh</p>
+    </footer>
 
-<p>Không khí ô nhiễm.</p>
-<p>Nước bị bẩn.</p>
-<p>Đất bị suy thoái.</p>
-<p>Rác thải nhựa nhiều.</p>
-<p>Biến đổi khí hậu rõ rệt.</p>
-<p>Băng tan nhanh.</p>
-<p>Thiên tai tăng.</p>
-
-</section>
-
-<section id="p3" class="section">
-<h2>III. Việt Nam</h2>
-
-<div class="grid">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Plastic_waste_Vietnam.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Trash_in_Vietnam_river.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Air_pollution_Hanoi.jpg">
-</div>
-
-<p>Rác thải xuất hiện khắp nơi.</p>
-<p>Sông hồ bị ô nhiễm.</p>
-<p>Không khí tại đô thị xấu.</p>
-<p>Nhựa tràn lan.</p>
-<p>Ý thức chưa cao.</p>
-
-</section>
-
-<section id="p4" class="section dark">
-<h2>IV. Nguyên nhân</h2>
-
-<ul>
-<li>Con người</li>
-<li>Nhựa</li>
-<li>Công nghiệp</li>
-<li>Phá rừng</li>
-</ul>
-
-<p>Nguyên nhân chính là con người.</p>
-<p>Phát triển thiếu bền vững.</p>
-<p>Sử dụng tài nguyên quá mức.</p>
-<p>Thiếu kiểm soát.</p>
-
-</section>
-
-<section id="p5" class="section">
-<h2>V. Hậu quả</h2>
-
-<div class="grid">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Dead_fish_pollution.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Sea_turtle_plastic.jpg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Smog_city.jpg">
-</div>
-
-<p>Gây bệnh.</p>
-<p>Chết động vật.</p>
-<p>Phá hệ sinh thái.</p>
-<p>Thiên tai.</p>
-<p>Ảnh hưởng kinh tế.</p>
-
-</section>
-
-<section id="p6" class="section dark">
-<h2>VI. Giải pháp</h2>
-
-<ul>
-<li>Giảm nhựa</li>
-<li>Tái chế</li>
-<li>Trồng cây</li>
-<li>Ý thức</li>
-</ul>
-
-<p>Hành động từ cá nhân.</p>
-<p>Chính sách từ nhà nước.</p>
-<p>Giáo dục môi trường.</p>
-
-</section>
-
-<!-- KÉO DÀI THẬT SỰ -->
-
-<section class="section">
-<h2>VII. Phân tích</h2>
-
-<p>Con người phụ thuộc vào môi trường.</p>
-<p>Môi trường quyết định sự sống.</p>
-<p>Sự mất cân bằng gây hậu quả lớn.</p>
-<p>Tài nguyên không vô hạn.</p>
-<p>Cần sử dụng hợp lý.</p>
-
-<p>Mỗi năm lượng rác tăng.</p>
-<p>Đặc biệt là nhựa.</p>
-<p>Nhựa khó phân hủy.</p>
-<p>Gây hại sinh vật.</p>
-<p>Ô nhiễm kéo dài.</p>
-
-<p>Không khí ô nhiễm gây bệnh.</p>
-<p>Bệnh hô hấp tăng.</p>
-<p>Ảnh hưởng sức khỏe.</p>
-<p>Giảm chất lượng sống.</p>
-
-</section>
-
-<section class="section dark">
-<h2>VIII. Ví dụ</h2>
-
-<p>Biển đầy rác.</p>
-<p>Rùa ăn nhựa.</p>
-<p>Cá chết hàng loạt.</p>
-<p>Thành phố khói bụi.</p>
-<p>Người dân bệnh.</p>
-
-</section>
-
-<section class="section">
-<h2>IX. Hành động</h2>
-
-<p>Dọn rác.</p>
-<p>Trồng cây.</p>
-<p>Tuyên truyền.</p>
-<p>Giảm nhựa.</p>
-<p>Tái chế.</p>
-
-</section>
-
-<section class="section dark">
-<h2>X. Kết luận</h2>
-
-<p>Môi trường là tương lai.</p>
-<p>Hãy hành động.</p>
-<p>Đừng chờ đợi.</p>
-<p>Trái Đất cần chúng ta.</p>
-
-</section>
-
-<!-- LẶP MỞ RỘNG ĐỂ ĐỦ DÒNG -->
-
-<section class="section">
-<h2>Phần mở rộng</h2>
-
-<p>Dòng 1</p>
-<p>Dòng 2</p>
-<p>Dòng 3</p>
-<p>Dòng 4</p>
-<p>Dòng 5</p>
-<p>Dòng 6</p>
-<p>Dòng 7</p>
-<p>Dòng 8</p>
-<p>Dòng 9</p>
-<p>Dòng 10</p>
-<p>Dòng 11</p>
-<p>Dòng 12</p>
-<p>Dòng 13</p>
-<p>Dòng 14</p>
-<p>Dòng 15</p>
-<p>Dòng 16</p>
-<p>Dòng 17</p>
-<p>Dòng 18</p>
-<p>Dòng 19</p>
-<p>Dòng 20</p>
-<p>Dòng 21</p>
-<p>Dòng 22</p>
-<p>Dòng 23</p>
-<p>Dòng 24</p>
-<p>Dòng 25</p>
-<p>Dòng 26</p>
-<p>Dòng 27</p>
-<p>Dòng 28</p>
-<p>Dòng 29</p>
-<p>Dòng 30</p>
-
-</section>
-
+    <script src="script.js"></script>
 </body>
 </html>
