@@ -2,84 +2,92 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>BÁO CÁO MÔI TRƯỜNG VIỆT NAM 2026</title>
+    <title>BÁO CÁO CHIẾN LƯỢC MÔI TRƯỜNG 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">VIETNAM <span>GREEN</span></div>
-    <div class="nav-links">
-        <a href="#intro">TỔNG QUAN</a>
-        <a href="#causes">NGUYÊN NHÂN</a>
+    <div class="logo">VIETNAM<span>GREEN</span></div>
+    <div class="menu">
+        <a href="#causes">THỰC TRẠNG</a>
         <a href="#impacts">HẬU QUẢ</a>
-        <a href="#game">TRÒ CHƠI</a>
+        <a href="#solutions">GIẢI PHÁP</a>
+        <a href="#game" class="btn-game">CHƠI GAME</a>
     </div>
 </nav>
 
-<header class="hero" id="intro">
+<header class="hero">
     <div class="hero-content">
-        <h1>VIỆT NAM 2026: <br>HÀNH TRÌNH CỨU LẤY MẦM XANH</h1>
-        <p>Báo cáo chuyên sâu về thực trạng ô nhiễm rác thải, nguồn nước và không khí. Phân tích các số liệu thực tế và đề xuất lộ trình bền vững cho tương lai.</p>
+        <h1>VIỆT NAM 2026:<br><span class="green-text">HÀNH TRÌNH CỨU MẠNG</span></h1>
+        <p>Phân tích chuyên sâu về cuộc khủng hoảng rác thải nhựa và ô nhiễm nguồn nước. Chúng ta đang đứng trước ngưỡng cửa của sự thay đổi hoặc lụi tàn.</p>
     </div>
-    <div class="hero-img">
-        <img src="ocean.webp" alt="Biển">
+    <div class="hero-img-box">
+        <img src="hero.webp" alt="Thực trạng">
     </div>
 </header>
 
 <main class="container">
     <section id="causes" class="section">
-        <h2>01. NGUYÊN NHÂN GỐC RỄ</h2>
-        <div class="flex">
+        <div class="section-title">
+            <h2>01. NGUYÊN NHÂN VÀ THỰC TRẠNG</h2>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
             <div class="text">
-                <h3>Khủng hoảng từ các khu công nghiệp</h3>
-                <p>Hiện nay, Việt Nam đang đối mặt với áp lực xả thải khổng lồ từ hơn 400 khu công nghiệp trên cả nước. Theo thống kê, khoảng 60% lượng nước thải công nghiệp chưa được xử lý đạt chuẩn đã đổ trực tiếp ra hệ thống sông ngòi. Các kim loại nặng như chì, thủy ngân đang âm thầm tàn phá hệ sinh thái nước ngọt, làm chết dần các dòng sông huyết mạch như sông Nhuệ, sông Đáy.</p>
+                <h3>Sự bùng nổ của sản xuất công nghiệp</h3>
+                <p>Năm 2026, Việt Nam đối mặt với áp lực xử lý nước thải khổng lồ. Hơn 60% khu công nghiệp tại lưu vực sông Nhuệ, sông Đáy xả thải trực tiếp kim loại nặng ra môi trường. Lượng khói bụi công nghiệp đóng góp 40% chỉ số bụi mịn PM2.5 toàn quốc.</p>
                 <h3>Rác thải nhựa sinh hoạt</h3>
-                <p>Thói quen sử dụng túi nilon và nhựa dùng một lần đã biến Việt Nam thành một trong những quốc gia có lượng rác thải nhựa đổ ra biển lớn nhất thế giới. Trung bình mỗi năm, một người dân thải ra khoảng 30-40kg nhựa. Tỷ lệ phân loại rác tại nguồn vẫn còn thấp, dẫn đến việc quá tải tại các bãi chôn lấp.</p>
+                <p>Mỗi ngày Việt Nam thải ra hơn 60.000 tấn rác thải. Tỷ lệ nhựa chiếm 12% nhưng chỉ có 10% được tái chế thực sự. Phần còn lại trôi nổi ngoài đại dương hoặc bị chôn lấp sơ sài gây ô nhiễm mạch nước ngầm.</p>
             </div>
-            <div class="img-box">
-                <img src="pollution.jpg" alt="Ô nhiễm">
-                <small>Hình 1: Thực trạng ô nhiễm tại các khu chế xuất</small>
+            <div class="img-frame">
+                <img src="onhiem.jpg" alt="Ô nhiễm">
+                <p class="caption">Hình 1: Ô nhiễm nước thải công nghiệp.</p>
             </div>
         </div>
     </section>
 
-    <section id="impacts" class="section gray-bg">
-        <h2>02. HẬU QUẢ VÀ HỆ LỤY</h2>
-        <div class="grid">
+    <section id="impacts" class="section bg-light">
+        <div class="section-title">
+            <h2>02. HỆ LỤY ĐẾN SỨC KHỎE</h2>
+        </div>
+        <div class="triple-grid">
             <div class="card">
                 <img src="health.jpg" alt="Sức khỏe">
-                <h3>Sức khỏe con người</h3>
-                <p>Ô nhiễm bụi mịn PM2.5 đang trở thành "kẻ sát nhân thầm lặng" tại các đô thị lớn như Hà Nội và TP.HCM. Các bệnh về đường hô hấp, tim mạch và ung thư đang có xu hướng trẻ hóa. Nguồn nước nhiễm bẩn cũng là nguyên nhân chính gây ra các làng ung thư dọc theo lưu vực sông.</p>
+                <h4>Bệnh tật gia tăng</h4>
+                <p>Nguồn nước nhiễm độc là nguyên nhân chính gây ra các "làng ung thư". Bụi mịn gây viêm phổi mãn tính cho trẻ em đô thị.</p>
             </div>
             <div class="card">
                 <img src="waste.jpg" alt="Môi trường">
-                <h3>Hệ sinh thái suy kiệt</h3>
-                <p>Rác thải nhựa mất hàng trăm năm để phân hủy, nó không chỉ giết chết sinh vật biển mà còn quay trở lại cơ thể con người thông qua chuỗi thức ăn vi nhựa. Sự suy giảm đa dạng sinh học đang diễn ra với tốc độ chưa từng có.</p>
+                <h4>Hệ sinh thái suy kiệt</h4>
+                <p>Rác thải nhựa bóp nghẹt sinh vật biển. Vi nhựa đã xuất hiện trong chuỗi thức ăn, đe dọa trực tiếp giống nòi.</p>
             </div>
         </div>
     </section>
 
-    <section id="game" class="game-area">
-        <h2>🎮 MINI GAME: DỌN RÁC ĐẠI DƯƠNG</h2>
-        <p>Hướng dẫn: Dùng chuột click vào rác (chấm đỏ) để dọn dẹp. Đừng để Oxy về 0!</p>
-        <div class="stats">Oxy: <span id="oxy">100</span>% | Điểm: <span id="score">0</span></div>
+    <section id="game" class="game-section">
+        <div class="game-header">
+            <h2>🎮 MINI GAME: DỌN RÁC ĐẠI DƯƠNG</h2>
+            <p>Click chuột vào RÁC (khối đỏ) để thu gom. Đừng để Oxy về 0!</p>
+            <div class="game-stats">Oxy: <b id="oxy">100</b>% | Điểm: <b id="score">0</b></div>
+            <button id="startBtn">BẮT ĐẦU GIẢI CỨU</button>
+        </div>
         <canvas id="gameCanvas"></canvas>
-        <br>
-        <button onclick="startGame()">BẮT ĐẦU GIẢI CỨU</button>
     </section>
 
-    <section class="section">
-        <h2>03. GIẢI PHÁP VÀ HÀNH ĐỘNG</h2>
-        <div class="flex reverse">
+    <section id="solutions" class="section">
+        <div class="section-title">
+            <h2>03. LỐI THOÁT VÀ BIỆN PHÁP</h2>
+        </div>
+        <div class="grid reverse">
             <div class="text">
-                <h3>Công nghệ xử lý hiện đại</h3>
-                <p>Chuyển đổi sang mô hình kinh tế tuần hoàn, nơi rác thải trở thành tài nguyên. Áp dụng công nghệ đốt rác phát điện và tái chế nhựa cao cấp để giảm thiểu áp lực lên môi trường. Đồng thời thắt chặt chế tài xử phạt đối với các đơn vị vi phạm quy định xả thải.</p>
-                <h3>Sức mạnh cộng đồng</h3>
-                <p>Mỗi hành động nhỏ như từ chối túi nilon, tham gia các chiến dịch tình nguyện làm sạch bờ biển đều mang lại giá trị lớn. Hãy cùng nhau xây dựng một Việt Nam xanh - sạch - đẹp cho thế hệ mai sau.</p>
+                <h3>Công nghệ tuần hoàn</h3>
+                <p>Áp dụng mô hình "Rác là tài nguyên". Các nhà máy điện rác (Waste-to-Energy) đang thay thế bãi chôn lấp. Cần thắt chặt thuế Carbon và quy định xả thải nghiêm ngặt đối với doanh nghiệp.</p>
+                <h3>Hành động từ cộng đồng</h3>
+                <p>Mọi chiến dịch xanh đều vô nghĩa nếu ý thức người dân không đổi. Hãy bắt đầu từ việc phân loại rác tại nguồn và từ chối nhựa dùng một lần.</p>
             </div>
-            <div class="img-box">
+            <div class="img-frame">
                 <img src="diagram.png" alt="Sơ đồ">
                 <img src="volunteer.jpg" alt="Tình nguyện">
             </div>
@@ -88,7 +96,7 @@
 </main>
 
 <footer>
-    <p>© 2026 BÁO CÁO MÔI TRƯỜNG - HÀNH ĐỘNG VÌ TƯƠNG LAI</p>
+    <p>© 2026 VIETNAM GREEN REPORT - HÀNH ĐỘNG VÌ TƯƠNG LAI</p>
 </footer>
 
 <script src="script.js"></script>
