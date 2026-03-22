@@ -1,82 +1,72 @@
 :root {
-    --neon: #00ffa3;
-    --danger: #ff2e63;
+    --neon: #00ff88;
     --dark: #050505;
-    --glass: rgba(255, 255, 255, 0.03);
-    --font-main: 'Inter', sans-serif;
-    --font-heading: 'Syne', sans-serif;
+    --glass: rgba(255, 255, 255, 0.05);
+    --red: #ff3366;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    background-color: var(--dark);
-    color: #e0e0e0;
-    font-family: var(--font-main);
-    overflow-x: hidden;
-    line-height: 1.6;
+    background: var(--dark); color: #fff;
+    font-family: 'Inter', sans-serif; overflow-x: hidden;
 }
 
-/* Custom Cursor */
-.custom-cursor {
-    width: 25px; height: 25px; border: 2px solid var(--neon);
-    border-radius: 50%; position: fixed; pointer-events: none;
-    z-index: 9999; transition: transform 0.1s; mix-blend-mode: difference;
+.cursor-glow {
+    position: fixed; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+    pointer-events: none; transform: translate(-50%, -50%); z-index: -1;
 }
 
-.scanline {
-    width: 100%; height: 2px; background: rgba(0, 255, 163, 0.1);
-    position: fixed; top: 0; z-index: 1000; animation: scan 4s linear infinite;
+.scroll-bar {
+    position: fixed; top: 0; left: 0; height: 4px; background: var(--neon);
+    width: 0%; z-index: 1000;
 }
 
-@keyframes scan { from { top: 0; } to { top: 100%; } }
-
-/* Nav */
 .glass-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 5%; position: fixed; width: 100%; z-index: 500;
-    background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass);
+    display: flex; justify-content: space-between; padding: 25px 10%;
+    position: fixed; width: 100%; backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass); z-index: 100;
 }
-.nav-logo { font-family: 'Space Grotesk'; font-weight: 700; color: var(--neon); letter-spacing: 2px; }
-.nav-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
-.nav-links a:hover { color: var(--neon); }
+.logo { font-family: 'Orbitron'; color: var(--neon); font-size: 1.5rem; }
+.menu a { color: #fff; text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 0.8rem; }
 
-/* Hero Section */
-.hero-section {
+.hero {
     height: 100vh; display: flex; align-items: center; justify-content: center;
-    background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920') center/cover;
-    text-align: center; position: relative;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('photo-2-15605186811811550709128.webp');
+    background-size: cover; text-align: center;
 }
-.hero-bg-overlay { position: absolute; width: 100%; height: 100%; background: radial-gradient(circle, transparent 0%, var(--dark) 90%); }
-.hero-content { position: relative; z-index: 10; max-width: 900px; }
-h1 { font-family: var(--font-heading); font-size: 8rem; line-height: 0.9; margin-bottom: 20px; text-transform: uppercase; }
-.highlight { color: transparent; -webkit-text-stroke: 2px var(--neon); }
+.glitch { font-family: 'Orbitron'; font-size: 5rem; color: var(--neon); text-shadow: 0 0 20px var(--neon); }
 
-/* Content Grid */
-.content-section { padding: 100px 10%; position: relative; }
-.section-header { margin-bottom: 60px; }
-.step { font-family: 'Space Grotesk'; color: var(--neon); font-weight: 700; }
-h2 { font-family: var(--font-heading); font-size: 4rem; text-transform: uppercase; }
+.container { padding: 100px 10%; }
+.section { margin-bottom: 150px; }
+.header-box { border-left: 4px solid var(--neon); padding-left: 20px; margin-bottom: 50px; }
+.tag { color: var(--neon); font-size: 0.8rem; font-weight: bold; }
+h2 { font-family: 'Orbitron'; font-size: 2.5rem; margin-top: 10px; }
 
-.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-.glass { background: var(--glass); border: 1px solid rgba(255,255,255,0.05); padding: 50px; border-radius: 30px; backdrop-filter: blur(20px); }
+.grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.glass { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; }
+.card img { width: 100%; border-radius: 10px; margin-top: 20px; filter: grayscale(50%); transition: 0.3s; }
+.card:hover img { filter: grayscale(0%); transform: scale(1.02); }
 
-.danger-list li { color: var(--danger); margin: 15px 0; font-weight: 700; list-style: "✖ "; }
+.impact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.danger-list { list-style: none; margin-top: 20px; }
+.danger-list li::before { content: "⚠ "; color: var(--red); }
 
-/* Volunteer Masonry */
-.volunteer-masonry { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.v-card { position: relative; border-radius: 20px; overflow: hidden; height: 350px; }
-.v-card.big { grid-column: span 2; }
-.v-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.v-overlay { position: absolute; bottom: 0; padding: 30px; background: linear-gradient(transparent, #000); width: 100%; }
-.v-card:hover img { transform: scale(1.1); filter: grayscale(100%); }
+.solutions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.s-card { display: flex; background: #111; border-radius: 15px; overflow: hidden; height: 200px; }
+.s-img { width: 40%; background-size: cover; background-position: center; }
+.s-text { padding: 20px; width: 60%; }
 
-/* Game Section */
-.game-bg { background: linear-gradient(45deg, #050505, #1a1a1a); }
-.game-stats { display: flex; gap: 30px; margin-top: 20px; color: var(--neon); font-family: 'Space Grotesk'; }
-.choice-btn { 
-    display: block; width: 100%; padding: 20px; margin: 15px 0; 
+.volunteer-showcase { display: flex; gap: 40px; margin-top: 40px; }
+.volunteer-showcase img { width: 50%; border-radius: 20px; }
+.btn-neon {
     background: transparent; border: 1px solid var(--neon); color: var(--neon);
-    font-weight: 700; border-radius: 10px; cursor: pointer; transition: 0.3s;
+    padding: 15px 30px; font-weight: bold; margin-top: 20px; cursor: pointer; transition: 0.3s;
 }
-.choice-btn:hover { background: var(--neon); color: #000; box-shadow: 0 0 30px var(--neon); }
+.btn-neon:hover { background: var(--neon); color: #000; box-shadow: 0 0 30px var(--neon); }
+
+.simulation { text-align: center; padding: 60px; }
+.stats { font-size: 1.5rem; color: var(--neon); margin: 20px 0; }
+.btns button { background: none; border: 1px solid #fff; color: #fff; padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; }
+
+.main-footer { text-align: center; padding: 50px; border-top: 1px solid var(--glass); opacity: 0.5; }
