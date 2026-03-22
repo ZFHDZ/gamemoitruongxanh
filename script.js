@@ -1,43 +1,42 @@
-// 1. Progress Bar
+// Progress bar
 window.onscroll = () => {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    document.querySelector(".scroll-watcher").style.width = scrolled + "%";
-};
+    let scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector(".reading-progress").style.width = scrolled + "%";
+}
 
-// 2. Game Logic "Thị trưởng Eco"
-let oxy = 50;
-let happiness = 50;
-
-function handleGame(choice) {
-    const eventCard = document.getElementById('current-event');
-    if (choice === 'money') {
-        oxy -= 20; happiness += 10;
-        eventCard.innerHTML = "<h3>HỆ QUẢ!</h3><p>Tiền nhiều hơn nhưng thành phố bắt đầu ngập trong khói bụi.</p>";
-    } else {
-        oxy += 20; happiness -= 10;
-        eventCard.innerHTML = "<h3>KẾT QUẢ!</h3><p>Rừng được giữ lại. Oxy tăng vọt nhưng kinh tế tăng trưởng chậm.</p>";
-    }
-    document.getElementById('oxy-lvl').innerText = oxy + "%";
-    document.getElementById('hp-lvl').innerText = happiness + "%";
+// Game 1: Strategy
+let money = 500, oxy = 50;
+function play(choice) {
+    if(choice === 1) { money -= 100; oxy += 20; }
+    else if(choice === 2) { money += 200; oxy -= 30; }
+    else { money -= 50; oxy += 10; }
     
-    if(oxy <= 0) alert("Thành phố diệt vong do thiếu Oxy!");
+    document.getElementById('money').innerText = money;
+    document.getElementById('oxy').innerText = oxy;
+    
+    if(oxy <= 0) alert("Thành phố diệt vong vì ô nhiễm!");
+    if(money <= 0) alert("Thành phố phá sản!");
 }
 
-// 3. Cam kết
-function addPledge() {
-    const name = document.getElementById('userName').value;
-    if(!name) return;
-    const wall = document.getElementById('pledge-wall');
-    const badge = document.createElement('span');
-    badge.style.display = 'inline-block';
-    badge.style.margin = '10px';
-    badge.style.padding = '10px 20px';
-    badge.style.background = '#00ff88';
-    badge.style.color = '#000';
-    badge.style.borderRadius = '50px';
-    badge.innerText = "🍃 " + name;
-    wall.appendChild(badge);
-    document.getElementById('userName').value = "";
+// Game 2: Arcade (Hứng rác)
+let basketPos = 50;
+let trashPos = 0;
+let trashLeft = Math.random() * 90;
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'a' && basketPos > 0) basketPos -= 5;
+    if(e.key === 'd' && basketPos < 95) basketPos += 5;
+    document.getElementById('basket').style.left = basketPos + "%";
+});
+
+function gameLoop() {
+    trashPos += 2;
+    if(trashPos > 100) {
+        trashPos = 0;
+        trashLeft = Math.random() * 90;
+    }
+    document.getElementById('trash').style.top = trashPos + "%";
+    document.getElementById('trash').style.left = trashLeft + "%";
+    requestAnimationFrame(gameLoop);
 }
+gameLoop();
