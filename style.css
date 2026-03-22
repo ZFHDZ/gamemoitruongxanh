@@ -1,86 +1,64 @@
 :root {
-    --bg: #050a08;
-    --accent: #00ff88;
-    --glass: rgba(255, 255, 255, 0.05);
+    --dark: #0a0a0a;
+    --green-dark: #1b4332;
+    --green-mid: #40916c;
+    --green-light: #d8f3dc;
+    --white: #ffffff;
 }
 
-body {
-    background: var(--bg);
-    color: #fff;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    overflow-x: hidden;
-}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; line-height: 1.8; }
 
-/* Gradient Text */
-.gradient-text {
-    background: linear-gradient(90deg, #00ff88, #60efff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Glassmorphism Card */
-.glass-card {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 50px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-}
-
-/* Hero Animation */
-.hero {
+/* Section Header Đen */
+.hero-dark {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920') center/cover;
-    position: relative;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--dark)), 
+                url('https://images.unsplash.com/photo-1518173946687-a4c8a9b746f5?auto=format&fit=crop&w=1920');
+    background-size: cover; background-attachment: fixed;
+    display: flex; align-items: center; justify-content: center; color: white; text-align: center;
 }
 
-.vignette {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, transparent 20%, var(--bg) 90%);
-}
+.hero-dark h1 { font-size: 5rem; line-height: 1; margin: 0; }
+.hero-dark h1 span { color: #555; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
-/* Magazine Grid */
-.mag-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 100px 5%;
-}
+/* Section Nội dung Đen */
+.section-dark { background: var(--dark); color: white; padding: 100px 0; }
+.split-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.text-block { flex: 1; }
+.image-block { flex: 1; }
+.image-block img { width: 100%; border-radius: 20px; filter: grayscale(50%); transition: 0.5s; }
+.image-block img:hover { filter: grayscale(0%); }
 
-.mag-item {
-    position: relative;
-    height: 400px;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+.step-num { font-size: 4rem; font-weight: bold; opacity: 0.1; display: block; }
 
-.mag-item:hover { transform: scale(1.05); z-index: 2; }
+/* Quiz Transition */
+.quiz-transition { background: linear-gradient(var(--dark), var(--green-dark)); padding: 100px 20px; text-align: center; }
+.glass-quiz { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); padding: 50px; border-radius: 30px; color: white; max-width: 700px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1); }
+.quiz-btns button { padding: 15px 30px; margin: 10px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.quiz-btns button:hover { transform: scale(1.1); background: var(--green-mid); color: white; }
 
-.mag-img {
-    width: 100%; height: 100%;
-    background-size: cover; background-position: center;
-    transition: 0.5s;
-}
+/* Section Màu Xanh */
+.section-green { background: var(--white); color: var(--green-dark); padding: 100px 0; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+.info-card { background: var(--green-light); padding: 20px; border-radius: 20px; text-align: center; transition: 0.3s; }
+.info-card:hover { transform: translateY(-10px); background: #b7e4c7; }
+.info-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; }
 
-.mag-item.large { grid-column: span 2; }
+/* Deep Content */
+.deep-content { background: var(--green-dark); color: white; padding: 100px 0; }
+.deep-content ul { list-style: none; padding: 0; }
+.deep-content li { margin-bottom: 20px; font-size: 1.2rem; border-left: 4px solid var(--green-mid); padding-left: 20px; }
 
-/* Trò chơi 2: Bin hiệu ứng phát sáng */
-.bin {
-    width: 250px; height: 150px;
-    border: 2px solid var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 20px; transition: 0.3s;
-    background: rgba(0, 255, 136, 0.05);
-}
+/* Game Cuối Trang */
+.final-game { background: #f0f7f4; padding: 100px 0; text-align: center; }
+.drop-zones { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
+.bin { width: 200px; height: 200px; border: 3px dashed var(--green-mid); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--green-mid); transition: 0.3s; }
+.bin:hover { background: var(--green-light); }
+.drag-items { margin-top: 40px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.item { background: white; padding: 15px 25px; border-radius: 50px; cursor: grab; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #eee; }
 
-.bin:hover { box-shadow: 0 0 30px var(--accent); }
-
-/* Animation Classes */
-.reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+/* Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+footer { background: var(--green-dark); color: white; text-align: center; padding: 40px; }
