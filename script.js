@@ -1,47 +1,53 @@
-// 1. Scroll Reveal
+// Hiệu ứng hiện dần khi cuộn
 const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-});
+}, {threshold: 0.1});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// 2. City Builder Game
-let points = 100;
-function build(type) {
-    const map = document.getElementById('city-map');
-    const budget = document.getElementById('budget');
-    if(type === 'factory' && points >= 50) {
-        points -= 50; map.innerHTML += " 🏭";
-    } else if(type === 'park' && points >= 30) {
-        points -= 30; map.innerHTML += " 🌳";
-    } else if(type === 'solar' && points >= 40) {
-        points -= 40; map.innerHTML += " ☀️";
+// Game 1: Quiz
+function ans(isCorrect, btn) {
+    if(isCorrect) {
+        btn.style.background = "#00ff66";
+        alert("CHÍNH XÁC! 60 mét sẽ nhấn chìm hầu hết các thành phố ven biển.");
     } else {
-        alert("Không đủ điểm Eco!");
+        btn.style.background = "#ff4444";
     }
-    budget.innerText = points;
 }
 
-// 3. Pledge System
-function addPledge() {
-    const name = document.getElementById('userName').value;
-    if(!name) return;
-    const list = document.getElementById('pledge-list');
-    const tag = document.createElement('span');
-    tag.className = 'pledge-tag';
-    tag.innerText = "🌱 " + name + " cam kết sống xanh";
-    list.appendChild(tag);
-    document.getElementById('userName').value = "";
+// Game 2: City Builder
+let oxy = 20; let points = 0;
+function build(type) {
+    const canvas = document.getElementById('canvas');
+    if(type === 'tree') {
+        oxy += 5; canvas.innerHTML += "🌳";
+        document.getElementById('ox').innerText = oxy + "%";
+    } else {
+        points += 10; canvas.innerHTML += "☀️";
+        document.getElementById('pts').innerText = points;
+    }
+    if(oxy > 50) canvas.style.background = "#d8f3dc";
 }
 
-// 4. Drag & Drop (Phân loại rác - Giữ nguyên logic cũ nhưng gọn hơn)
+// Game 3: Drag & Drop
 function allow(ev) { ev.preventDefault(); }
 function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
 function drop(ev) {
     ev.preventDefault();
-    const data = ev.dataTransfer.getData("text");
-    const el = document.getElementById(data);
-    if(ev.target.dataset.type === el.dataset.type) {
-        ev.target.appendChild(el);
-        el.style.display = "none";
-    } else { alert("Sai thùng rác rồi!"); }
+    const id = ev.dataTransfer.getData("text");
+    const item = document.getElementById(id);
+    if(ev.target.dataset.type === item.dataset.type) {
+        ev.target.appendChild(item);
+        item.style.scale = "0.5";
+    } else { alert("Nhầm rồi!"); }
+}
+
+// Cam kết
+function makePledge() {
+    const name = document.getElementById('pName').value;
+    if(!name) return;
+    const tag = document.createElement('span');
+    tag.innerHTML = ` 🌱 ${name} |`;
+    tag.style.color = "#00ff66";
+    document.getElementById('pTags').appendChild(tag);
+    document.getElementById('pName').value = "";
 }
