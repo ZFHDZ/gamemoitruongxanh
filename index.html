@@ -2,114 +2,84 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>THE LAST BREATH | ECO-PROJECT 2026</title>
+    <title>ECO-DOMINATION 2026 | THE ULTIMATE GUIDE</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="progress-bar"></div>
 
-    <section class="intro">
-        <div class="vignette"></div>
-        <div class="intro-content">
-            <h1 class="glitch" data-text="TRÁI ĐẤT 2026">TRÁI ĐẤT 2026</h1>
-            <p class="reveal-text">Đây không phải là bài thuyết trình. Đây là một lời cảnh báo.</p>
-        </div>
-    </section>
+    <header class="vibe-header">
+        <div class="hero-video-overlay"></div>
+        <h1>KỶ NGUYÊN <br><span>HẬU TẬN THẾ?</span></h1>
+        <p>30 phút để hiểu về tương lai của chính bạn.</p>
+    </header>
 
-    <section class="black-section">
-        <div class="container">
-            <div class="bento-grid">
-                <div class="bento-item tall reveal">
-                    <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=800" alt="Rác">
-                    <div class="overlay-text">
-                        <h3>8 Tỷ Tấn</h3>
-                        <p>Lượng nhựa đang "siết cổ" đại dương.</p>
+    <main class="mega-content">
+        <section class="chapter">
+            <div class="container">
+                <h2>01. Cái chết trắng dưới lòng đại dương</h2>
+                <div class="grid-2">
+                    <div class="text">
+                        <p>Bạn có biết mỗi giây có 250 tấn rác thải nhựa được đổ xuống biển? Nhựa không biến mất, chúng vỡ thành các hạt <b>vi nhựa (microplastics)</b>. Những hạt này hấp thụ chất độc, được cá ăn vào, và cuối cùng nằm trên đĩa thức ăn của bạn. Đây là một vòng lặp tự sát mà con người vô tình tạo ra.</p>
+                        <p>Thuyết trình điểm nhấn: Hãy nói về đảo rác Thái Bình Dương (Great Pacific Garbage Patch) - một "lục địa rác" có diện tích lớn gấp 3 lần nước Pháp.</p>
                     </div>
-                </div>
-                <div class="bento-item wide reveal">
-                    <h2>Kỷ Nguyên Tuyệt Chủng Thứ 6</h2>
-                    <p>Chúng ta đang mất đi 200 loài sinh vật mỗi ngày. Sự đa dạng sinh học là bức tường bảo vệ con người, và bức tường đó đang sụp đổ.</p>
-                </div>
-                <div class="bento-item reveal card-dark">
-                    <h3>Biến đổi khí hậu</h3>
-                    <p>Nhiệt độ tăng 1.5°C = Mất sạch san hô toàn cầu.</p>
-                </div>
-            </div>
-
-            <div class="quiz-visual reveal">
-                <div class="quiz-content">
-                    <h3>CÂU HỎI TƯƠNG TÁC</h3>
-                    <p>Nếu toàn bộ băng ở Nam Cực tan, mực nước biển sẽ tăng bao nhiêu?</p>
-                    <div class="quiz-grid">
-                        <button onclick="ans(false, this)">6 Mét</button>
-                        <button onclick="ans(true, this)">60 Mét</button>
-                        <button onclick="ans(false, this)">16 Mét</button>
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=800">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="green-section">
-        <div class="container">
-            <h2 class="section-title reveal">HỒI SINH & HY VỌNG</h2>
-            
-            <div class="horizontal-scroll">
-                <div class="step-card reveal">
-                    <span class="step-no">01</span>
-                    <h3>Năng Lượng Tái Tạo</h3>
-                    <p>Sử dụng sức gió và mặt trời để thay thế hoàn toàn than đá. Đây là bước đi sống còn để đạt Net Zero vào năm 2050.</p>
+        <section class="game-zone-1">
+            <div class="game-card">
+                <h3>🎮 MINI GAME: NHÀ QUẢN LÝ TRÁI ĐẤT</h3>
+                <p>Mục tiêu: Giữ các chỉ số không về mức 0!</p>
+                <div class="stats">
+                    Oxy: <span id="stat-oxy">100</span>% | 
+                    Kinh tế: $<span id="stat-money">500</span> | 
+                    Hạnh phúc: <span id="stat-happy">100</span>%
                 </div>
-                <div class="step-card reveal">
-                    <span class="step-no">02</span>
-                    <h3>Kinh Tế Tuần Hoàn</h3>
-                    <p>Rác thải không tồn tại. Mọi sản phẩm đều được thiết kế để quay trở lại vòng đời sản xuất.</p>
-                </div>
-                <div class="step-card reveal">
-                    <span class="step-no">03</span>
-                    <h3>Nông Nghiệp Xanh</h3>
-                    <p>Trồng rừng kết hợp canh tác bền vững để giữ đất và nước sạch.</p>
+                <div id="game-event">Sự kiện: Nhà máy nhiệt điện muốn mở rộng. Bạn chọn gì?</div>
+                <div class="game-options">
+                    <button onclick="choice(1)">Đồng ý (+Tiền, -Oxy)</button>
+                    <button onclick="choice(2)">Từ chối (+Oxy, -Tiền)</button>
                 </div>
             </div>
+        </section>
 
-            <div class="city-game-box reveal">
-                <h3>GAME: KIẾN TẠO TƯƠNG LAI</h3>
-                <div class="city-stats">
-                    <span>Oxy: <b id="ox">20%</b></span> | <span>Điểm: <b id="pts">0</b></span>
-                </div>
-                <div class="city-canvas" id="canvas">🏚️</div>
-                <div class="city-controls">
-                    <button onclick="build('tree')">Trồng Cây (+5 Oxy)</button>
-                    <button onclick="build('solar')">Pin Mặt Trời (+10 Pts)</button>
+        <section class="chapter green">
+            <div class="container">
+                <h2>02. Cuộc cách mạng năng lượng 4.0</h2>
+                <p>Để giải quyết vấn đề ấm lên toàn cầu, chúng ta cần loại bỏ than đá. Hydrogen xanh, năng lượng hạt nhân thế hệ mới và điện gió ngoài khơi đang là những "siêu anh hùng" mới. Việt Nam có tiềm năng điện gió cực lớn tại khu vực Nam Trung Bộ, đủ để cung cấp điện cho cả Đông Nam Á nếu được đầu tư đúng cách.</p>
+                <div class="bento-grid">
+                    <div class="bento-cell">⚡ Năng lượng Mặt trời: 1 giờ nắng đủ cho cả năm.</div>
+                    <div class="bento-cell">💨 Điện gió: Công suất tăng 50% mỗi năm.</div>
+                    <div class="bento-cell">🔋 Pin Lithium: Lưu trữ là chìa khóa.</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="action-section">
-        <div class="container">
-            <div class="final-grid">
-                <div class="game-sort reveal">
-                    <h3>PHÂN LOẠI RÁC THỰC TẾ</h3>
-                    <div class="bins">
-                        <div class="bin-target" data-type="bio" ondrop="drop(event)" ondragover="allow(event)">HỮU CƠ</div>
-                        <div class="bin-target" data-type="re" ondrop="drop(event)" ondragover="allow(event)">TÁI CHẾ</div>
-                    </div>
-                    <div class="trash-list">
-                        <div class="t-item" id="r1" data-type="bio" draggable="true" ondragstart="drag(event)">🌿 Lá cây</div>
-                        <div class="t-item" id="r2" data-type="re" draggable="true" ondragstart="drag(event)">🥫 Lon nhôm</div>
-                    </div>
-                </div>
-
-                <div class="pledge-box reveal">
-                    <h3>LỜI HỨA CỦA THẾ HỆ</h3>
-                    <input type="text" id="pName" placeholder="Nhập tên bạn...">
-                    <button onclick="makePledge()">GỬI CAM KẾT</button>
-                    <div id="pTags"></div>
-                </div>
+        <section class="chapter">
+            <div class="container">
+                <h2>03. Rác thải là tài nguyên</h2>
+                <p>Trong tự nhiên, không có khái niệm "rác". Lá rụng là phân bón cho cây. Con người cần học cách này qua mô hình 5R. Thay vì mua - dùng - vứt, chúng ta phải thiết kế sản phẩm có thể tháo rời và tái sản xuất hoàn toàn.</p>
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200" class="full-img">
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="game-zone-2">
+            <div class="arcade-box">
+                <h3>🎮 TRÒ CHƠI: CHIẾN BINH PHÂN LOẠI</h3>
+                <p>Dùng phím <b>A (Hữu cơ)</b> và <b>D (Tái chế)</b> để hứng rác rơi xuống!</p>
+                <div id="arcade-screen">
+                    <div id="player">🛒</div>
+                    <div id="falling-item">🍎</div>
+                </div>
+                <div class="score-board">Điểm: <span id="score">0</span></div>
+                <button onclick="startArcade()">BẮT ĐẦU CHƠI</button>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
