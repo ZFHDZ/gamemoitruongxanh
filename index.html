@@ -3,90 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPulse - Hành Trình Cứu Lấy Trái Đất</title>
+    <title>EcoVision 2026 | Tương Lai Xanh</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="hero">
+    <div class="loader"><span>ECO</span></div>
+
+    <section class="hero">
+        <div class="vignette"></div>
         <div class="hero-content">
-            <h1>HÀNH TRÌNH XANH</h1>
-            <p>Chúng ta không thừa kế Trái Đất từ tổ tiên, chúng ta mượn nó từ con cháu.</p>
-            <a href="#start" class="btn-scroll">Khám phá ngay</a>
+            <h1 class="reveal">HƠI THỞ <br><span class="gradient-text">CUỐI CÙNG?</span></h1>
+            <p class="reveal-delay">Trái Đất không cần lời hứa, nó cần hành động.</p>
+            <div class="mouse-icon"></div>
         </div>
-    </header>
+    </section>
 
-    <main id="start">
-        <section class="story-section">
-            <div class="container">
-                <div class="content-wrapper">
-                    <div class="text-content">
-                        <h2>Vết sẹo của hành tinh</h2>
-                        <p>Mỗi năm, hàng triệu tấn rác thải nhựa đổ ra đại dương, giết chết hàng ngàn sinh vật biển. Biến đổi khí hậu không còn là dự báo, nó đang diễn ra ngay lúc này.</p>
-                    </div>
-                    <div class="image-content">
-                        <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=800" alt="Ô nhiễm nhựa">
-                    </div>
+    <section class="game-section-1">
+        <div class="glass-card quiz-box reveal">
+            <div class="badge">CHALLENGE 01</div>
+            <h2>Dấu Chân Carbon</h2>
+            <p id="q-text">Mỗi năm, một người trung bình thải ra bao nhiêu CO2?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="check(false)">500 kg</button>
+                <button class="opt-btn" onclick="check(true)">4.8 tấn</button>
+                <button class="opt-btn" onclick="check(false)">10 tấn</button>
+            </div>
+            <div id="feedback"></div>
+        </div>
+    </section>
+
+    <section class="magazine">
+        <div class="mag-grid">
+            <div class="mag-item large reveal">
+                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?auto=format&fit=crop&w=1000')"></div>
+                <div class="mag-text">
+                    <h3>Rừng phổi đang rực cháy</h3>
+                    <p>Diện tích rừng nguyên sinh đang mất đi với tốc độ 30 sân bóng đá mỗi phút...</p>
                 </div>
             </div>
-        </section>
+            <div class="mag-item reveal">
+                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=600')"></div>
+                <h3>Rác thải trắng</h3>
+            </div>
+            <div class="mag-item reveal">
+                <div class="mag-img" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600')"></div>
+                <h3>Giải pháp Gen Z</h3>
+            </div>
+        </div>
+    </section>
 
-        <section class="game-area-1">
-            <div class="container">
-                <div class="quiz-card">
-                    <h3>⚡ Thử thách hiểu biết</h3>
-                    <p id="q-text">Bạn có biết: Một chiếc túi nilon cần bao nhiêu năm để phân hủy?</p>
-                    <div class="quiz-options">
-                        <button onclick="checkQuiz(false)">50 năm</button>
-                        <button onclick="checkQuiz(true)">500 năm</button>
-                        <button onclick="checkQuiz(false)">1000 năm</button>
-                    </div>
-                    <p id="q-feedback"></p>
+    <section class="game-section-2">
+        <div class="sort-container reveal">
+            <h2>PHÂN LOẠI CẤP BÁCH</h2>
+            <div class="drop-zone-wrapper">
+                <div class="bin" data-type="bio" ondrop="drop(event)" ondragover="allow(event)">
+                    <span>HỮU CƠ</span>
+                </div>
+                <div class="bin" data-type="plastic" ondrop="drop(event)" ondragover="allow(event)">
+                    <span>NHỰA/KIM LOẠI</span>
                 </div>
             </div>
-        </section>
-
-        <section class="solution-section">
-            <div class="container">
-                <h2 class="center-title">Lối sống bền vững</h2>
-                <div class="solution-grid">
-                    <div class="solution-item">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400" alt="Tái chế">
-                        <h4>Tái chế (Recycle)</h4>
-                        <p>Biến rác thải thành nguyên liệu mới để tiết kiệm tài nguyên.</p>
-                    </div>
-                    <div class="solution-item">
-                        <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?auto=format&fit=crop&w=400" alt="Sống xanh">
-                        <h4>Giảm thiểu (Reduce)</h4>
-                        <p>Hạn chế đồ dùng một lần và ưu tiên các sản phẩm thân thiện.</p>
-                    </div>
-                </div>
+            <div class="items-dock">
+                <div class="drag-item" id="i1" data-type="bio" draggable="true" ondragstart="drag(event)">Vỏ trái cây</div>
+                <div class="drag-item" id="i2" data-type="plastic" draggable="true" ondragstart="drag(event)">Lon nước ngọt</div>
             </div>
-        </section>
-
-        <section class="game-area-2">
-            <div class="container">
-                <div class="sort-game-box">
-                    <h3>🗑️ Trạm Phân Loại Rác Mini</h3>
-                    <p>Hãy kéo rác vào đúng thùng để hoàn thành bài viết!</p>
-                    
-                    <div class="bins">
-                        <div class="bin-item" data-type="organic" ondrop="drop(event)" ondragover="allowDrop(event)">🌿 Hữu cơ</div>
-                        <div class="bin-item" data-type="plastic" ondrop="drop(event)" ondragover="allowDrop(event)">♻️ Tái chế</div>
-                    </div>
-
-                    <div class="trash-items">
-                        <span class="trash" id="item1" data-type="organic" draggable="true" ondragstart="drag(event)">Vỏ cam</span>
-                        <span class="trash" id="item2" data-type="plastic" draggable="true" ondragstart="drag(event)">Chai nhựa</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 EcoPulse Project - Vì một tương lai xanh</p>
-    </footer>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
