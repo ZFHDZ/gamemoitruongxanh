@@ -1,40 +1,44 @@
-// Hiệu ứng Reveal khi cuộn trang
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
+// Hiệu ứng hiện dần khi cuộn chuột (Scroll Reveal)
+const scrollReveal = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+        if (revealTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
     });
-}, { threshold: 0.1 });
+};
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+window.addEventListener('scroll', scrollReveal);
 
-// Game logic đơn giản nhưng feedback xịn
+// Game 1 logic
 function check(isCorrect) {
     const fb = document.getElementById('feedback');
     if(isCorrect) {
-        fb.innerHTML = "✨ TUYỆT VỜI! Bạn đã nắm rõ con số.";
-        fb.className = "correct-pulse";
+        fb.innerHTML = "🎉 Tuyệt vời! Bạn có kiến thức rất tốt.";
+        fb.style.color = "#40916c";
     } else {
-        fb.innerHTML = "❌ THỬ LẠI! Con số thực tế đáng sợ hơn.";
+        fb.innerHTML = "❌ Đừng buồn, con số thực tế là hơn 1 triệu loài.";
+        fb.style.color = "#d90429";
     }
 }
 
-// Drag & Drop
+// Game 2 logic (Drag & Drop)
 function allow(ev) { ev.preventDefault(); }
 function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
 function drop(ev) {
     ev.preventDefault();
     const id = ev.dataTransfer.getData("text");
-    const el = document.getElementById(id);
-    const targetBin = ev.target.closest('.bin');
+    const item = document.getElementById(id);
+    const bin = ev.target;
     
-    if(targetBin.dataset.type === el.dataset.type) {
-        targetBin.appendChild(el);
-        el.style.display = "none";
-        alert("XỬ LÝ THÀNH CÔNG!");
+    if(bin.dataset.type === item.dataset.type) {
+        bin.appendChild(item);
+        item.style.margin = "0";
+        item.style.fontSize = "12px";
+    } else {
+        alert("Phân loại nhầm rồi, hãy thử lại!");
     }
 }
-
-// Xử lý Loader
-window.addEventListener('load', () => {
-    document.querySelector('.loader').style.display = 'none';
-});
