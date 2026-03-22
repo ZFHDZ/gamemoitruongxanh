@@ -2,114 +2,95 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPulse - Hành Trình Tái Sinh</title>
+    <title>EcoPulse - The Deep Green Project</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header class="hero-dark">
-        <div class="hero-content">
-            <h1 class="reveal">TIẾNG VỌNG <br><span>TỪ ĐẤT MẸ</span></h1>
-            <p class="reveal-delay">Bạn đang lắng nghe, hay đang ngó lơ?</p>
+    <section class="hero-dark">
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <h1 class="fade-in">2026: THỜI KHẮC CUỐI</h1>
+            <p>Chúng ta là thế hệ cuối cùng có thể cứu vãn Trái Đất.</p>
         </div>
-    </header>
+    </section>
 
-    <section class="section-dark">
+    <section class="content-dark">
         <div class="container">
-            <div class="split-content">
-                <div class="text-block reveal">
-                    <span class="step-num">01</span>
-                    <h2>Đại dương đang "nghẹt thở"</h2>
-                    <p>Mỗi năm, hơn <b>8 triệu tấn rác thải nhựa</b> đổ vào đại dương. Đến năm 2050, các nhà khoa học dự báo lượng nhựa sẽ nhiều hơn cả lượng cá. Những hạt vi nhựa đang len lỏi vào chuỗi thức ăn, và cuối cùng, chính con người là nạn nhân.</p>
+            <div class="chapter reveal">
+                <span class="num">01</span>
+                <h2>Sự sụp đổ của các hệ sinh thái</h2>
+                <div class="article">
+                    <img src="https://images.unsplash.com/photo-1550985543-4903f6786c35?auto=format&fit=crop&w=1200" alt="Pollution">
+                    <p>Mỗi năm chúng ta mất đi diện tích rừng bằng cả diện tích nước Ý. Rừng không chỉ là cây, rừng là bộ máy điều hòa khổng lồ của hành tinh. Khi rừng cháy, CO2 giải phóng ngược lại bầu khí quyển, tạo thành một vòng lặp chết chóc...</p>
                 </div>
-                <div class="image-block reveal">
-                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800" alt="Ocean Pollution">
+            </div>
+
+            <div class="quiz-box glass reveal">
+                <h3>TRẠM DỪNG 1: KIỂM TRA NHẬN THỨC</h3>
+                <div id="quiz-content">
+                    <p>Câu hỏi: Loại rác thải nào chiếm tỉ trọng lớn nhất trong lòng đại dương?</p>
+                    <button onclick="quizAns(false)">A. Kim loại</button>
+                    <button onclick="quizAns(true)">B. Nhựa dùng một lần</button>
+                    <button onclick="quizAns(false)">C. Thủy tinh</button>
+                </div>
+                <p id="quiz-msg"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="city-builder">
+        <div class="container reveal">
+            <h2>THỬ THÁCH: KIẾN TRÚC SƯ XANH</h2>
+            <p>Ngân sách: <span id="budget">100</span> Eco-Points</p>
+            <div class="builder-ui">
+                <div class="city-view" id="city-map">🏘️ (Thành phố của bạn)</div>
+                <div class="build-menu">
+                    <button onclick="build('factory')">Xây Nhà Máy (-50đ | +Ô nhiễm)</button>
+                    <button onclick="build('park')">Trồng Công Viên (-30đ | +Oxy)</button>
+                    <button onclick="build('solar')">Lắp Điện Mặt Trời (-40đ | +Sạch)</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="quiz-transition">
-        <div class="glass-quiz reveal">
-            <h3>⚡ KIỂM TRA NHẬN THỨC</h3>
-            <p>Nếu không thay đổi, bao nhiêu loài sinh vật sẽ có nguy cơ tuyệt chủng do biến đổi khí hậu?</p>
-            <div class="quiz-btns">
-                <button onclick="check(false)">100,000 loài</button>
-                <button onclick="check(true)">Hơn 1 triệu loài</button>
-                <button onclick="check(false)">500,000 loài</button>
-            </div>
-            <p id="feedback"></p>
-        </div>
-    </section>
-
-    <section class="section-green">
+    <section class="content-green">
         <div class="container">
-            <div class="center-text reveal">
-                <h2>Hy vọng bắt đầu từ hành động</h2>
-                <p class="subtitle">Chúng ta không thể quay lại quá khứ, nhưng có thể kiến tạo tương lai.</p>
-            </div>
-            
-            <div class="info-grid">
-                <div class="info-card reveal">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500" alt="Forest">
-                    <h3>Trồng rừng đô thị</h3>
-                    <p>Một cây trưởng thành có thể hấp thụ 22kg CO2 mỗi năm. Việc phủ xanh thành phố giúp giảm nhiệt độ bề mặt tới 12°C.</p>
-                </div>
-                <div class="info-card reveal">
-                    <img src="https://images.unsplash.com/photo-1509391366360-fe5bb584850a?auto=format&fit=crop&w=500" alt="Solar">
-                    <h3>Năng lượng vĩnh cửu</h3>
-                    <p>Mặt trời cung cấp năng lượng trong 1 giờ đủ cho cả thế giới dùng trong 1 năm. Chuyển đổi sang điện mặt trời là chìa khóa bền vững.</p>
-                </div>
-                <div class="info-card reveal">
-                    <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?auto=format&fit=crop&w=500" alt="Lifestyle">
-                    <h3>Lối sống tối giản</h3>
-                    <p>Mua ít đi, chọn kỹ hơn. Thay thế đồ dùng một lần bằng các sản phẩm bền vững (vải, thủy tinh, tre).</p>
-                </div>
+            <div class="chapter reveal">
+                <span class="num">02</span>
+                <h2>Bình minh của Kỷ nguyên Xanh</h2>
+                <div class="article-grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95282fc3656b?auto=format&fit=crop&w=500" alt="Wind">
+                        <h3>Năng lượng tái tạo</h3>
+                        <p>Đan Mạch đã có những ngày sản xuất 140% nhu cầu điện từ gió. Việt Nam với đường bờ biển dài là mỏ vàng của năng lượng sạch...</p>
+                    </div>
+                    </div>
             </div>
         </div>
     </section>
 
-    <section class="deep-content">
-        <div class="container">
-            <div class="text-full reveal">
-                <h2>Chiến dịch 5R: Tôn chỉ của kỷ nguyên mới</h2>
-                <ul>
-                    <li><strong>Refuse (Từ chối):</strong> Nói không với những thứ không cần thiết.</li>
-                    <li><strong>Reduce (Cắt giảm):</strong> Tiết kiệm tài nguyên điện, nước, thực phẩm.</li>
-                    <li><strong>Reuse (Tái sử dụng):</strong> Kéo dài vòng đời sản phẩm.</li>
-                    <li><strong>Repurpose (Chuyển đổi mục đích):</strong> Biến rác thành vật dụng trang trí.</li>
-                    <li><strong>Recycle (Tái chế):</strong> Giải pháp cuối cùng khi không thể tận dụng.</li>
-                </ul>
+    <section class="final-action">
+        <div class="container reveal">
+            <div class="sort-game">
+                <h2>HÀNH ĐỘNG NHỎ - THAY ĐỔI LỚN</h2>
+                <div class="bins">
+                    <div class="bin plastic" ondrop="drop(event)" ondragover="allow(event)" data-type="p">NHỰA</div>
+                    <div class="bin organic" ondrop="drop(event)" ondragover="allow(event)" data-type="o">HỮU CƠ</div>
+                </div>
+                <div class="items">
+                    <div class="item" id="it1" draggable="true" ondragstart="drag(event)" data-type="p">Chai nước</div>
+                    <div class="item" id="it2" draggable="true" ondragstart="drag(event)" data-type="o">Vỏ chuối</div>
+                </div>
+            </div>
+
+            <div class="pledge-section glass">
+                <h3>GỬI CAM KẾT CỦA BẠN</h3>
+                <input type="text" id="userName" placeholder="Tên của bạn...">
+                <button onclick="addPledge()">GỬI LỜI HỨA XANH</button>
+                <div id="pledge-list"></div>
             </div>
         </div>
     </section>
-
-    <section class="final-game">
-        <div class="container">
-            <div class="game-wrapper reveal">
-                <h2>🗑️ HÀNH ĐỘNG CUỐI CÙNG</h2>
-                <p>Thực hành phân loại để trở thành công dân toàn cầu xanh!</p>
-                
-                <div class="drop-zones">
-                    <div class="bin organic" data-type="bio" ondrop="drop(event)" ondragover="allow(event)">RÁC HỮU CƠ</div>
-                    <div class="bin plastic" data-type="re" ondrop="drop(event)" ondragover="allow(event)">RÁC TÁI CHẾ</div>
-                </div>
-
-                <div class="drag-items">
-                    <div class="item" id="i1" data-type="bio" draggable="true" ondragstart="drag(event)">🌿 Bã trà</div>
-                    <div class="item" id="i2" data-type="re" draggable="true" ondragstart="drag(event)">🥫 Vỏ lon</div>
-                    <div class="item" id="i3" data-type="bio" draggable="true" ondragstart="drag(event)">🍎 Lõi táo</div>
-                    <div class="item" id="i4" data-type="re" draggable="true" ondragstart="drag(event)">📦 Thùng carton</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>EcoPulse Project © 2026 - Thuyết trình bởi [Tên của bạn]</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
