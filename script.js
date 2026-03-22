@@ -1,28 +1,35 @@
-// 1. Progress Bar
+// 1. Cập nhật thanh tiến trình cuộn
 window.onscroll = function() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
-    document.getElementById("pb").style.width = scrolled + "%";
+    document.querySelector(".reading-progress").style.width = scrolled + "%";
 };
 
-// 2. Game Choice
-function ecoChoice(type) {
-    const feedback = document.getElementById('game-feedback');
-    if(type === 'coal') {
-        feedback.innerHTML = "<h3 style='color: #ff4444'>❌ SAI LẦM! Ngân sách tăng nhưng chỉ số ô nhiễm khiến dân cư rời đi.</h3>";
+// 2. Quiz Logic
+function quiz(val) {
+    const res = document.getElementById('quiz-res');
+    if(val === 450) {
+        res.innerHTML = "🎯 CHÍNH XÁC! Một con số khủng khiếp đối với một vật dụng nhỏ bé.";
+        res.style.color = "#10b981";
     } else {
-        feedback.innerHTML = "<h3 style='color: #5efc82'>✅ TUYỆT VỜI! Đây là đầu tư cho tương lai 50 năm tới.</h3>";
+        res.innerHTML = "❌ SAI RỒI! Hãy nhìn lại con số 450 năm.";
+        res.style.color = "#ef4444";
     }
 }
 
-// 3. Hiệu ứng hiện dần khi cuộn trang
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.chapter').forEach(c => observer.observe(c));
+// 3. Drag & Drop Phân loại rác
+function allow(ev) { ev.preventDefault(); }
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+function drop(ev) {
+    ev.preventDefault();
+    const id = ev.dataTransfer.getData("text");
+    const el = document.getElementById(id);
+    const targetType = ev.target.getAttribute('data-type');
+    if(el.getAttribute('data-type') === targetType) {
+        ev.target.appendChild(el);
+        el.style.fontSize = "12px";
+    } else {
+        alert("Phân loại sai sẽ gây khó khăn cho việc tái chế!");
+    }
+}
