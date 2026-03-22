@@ -3,275 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BÁO CÁO MÔI TRƯỜNG 2026</title>
+    <title>ECO-GEN 2026 | CHIẾN DỊCH GIẢI CỨU</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <nav class="navbar">
-        <div class="logo">ECO<span>ACTION</span></div>
-        <div class="nav-links">
-            <a href="#causes">NGUYÊN NHÂN</a>
-            <a href="#impacts">TÁC HẠI</a>
-            <a href="#solutions">BIỆN PHÁP</a>
-            <a href="#action">HÀNH ĐỘNG</a>
+        <div class="logo">ECO<span>GEN</span></div>
+        <div class="menu">
+            <a href="#causes">THỰC TRẠNG</a>
+            <a href="#impacts">HẬU QUẢ</a>
+            <a href="#game">TRÒ CHƠI</a>
+            <a href="#action" class="nav-btn">HÀNH ĐỘNG</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-image"><img src="rac_bien.webp" alt="Banner"></div>
-        <div class="hero-text">
-            <h1>HÀNH TINH XANH<br>LỜI CỨU VÃN CUỐI CÙNG</h1>
-            <p>Phân tích thực trạng ô nhiễm và lộ trình hồi sinh môi trường Việt Nam 2026</p>
+        <div class="hero-content">
+            <span class="badge">BÁO CÁO MÔI TRƯỜNG 2026</span>
+            <h1>ĐÃ ĐẾN LÚC<br><span class="highlight">HÀNH ĐỘNG</span></h1>
+            <p>Việt Nam đang đứng trước ngưỡng cửa của cuộc khủng hoảng rác thải nhựa lớn nhất lịch sử. Chúng ta chọn thay đổi hay chọn biến mất?</p>
+            <a href="#game" class="btn-primary">CHƠI GAME SINH TỒN</a>
+        </div>
+        <div class="hero-img">
+            <img src="bien.webp" alt="Ocean">
         </div>
     </header>
 
     <main class="container">
         <section id="causes" class="section">
-            <div class="grid">
-                <div class="text-box">
-                    <span class="tag">01. NGUYÊN NHÂN</span>
-                    <h2>Nguồn gốc của sự tàn phá</h2>
-                    <p>Sự gia tăng phi mã của các khu công nghiệp và đô thị hóa tại Việt Nam mang lại kinh tế nhưng để lại hệ lụy kinh khủng. Khói bụi PM2.5 và nước thải chưa xử lý đang trực tiếp phá hủy môi trường sống của chính chúng ta.</p>
-                </div>
-                <div class="img-box">
-                    <img src="onhiem_vn.jpg" alt="Ô nhiễm VN">
+            <div class="section-title">
+                <h2>01. TẠI SAO CHÚNG TA THẤT BẠI?</h2>
+                <div class="line"></div>
+            </div>
+            <div class="grid-layout">
+                <div class="card-large">
+                    <img src="onhiem.jpg" alt="Pollution">
+                    <div class="card-info">
+                        <h3>Khủng hoảng từ các khu công nghiệp</h3>
+                        <p>Hơn 70% lượng nước thải công nghiệp tại các lưu vực sông như sông Nhuệ - sông Đáy đổ trực tiếp ra môi trường mà chưa qua xử lý đạt chuẩn. Lợi nhuận kinh tế đang được đánh đổi bằng sự sống của các dòng sông.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="impacts" class="section alt-bg">
-            <div class="grid reverse">
-                <div class="text-box">
-                    <span class="tag red">02. TÁC HẠI</span>
-                    <h2>Hệ lụy đến sức khỏe con người</h2>
-                    <p>Vi nhựa đã xâm nhập vào chuỗi thức ăn, xuất hiện trong máu và phổi người. Các bệnh về đường hô hấp và ung thư tăng vọt do nguồn nước và không khí bị đầu độc bởi hóa chất độc hại.</p>
+        <section id="impacts" class="section gray-bg">
+            <div class="section-title">
+                <h2>02. CÁI GIÁ PHẢI TRẢ</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <img src="benh.jpg" alt="Health">
+                    <div class="p-4">
+                        <h3>Sức khỏe suy kiệt</h3>
+                        <p>Bụi mịn PM2.5 tại Hà Nội và TP.HCM thường xuyên vượt ngưỡng an toàn của WHO 5-10 lần, gây ra các bệnh phổi mãn tính và ung thư.</p>
+                    </div>
                 </div>
-                <div class="img-box">
-                    <img src="suc_khoe.jpg" alt="Tác hại">
+                <div class="impact-card">
+                    <div class="p-4">
+                        <h3>Hệ sinh thái sụp đổ</h3>
+                        <p>Rác thải nhựa bóp nghẹt các rạn san hô, làm mất đi lá chắn tự nhiên chống lại biến đổi khí hậu.</p>
+                    </div>
+                    <img src="tech1.jpg" alt="Environment">
                 </div>
             </div>
         </section>
 
-        <section id="solutions" class="section">
-            <div class="center-head">
-                <span class="tag green">03. BIỆN PHÁP</span>
-                <h2>Giải pháp công nghệ đột phá</h2>
-            </div>
-            <div class="triple-grid">
-                <div class="card">
-                    <img src="cong_nghe.jpg" alt="Công nghệ">
-                    <h3>Tái chế thông minh</h3>
-                    <p>Ứng dụng AI vào phân loại rác và chuyển hóa rác thải thành năng lượng sạch.</p>
-                </div>
-                <div class="card">
-                    <img src="giaiphap.png" alt="Quy hoạch">
-                    <h3>Quy hoạch bền vững</h3>
-                    <p>Xây dựng các đô thị xanh, giảm thiểu phát thải Carbon về mức Net Zero.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="action" class="section action-section">
-            <div class="action-card">
-                <div class="action-img"><img src="tinh_nguyen.jpg" alt="Tình nguyện"></div>
-                <div class="action-info">
-                    <h2>HÀNH ĐỘNG NGAY HÔM NAY</h2>
-                    <p>Mỗi hành động nhỏ của bạn đều góp phần làm sạch bãi biển và phủ xanh đất trống. Tham gia cùng chúng tôi!</p>
-                    <button class="btn">GIA NHẬP LIÊN MINH XANH</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>© 2026 CHIẾN DỊCH ECO ACTION - VÌ MỘT VIỆT NAM XANH</p>
-    </footer>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BÁO CÁO MÔI TRƯỜNG 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="logo">ECO<span>ACTION</span></div>
-        <div class="nav-links">
-            <a href="#causes">NGUYÊN NHÂN</a>
-            <a href="#impacts">TÁC HẠI</a>
-            <a href="#solutions">BIỆN PHÁP</a>
-            <a href="#action">HÀNH ĐỘNG</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-image"><img src="rac_bien.webp" alt="Banner"></div>
-        <div class="hero-text">
-            <h1>HÀNH TINH XANH<br>LỜI CỨU VÃN CUỐI CÙNG</h1>
-            <p>Phân tích thực trạng ô nhiễm và lộ trình hồi sinh môi trường Việt Nam 2026</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <section id="causes" class="section">
-            <div class="grid">
-                <div class="text-box">
-                    <span class="tag">01. NGUYÊN NHÂN</span>
-                    <h2>Nguồn gốc của sự tàn phá</h2>
-                    <p>Sự gia tăng phi mã của các khu công nghiệp và đô thị hóa tại Việt Nam mang lại kinh tế nhưng để lại hệ lụy kinh khủng. Khói bụi PM2.5 và nước thải chưa xử lý đang trực tiếp phá hủy môi trường sống của chính chúng ta.</p>
-                </div>
-                <div class="img-box">
-                    <img src="onhiem_vn.jpg" alt="Ô nhiễm VN">
-                </div>
-            </div>
-        </section>
-
-        <section id="impacts" class="section alt-bg">
-            <div class="grid reverse">
-                <div class="text-box">
-                    <span class="tag red">02. TÁC HẠI</span>
-                    <h2>Hệ lụy đến sức khỏe con người</h2>
-                    <p>Vi nhựa đã xâm nhập vào chuỗi thức ăn, xuất hiện trong máu và phổi người. Các bệnh về đường hô hấp và ung thư tăng vọt do nguồn nước và không khí bị đầu độc bởi hóa chất độc hại.</p>
-                </div>
-                <div class="img-box">
-                    <img src="suc_khoe.jpg" alt="Tác hại">
+        <section id="game" class="section game-section">
+            <div class="game-container">
+                <h2>🎮 MINI GAME: NGƯỜI GÁC RỪNG</h2>
+                <p>Nhiệm vụ: Cứu lấy mầm xanh trước khi rác thải tràn ngập!</p>
+                <div id="game-board">
+                    <div class="stat-bar">
+                        <span>Oxy: <b id="oxy-level">100</b>%</span>
+                        <span>Mầm xanh: <b id="trees">0</b></span>
+                    </div>
+                    <canvas id="ecoGame"></canvas>
+                    <div class="controls">
+                        <button onclick="startGame()" id="start-btn">BẮT ĐẦU GIẢI CỨU</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="solutions" class="section">
-            <div class="center-head">
-                <span class="tag green">03. BIỆN PHÁP</span>
-                <h2>Giải pháp công nghệ đột phá</h2>
-            </div>
-            <div class="triple-grid">
-                <div class="card">
-                    <img src="cong_nghe.jpg" alt="Công nghệ">
-                    <h3>Tái chế thông minh</h3>
-                    <p>Ứng dụng AI vào phân loại rác và chuyển hóa rác thải thành năng lượng sạch.</p>
+            <div class="section-title"><h2>03. LỐI THOÁT CÔNG NGHỆ</h2></div>
+            <div class="solution-flex">
+                <div class="sol-item">
+                    <img src="tech2.png" alt="Tech">
+                    <h4>Năng lượng tái tạo</h4>
+                    <p>Chuyển dịch sang điện gió và điện mặt trời để giảm phát thải khí nhà kính.</p>
                 </div>
-                <div class="card">
-                    <img src="giaiphap.png" alt="Quy hoạch">
-                    <h3>Quy hoạch bền vững</h3>
-                    <p>Xây dựng các đô thị xanh, giảm thiểu phát thải Carbon về mức Net Zero.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="action" class="section action-section">
-            <div class="action-card">
-                <div class="action-img"><img src="tinh_nguyen.jpg" alt="Tình nguyện"></div>
-                <div class="action-info">
-                    <h2>HÀNH ĐỘNG NGAY HÔM NAY</h2>
-                    <p>Mỗi hành động nhỏ của bạn đều góp phần làm sạch bãi biển và phủ xanh đất trống. Tham gia cùng chúng tôi!</p>
-                    <button class="btn">GIA NHẬP LIÊN MINH XANH</button>
+                <div class="sol-item">
+                    <img src="volunteer.jpg" alt="Volunteer">
+                    <h4>Cộng đồng tình nguyện</h4>
+                    <p>Sức mạnh từ hàng triệu bàn tay trẻ tuổi đang làm sạch bãi biển mỗi ngày.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>© 2026 CHIẾN DỊCH ECO ACTION - VÌ MỘT VIỆT NAM XANH</p>
+    <footer>
+        <p>© 2026 ECO-GEN PROJECT | DESIGNED BY GEMINI</p>
     </footer>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BÁO CÁO MÔI TRƯỜNG 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="logo">ECO<span>ACTION</span></div>
-        <div class="nav-links">
-            <a href="#causes">NGUYÊN NHÂN</a>
-            <a href="#impacts">TÁC HẠI</a>
-            <a href="#solutions">BIỆN PHÁP</a>
-            <a href="#action">HÀNH ĐỘNG</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-image"><img src="rac_bien.webp" alt="Banner"></div>
-        <div class="hero-text">
-            <h1>HÀNH TINH XANH<br>LỜI CỨU VÃN CUỐI CÙNG</h1>
-            <p>Phân tích thực trạng ô nhiễm và lộ trình hồi sinh môi trường Việt Nam 2026</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <section id="causes" class="section">
-            <div class="grid">
-                <div class="text-box">
-                    <span class="tag">01. NGUYÊN NHÂN</span>
-                    <h2>Nguồn gốc của sự tàn phá</h2>
-                    <p>Sự gia tăng phi mã của các khu công nghiệp và đô thị hóa tại Việt Nam mang lại kinh tế nhưng để lại hệ lụy kinh khủng. Khói bụi PM2.5 và nước thải chưa xử lý đang trực tiếp phá hủy môi trường sống của chính chúng ta.</p>
-                </div>
-                <div class="img-box">
-                    <img src="onhiem_vn.jpg" alt="Ô nhiễm VN">
-                </div>
-            </div>
-        </section>
-
-        <section id="impacts" class="section alt-bg">
-            <div class="grid reverse">
-                <div class="text-box">
-                    <span class="tag red">02. TÁC HẠI</span>
-                    <h2>Hệ lụy đến sức khỏe con người</h2>
-                    <p>Vi nhựa đã xâm nhập vào chuỗi thức ăn, xuất hiện trong máu và phổi người. Các bệnh về đường hô hấp và ung thư tăng vọt do nguồn nước và không khí bị đầu độc bởi hóa chất độc hại.</p>
-                </div>
-                <div class="img-box">
-                    <img src="suc_khoe.jpg" alt="Tác hại">
-                </div>
-            </div>
-        </section>
-
-        <section id="solutions" class="section">
-            <div class="center-head">
-                <span class="tag green">03. BIỆN PHÁP</span>
-                <h2>Giải pháp công nghệ đột phá</h2>
-            </div>
-            <div class="triple-grid">
-                <div class="card">
-                    <img src="cong_nghe.jpg" alt="Công nghệ">
-                    <h3>Tái chế thông minh</h3>
-                    <p>Ứng dụng AI vào phân loại rác và chuyển hóa rác thải thành năng lượng sạch.</p>
-                </div>
-                <div class="card">
-                    <img src="giaiphap.png" alt="Quy hoạch">
-                    <h3>Quy hoạch bền vững</h3>
-                    <p>Xây dựng các đô thị xanh, giảm thiểu phát thải Carbon về mức Net Zero.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="action" class="section action-section">
-            <div class="action-card">
-                <div class="action-img"><img src="tinh_nguyen.jpg" alt="Tình nguyện"></div>
-                <div class="action-info">
-                    <h2>HÀNH ĐỘNG NGAY HÔM NAY</h2>
-                    <p>Mỗi hành động nhỏ của bạn đều góp phần làm sạch bãi biển và phủ xanh đất trống. Tham gia cùng chúng tôi!</p>
-                    <button class="btn">GIA NHẬP LIÊN MINH XANH</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>© 2026 CHIẾN DỊCH ECO ACTION - VÌ MỘT VIỆT NAM XANH</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
