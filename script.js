@@ -1,52 +1,78 @@
-// TRÒ CHƠI SINH TỒN ECO-GAME
-const canvas = document.getElementById('ecoGame');
+const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-const oxyEl = document.getElementById('oxy-level');
-const treeEl = document.getElementById('trees');
+const startBtn = document.getElementById('startBtn');
+const scoreEl = document.getElementById('score');
+const oxyEl = document.getElementById('oxy');
 
+let score = 0;
 let oxy = 100;
-let trees = 0;
 let gameActive = false;
+let trash = [];
 
-function startGame() {
-    if(gameActive) return;
+startBtn.addEventListener('click', () => {
     gameActive = true;
+    score = 0;
     oxy = 100;
-    trees = 0;
-    document.getElementById('start-btn').innerText = "ĐANG GIẢI CỨU...";
+    trash = [];
+    startBtn.style.display = 'none';
     gameLoop();
+});
+
+function createTrash() {
+    if (Math.random() < 0.05) {
+        trash.push({
+            x: Math.random() * canvas.width,
+            y: 0,
+            size: 20,
+            speed: 2 + Math.random() * 3
+        });
+    }
 }
 
+canvas.addEventListener('mousedown', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    trash = trash.filter(t => {
+        const dist = Math.hypot(t.x - mouseX, t.y - mouseY);
+        if (dist < t.size) {
+            score += 10;
+            scoreEl.innerText = score;
+            return false;
+        }
+        return true;
+    });
+});
+
 function gameLoop() {
-    if(!gameActive) return;
-    
-    // Xóa màn hình
+    if (!gameActive) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Giảm oxy theo thời gian
     oxy -= 0.1;
     oxyEl.innerText = Math.floor(oxy);
-    
-    // Vẽ "Rác" (Màu đỏ)
-    ctx.fillStyle = "#ff3b30";
-    ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 10, 10);
-    
-    // Vẽ "Mầm xanh" (Click để trồng)
-    canvas.onclick = (e) => {
-        trees++;
-        oxy += 2;
-        if(oxy > 100) oxy = 100;
-        treeEl.innerText = trees;
-        ctx.fillStyle = "#34c759";
-        ctx.beginPath();
-        ctx.arc(e.offsetX, e.offsetY, 15, 0, Math.PI * 2);
-        ctx.fill();
-    };
 
-    if(oxy <= 0) {
+    createTrash();
+
+    trash.forEach((t, index) => {
+        t.y += t.speed;
+        ctx.fillStyle = "#e74c3c";
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, t.size/2, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (t.y > canvas.height) {
+            trash.splice(index, 1);
+            oxy -= 5;
+        }
+    });
+
+    if (oxy <= 0) {
         gameActive = false;
-        alert("GAME OVER! Bạn đã trồng được " + trees + " cây.");
-        document.getElementById('start-btn').innerText = "CHƠI LẠI";
+        alert("Hết Oxy! Bạn đã thu gom được " + score + " điểm rác thải.");
+        startBtn.style.display = 'block';
+        startBtn.innerText = "CHƠI LẠI";
     } else {
         requestAnimationFrame(gameLoop);
     }
