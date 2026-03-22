@@ -2,134 +2,145 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>ECO-PULSE 2026 | Báo Cáo Toàn Diện Hành Tinh Xanh</title>
+    <title>Đại Kỷ Nguyên Xanh 2026 | Báo Cáo Chiến Lược Môi Trường</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="progress-bar-container"><div class="progress-bar" id="pb"></div></div>
+    <div class="reading-progress"></div>
 
-    <header class="mega-hero">
-        <div class="hero-content">
-            <span class="badge">BÁO CÁO ĐẶC BIỆT</span>
-            <h1>SỨ MỆNH <br><span class="gradient-text">TÁI SINH TRÁI ĐẤT</span></h1>
-            <p>Hành trình 30 phút đi sâu vào thực trạng, giải pháp và sức mạnh của sự tử tế.</p>
+    <header class="hero-white">
+        <div class="hero-container">
+            <span class="top-tag">GLOBAL ENVIRONMENTAL REPORT 2026</span>
+            <h1>HÀNH TRÌNH <br><span class="text-green">HÀN GẮN HÀNH TINH</span></h1>
+            <p class="lead-text">Phân tích chuyên sâu về sự sinh tồn của hệ sinh thái và vai trò của con người trong kỷ nguyên mới.</p>
         </div>
     </header>
 
-    <main class="content-wrapper">
+    <nav class="sub-nav">
+        <a href="#thuctrang">Thực trạng</a>
+        <a href="#hequa">Hệ quả</a>
+        <a href="#tinhnguyen">Tình nguyện</a>
+        <a href="#giaiphap">Giải pháp</a>
+        <a href="#tuongtac">Tương tác</a>
+    </nav>
+
+    <main class="main-wrapper">
         
-        <section class="chapter section-white">
-            <div class="inner">
-                <div class="chapter-head"><span>01</span><h2>Khủng Hoảng Nhựa Toàn Cầu</h2></div>
-                <div class="text-columns">
-                    <p>Trong 65 năm qua, sản lượng nhựa đã tăng gấp 200 lần. Theo số liệu từ Ngân hàng Thế giới, Việt Nam xả ra khoảng 1.8 triệu tấn rác thải nhựa mỗi năm, nhưng chỉ 10% trong số đó được tái chế. Phần còn lại nằm ở bãi chôn lấp hoặc trôi ra biển.</p>
-                    <p><b>Hệ quả:</b> Các rạn san hô đang bị "nghẹt thở". Các loài sinh vật biển nhầm lẫn túi nilon là thức ăn. Khi nhựa vào dạ dày cá, nó không tiêu hóa được và gây tử vong hàng loạt.</p>
+        <section id="thuctrang" class="content-block">
+            <h2 class="block-title">01. Bức tranh toàn cảnh về sự ô nhiễm</h2>
+            <div class="text-and-gallery">
+                <div class="big-text">
+                    <h3>Khủng hoảng nhựa và rác thải điện tử</h3>
+                    <p>Mỗi năm, thế giới thải ra hơn 50 triệu tấn rác thải điện tử, một con số đang tăng nhanh gấp 3 lần so với các loại rác thải khác. Trong khi đó, nhựa dùng một lần vẫn chiếm 40% sản lượng nhựa toàn cầu. Tại Việt Nam, ô nhiễm trắng đã trở thành vấn đề quốc gia khi lượng túi nilon thải ra môi trường lên tới hàng tỷ túi mỗi năm.</p>
+                    <p><b>Vi nhựa (Microplastics):</b> Một nghiên cứu năm 2025 cho thấy vi nhựa đã xâm nhập vào chuỗi thức ăn ở mức độ phân tử. Con người có thể đang tiêu thụ lượng nhựa tương đương một chiếc thẻ tín dụng mỗi tuần thông qua nước uống và thực phẩm.</p>
                 </div>
-                <div class="photo-mosaic">
-                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=500" alt="Ocean">
-                    <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=500" alt="Waste">
-                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?w=500" alt="Beach">
+                <div class="image-grid-3">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600" alt="Plastic">
+                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?w=600" alt="Waste">
+                    <img src="https://images.unsplash.com/photo-1558486012-817176f84c6d?w=600" alt="E-waste">
                 </div>
             </div>
-        </section>
 
-        <section class="chapter section-light">
-            <div class="inner">
-                <div class="chapter-head"><span>02</span><h2>Thống Kê Con Số Biết Nói</h2></div>
-                <table class="data-table">
-                    <thead><tr><th>Hạng mục</th><th>Sản lượng / Năm</th><th>Tỉ lệ xử lý</th><th>Hệ quả</th></tr></thead>
+            <div class="data-box">
+                <h4>Bảng thống kê ô nhiễm theo khu vực (Dự báo 2026)</h4>
+                <table>
+                    <thead>
+                        <tr><th>Khu vực</th><th>Lượng nhựa thải (Tấn/Năm)</th><th>Tỉ lệ tái chế</th><th>Mức độ nguy cấp</th></tr>
+                    </thead>
                     <tbody>
-                        <tr><td>Nhựa dùng một lần</td><td>150 triệu tấn</td><td>12%</td><td>Ô nhiễm nguồn nước</td></tr>
-                        <tr><td>Khí thải CO2</td><td>36.7 tỷ tấn</td><td>Đang tăng</td><td>Băng tan, nước biển dâng</td></tr>
-                        <tr><td>Rừng nguyên sinh mất</td><td>10 triệu ha</td><td>0%</td><td>Mất đa dạng sinh học</td></tr>
+                        <tr><td>Châu Á - Thái Bình Dương</td><td>80 Triệu</td><td>15%</td><td><span class="red-tag">Cực cao</span></td></tr>
+                        <tr><td>Châu Âu</td><td>30 Triệu</td><td>40%</td><td>Trung bình</td></tr>
+                        <tr><td>Bắc Mỹ</td><td>45 Triệu</td><td>25%</td><td>Cao</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <section class="chapter section-white">
-            <div class="inner">
-                <div class="chapter-head"><span>03</span><h2>Sức Mạnh Của Những Tình Nguyện Viên</h2></div>
-                <p class="sub-text">Hành động của họ là bằng chứng cho việc chúng ta chưa bỏ cuộc.</p>
-                
-                <div class="volunteer-gallery-massive">
-                    <div class="v-item">
-                        <img src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?w=600">
-                        <div class="v-info"><h3>Dọn sạch bãi biển</h3><p>Đội ngũ 200 bạn trẻ tại Vũng Tàu đã thu gom hơn 3 tấn rác nhựa trong chiến dịch "Clean Day".</p></div>
+        <section id="tinhnguyen" class="content-block bg-soft-green">
+            <h2 class="block-title">02. Những sứ giả của màu xanh</h2>
+            <p class="intro-p">Phần này vinh danh những cá nhân và tổ chức đang âm thầm thay đổi thế giới.</p>
+            
+            <div class="volunteer-massive-grid">
+                <div class="v-card-ultra">
+                    <div class="v-img-wrap"><img src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?w=800"></div>
+                    <div class="v-content">
+                        <h3>Biệt đội "Làm sạch biển"</h3>
+                        <p>Không chỉ là nhặt rác, các tình nguyện viên tại miền Trung đã xây dựng hệ thống lưới chắn rác tại cửa sông, ngăn chặn hàng tấn nhựa trôi ra đại dương mỗi tháng. Họ là những sinh viên, kỹ sư và cả những người về hưu.</p>
                     </div>
-                    <div class="v-item">
-                        <img src="https://images.unsplash.com/photo-1559027615-cd4451d131e2?w=600">
-                        <div class="v-info"><h3>Phủ xanh đồi trọc</h3><p>Tình nguyện viên dự án "Sống" đã trồng hơn 50,000 cây đước tại rừng phòng hộ ven biển.</p></div>
+                </div>
+                <div class="v-card-ultra">
+                    <div class="v-img-wrap"><img src="https://images.unsplash.com/photo-1559027615-cd4451d131e2?w=800"></div>
+                    <div class="v-content">
+                        <h3>Dự án "Triệu cây xanh"</h3>
+                        <p>Trong năm 2025, hơn 100.000 tình nguyện viên đã tham gia phủ xanh 500 héc-ta đất trống đồi trọc tại Tây Nguyên. Hình ảnh những bàn tay lấm bùn đất gieo mầm hy vọng đã trở thành biểu tượng của thế hệ trẻ Việt Nam.</p>
                     </div>
-                    <div class="v-item">
-                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600">
-                        <div class="v-info"><h3>Giáo dục xanh</h3><p>Các lớp học miễn phí về tái chế cho trẻ em nghèo, giúp các em hiểu về giá trị của rác thải.</p></div>
-                    </div>
-                    <div class="v-item">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600">
-                        <div class="v-info"><h3>Phát triển cộng đồng</h3><p>Hướng dẫn người dân địa phương làm phân bón hữu cơ từ rác nhà bếp.</p></div>
+                </div>
+                <div class="v-card-ultra">
+                    <div class="v-img-wrap"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800"></div>
+                    <div class="v-content">
+                        <h3>Workshop Tái Chế Sáng Tạo</h3>
+                        <p>Các nghệ sĩ tình nguyện đã hướng dẫn trẻ em biến rác thải thành tác phẩm nghệ thuật. Đây là cách giáo dục trực quan nhất, giúp trẻ em hiểu rằng "Rác chỉ là tài nguyên đặt sai chỗ".</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="chapter game-bg">
-            <div class="inner">
-                <h2>GAME: NHÀ ĐẦU TƯ CÓ TÂM</h2>
-                <div class="game-ui">
-                    <p>Bạn có 200 triệu $ ngân sách chính phủ. Bạn đầu tư vào đâu?</p>
-                    <div class="btns">
-                        <button onclick="ecoChoice('coal')">Xây nhà máy điện than (Lãi cao, Ô nhiễm)</button>
-                        <button onclick="ecoChoice('wind')">Xây cánh đồng gió (Lãi thấp, Sạch)</button>
-                    </div>
-                    <div id="game-feedback"></div>
-                </div>
+            <div class="volunteer-stats">
+                <div class="stat-item"><h5>250,000+</h5><p>Tình nguyện viên toàn quốc</p></div>
+                <div class="stat-item"><h5>1.5 Triệu</h5><p>Giờ làm việc công ích</p></div>
+                <div class="stat-item"><h5>500+</h5><p>Điểm nóng được làm sạch</p></div>
             </div>
         </section>
 
-        <section class="chapter section-white">
-            <div class="inner">
-                <div class="chapter-head"><span>04</span><h2>Công Nghệ Xanh 4.0</h2></div>
-                <div class="tech-grid">
-                    <div class="tech-card">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400">
-                        <h4>Năng lượng Hydrogen</h4>
-                        <p>Nhiên liệu sạch nhất thế giới, chỉ thải ra hơi nước thay vì khí CO2.</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-fe5bb584850a?w=400">
-                        <h4>Pin Mặt Trời Hữu Cơ</h4>
-                        <p>Mỏng, nhẹ và có thể dán lên cửa sổ để tạo ra điện năng cho tòa nhà.</p>
-                    </div>
-                    <div class="tech-card">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400">
-                        <h4>AI Quản lý rác</h4>
-                        <p>Sử dụng trí tuệ nhân tạo để robot phân loại rác chính xác 99%.</p>
-                    </div>
+        <section id="giaiphap" class="content-block">
+            <h2 class="block-title">03. Lộ trình Net-Zero và Công nghệ</h2>
+            <div class="article-text-long">
+                <p>Để đạt được mục tiêu phát thải bằng 0 (Net-Zero) vào năm 2050, chúng ta cần một cuộc cách mạng trong mọi ngành công nghiệp. Năng lượng tái tạo hiện nay không còn là lựa chọn, mà là bắt buộc. Pin lưu trữ quy mô lớn và lưới điện thông minh (Smart Grid) đang giúp tối ưu hóa việc sử dụng năng lượng gió và mặt trời.</p>
+                <div class="image-row">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=500">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95282fc3656b?w=500">
+                    <img src="https://images.unsplash.com/photo-1509391366360-fe5bb584850a?w=500">
                 </div>
+                <p><b>Kinh tế tuần hoàn (Circular Economy):</b> Thay đổi tư duy sản xuất từ "Khai thác - Sản xuất - Vứt bỏ" sang "Thiết kế - Sử dụng - Tái sinh". Các doanh nghiệp lớn tại Việt Nam đã bắt đầu sử dụng bao bì phân hủy sinh học làm từ tinh bột ngô và bã mía.</p>
             </div>
         </section>
 
-        <section class="chapter section-light">
-            <div class="inner">
-                <div class="chapter-head"><span>05</span><h2>Hành Động Cá Nhân: Quy Tắc 5R</h2></div>
-                <div class="long-content">
-                    <h3>1. Refuse (Từ chối)</h3>
-                    <p>Đừng lấy túi nilon khi đi mua một phong kẹo. Sự từ chối nhỏ bé này khi nhân lên với 8 tỷ người sẽ tạo ra sự thay đổi kinh ngạc.</p>
-                    <h3>2. Reduce (Giảm thiểu)</h3>
-                    <p>Cân nhắc trước khi mua một món đồ mới. Ngành thời trang nhanh là một trong những thủ phạm ô nhiễm nguồn nước hàng đầu.</p>
-                    <h3>3. Recycle (Tái chế đúng cách)</h3>
-                    <p>Nếu bạn vứt chai nhựa bẩn vào thùng tái chế, nó sẽ làm hỏng cả một lô rác sạch. Hãy tráng sơ chai trước khi vứt.</p>
+        <section id="tuongtac" class="content-block gray-bg">
+            <h2 class="block-title">04. Trạm dừng tương tác</h2>
+            
+            <div class="quiz-interactive">
+                <h3>Câu hỏi tư duy: Một chiếc khẩu trang y tế mất bao lâu để phân hủy hoàn toàn?</h3>
+                <div class="options">
+                    <button onclick="quiz(450)">450 Năm</button>
+                    <button onclick="quiz(10)">10 Năm</button>
+                    <button onclick="quiz(100)">100 Năm</button>
+                </div>
+                <p id="quiz-res"></p>
+            </div>
+
+            <div class="sort-game-v3">
+                <h3>Thử thách: Phân loại rác tại nguồn</h3>
+                <div class="bins-v3">
+                    <div class="bin-v3" data-type="plastic" ondrop="drop(event)" ondragover="allow(event)">NHỰA & KIM LOẠI</div>
+                    <div class="bin-v3" data-type="organic" ondrop="drop(event)" ondragover="allow(event)">RÁC HỮU CƠ</div>
+                    <div class="bin-v3" data-type="paper" ondrop="drop(event)" ondragover="allow(event)">GIẤY & CARTON</div>
+                </div>
+                <div class="trash-source">
+                    <div class="item-v3" id="r1" data-type="plastic" draggable="true" ondragstart="drag(event)">Vỏ lon nước</div>
+                    <div class="item-v3" id="r2" data-type="organic" draggable="true" ondragstart="drag(event)">Lá cây khô</div>
+                    <div class="item-v3" id="r3" data-type="paper" draggable="true" ondragstart="drag(event)">Thùng carton</div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="mega-footer">
-        <h2>EcoPulse 2026 - Đừng để bài thuyết trình này là lần cuối bạn nghĩ về môi trường.</h2>
+    <footer class="final-footer">
+        <div class="footer-inner">
+            <h2>HÀNH ĐỘNG HÔM NAY - TƯƠNG LAI MAI SAU</h2>
+            <p>Bài thuyết trình thực hiện bởi [Tên của bạn] - 2026</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
