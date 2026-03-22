@@ -1,51 +1,51 @@
 :root {
-    --primary: #10b981;
-    --dark: #111827;
-    --gray: #374151;
-    --light: #f9fafb;
+    --green: #10b981;
+    --dark: #0f172a;
+    --white: #ffffff;
+    --bg: #f8fafc;
 }
 
-body {
-    margin: 0; font-family: 'Inter', sans-serif;
-    background: var(--light); color: var(--dark); line-height: 1.8;
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; }
+
+/* Tiến trình cuộn */
+.progress-container { position: fixed; top: 0; z-index: 1000; width: 100%; height: 8px; background: #ccc; }
+.progress-bar { height: 8px; background: var(--green); width: 0%; }
+
+/* Hero */
+.main-hero {
+    height: 70vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920');
+    background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center;
 }
+.tag { background: var(--green); padding: 5px 20px; border-radius: 50px; font-weight: bold; }
+h1 { font-size: 5rem; line-height: 1; margin: 20px 0; }
+h1 span { color: var(--green); }
 
-.scroll-progress {
-    position: fixed; top: 0; height: 6px; background: var(--primary); width: 0; z-index: 1000;
-}
+/* Layout */
+.content-wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+.chapter-box { background: white; padding: 60px; margin-bottom: 60px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+.chapter-title { font-size: 2.5rem; color: var(--green); border-bottom: 4px solid var(--green); display: inline-block; margin-bottom: 40px; }
 
-/* Banner */
-.main-banner {
-    height: 60vh; background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920') center/cover;
-    position: relative; display: flex; align-items: center; justify-content: center;
-}
-.overlay {
-    background: rgba(0,0,0,0.6); color: white; padding: 50px; text-align: center; width: 100%;
-}
-.overlay h1 { font-size: 4rem; margin: 0; letter-spacing: 5px; }
-
-/* Nội dung */
-.wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
-.mega-section { background: white; padding: 60px; margin-bottom: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.green-bg { background: #ecfdf5; border-left: 10px solid var(--primary); }
-
-.chapter-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 30px; }
-.article { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-
-.image-gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+.image-gallery-v img { width: 100%; border-radius: 20px; margin-bottom: 20px; }
 
 /* Table */
-table { width: 100%; border-collapse: collapse; margin: 30px 0; }
+.data-table table { width: 100%; border-collapse: collapse; margin-top: 30px; }
 th { background: var(--dark); color: white; padding: 20px; text-align: left; }
 td { padding: 15px; border-bottom: 1px solid #ddd; }
 
 /* Volunteer Grid */
-.v-grid-massive { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
-.v-item { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.v-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; }
+.volunteer-massive-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.v-card { border: 1px solid #eee; border-radius: 20px; overflow: hidden; background: #fff; }
+.v-card img { width: 100%; height: 300px; object-fit: cover; }
+.v-info { padding: 30px; }
 
-/* Game */
-.game-box { display: grid; grid-template-columns: 200px 1fr; gap: 30px; background: var(--dark); color: white; padding: 40px; border-radius: 20px; }
-.stat { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); font-weight: bold; }
-.actions button { padding: 15px 25px; margin: 10px; cursor: pointer; border-radius: 10px; border: none; font-weight: bold; transition: 0.3s; }
-.actions button:hover { transform: scale(1.05); background: var(--primary); color: white; }a
+/* Game Style */
+.game-board { background: var(--dark); color: white; padding: 50px; border-radius: 30px; }
+.game-stats { display: flex; justify-content: space-around; margin-bottom: 40px; font-weight: bold; color: var(--green); font-size: 1.2rem; }
+.options button { 
+    display: block; width: 100%; padding: 20px; margin: 15px 0; 
+    background: var(--green); border: none; color: white; font-weight: bold; 
+    border-radius: 10px; cursor: pointer; transition: 0.3s;
+}
+.options button:hover { background: #059669; transform: translateX(10px); }
