@@ -1,44 +1,47 @@
-// Hiệu ứng hiện dần khi cuộn chuột (Scroll Reveal)
-const scrollReveal = () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const revealTop = el.getBoundingClientRect().top;
-        const revealPoint = 150;
-        if (revealTop < windowHeight - revealPoint) {
-            el.classList.add('active');
-        }
-    });
-};
+// 1. Scroll Reveal
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-window.addEventListener('scroll', scrollReveal);
-
-// Game 1 logic
-function check(isCorrect) {
-    const fb = document.getElementById('feedback');
-    if(isCorrect) {
-        fb.innerHTML = "🎉 Tuyệt vời! Bạn có kiến thức rất tốt.";
-        fb.style.color = "#40916c";
+// 2. City Builder Game
+let points = 100;
+function build(type) {
+    const map = document.getElementById('city-map');
+    const budget = document.getElementById('budget');
+    if(type === 'factory' && points >= 50) {
+        points -= 50; map.innerHTML += " 🏭";
+    } else if(type === 'park' && points >= 30) {
+        points -= 30; map.innerHTML += " 🌳";
+    } else if(type === 'solar' && points >= 40) {
+        points -= 40; map.innerHTML += " ☀️";
     } else {
-        fb.innerHTML = "❌ Đừng buồn, con số thực tế là hơn 1 triệu loài.";
-        fb.style.color = "#d90429";
+        alert("Không đủ điểm Eco!");
     }
+    budget.innerText = points;
 }
 
-// Game 2 logic (Drag & Drop)
+// 3. Pledge System
+function addPledge() {
+    const name = document.getElementById('userName').value;
+    if(!name) return;
+    const list = document.getElementById('pledge-list');
+    const tag = document.createElement('span');
+    tag.className = 'pledge-tag';
+    tag.innerText = "🌱 " + name + " cam kết sống xanh";
+    list.appendChild(tag);
+    document.getElementById('userName').value = "";
+}
+
+// 4. Drag & Drop (Phân loại rác - Giữ nguyên logic cũ nhưng gọn hơn)
 function allow(ev) { ev.preventDefault(); }
 function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
 function drop(ev) {
     ev.preventDefault();
-    const id = ev.dataTransfer.getData("text");
-    const item = document.getElementById(id);
-    const bin = ev.target;
-    
-    if(bin.dataset.type === item.dataset.type) {
-        bin.appendChild(item);
-        item.style.margin = "0";
-        item.style.fontSize = "12px";
-    } else {
-        alert("Phân loại nhầm rồi, hãy thử lại!");
-    }
+    const data = ev.dataTransfer.getData("text");
+    const el = document.getElementById(data);
+    if(ev.target.dataset.type === el.dataset.type) {
+        ev.target.appendChild(el);
+        el.style.display = "none";
+    } else { alert("Sai thùng rác rồi!"); }
 }
