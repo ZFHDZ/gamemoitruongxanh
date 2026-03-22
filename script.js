@@ -1,31 +1,40 @@
-// Game 1: Quiz
-function checkQuiz(isCorrect) {
-    const feedback = document.getElementById('q-feedback');
+// Hiệu ứng Reveal khi cuộn trang
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Game logic đơn giản nhưng feedback xịn
+function check(isCorrect) {
+    const fb = document.getElementById('feedback');
     if(isCorrect) {
-        feedback.innerHTML = "✅ Chính xác! Đó là lý do chúng ta nên dùng túi vải.";
-        feedback.style.color = "green";
+        fb.innerHTML = "✨ TUYỆT VỜI! Bạn đã nắm rõ con số.";
+        fb.className = "correct-pulse";
     } else {
-        feedback.innerHTML = "❌ Chưa đúng rồi, hãy thử lại nhé!";
-        feedback.style.color = "red";
+        fb.innerHTML = "❌ THỬ LẠI! Con số thực tế đáng sợ hơn.";
     }
 }
 
-// Game 2: Drag & Drop
-function allowDrop(ev) { ev.preventDefault(); }
-
+// Drag & Drop
+function allow(ev) { ev.preventDefault(); }
 function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
-
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    var dragEl = document.getElementById(data);
-    var targetType = ev.target.getAttribute('data-type');
-    var itemType = dragEl.getAttribute('data-type');
-
-    if (targetType === itemType) {
-        ev.target.appendChild(dragEl);
-        dragEl.style.cursor = "default";
-    } else {
-        alert("Nhầm thùng rồi bạn ơi!");
+    const id = ev.dataTransfer.getData("text");
+    const el = document.getElementById(id);
+    const targetBin = ev.target.closest('.bin');
+    
+    if(targetBin.dataset.type === el.dataset.type) {
+        targetBin.appendChild(el);
+        el.style.display = "none";
+        alert("XỬ LÝ THÀNH CÔNG!");
     }
 }
+
+// Xử lý Loader
+window.addEventListener('load', () => {
+    document.querySelector('.loader').style.display = 'none';
+});
