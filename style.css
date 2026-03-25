@@ -49,3 +49,7 @@ img { border-radius: 20px; }
 .btn-reset { margin-top: 20px; padding: 10px 20px; background: #2ecc71; border: none; color: #fff; font-weight: bold; border-radius: 8px; cursor: pointer; }
 
 footer { text-align: center; padding: 40px; color: #fff; }
+.stats-container { display: flex; align-items: flex-end; gap: 20px; height: 250px; border-bottom: 2px solid #333; margin-top: 30px; }
+.stat-bar { background: #2ecc71; width: 33%; height: var(--h); transition: 1s; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; border-radius: 10px 10px 0 0; }
+.stat-bar.warning { background: #e74c3c; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
