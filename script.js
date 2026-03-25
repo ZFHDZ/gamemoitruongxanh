@@ -1,13 +1,20 @@
+/* =========================================
+   JAVASCRIPT CHO TRÒ CHƠI MÔI TRƯỜNG
+   Giữ nguyên và sửa lỗi nhỏ
+   ========================================= */
+
 // --- TRÒ 1: TRẮC NGHIỆM ---
 const questions = [
     { q: "Rác thải nhựa mất bao lâu để phân hủy?", a: ["10 năm", "100 năm", "450-500 năm", "Không bao giờ"], c: 2 },
-    { q: "Khí thải gây hiệu ứng nhà kính mạnh nhất?", a: ["Oxy", "CO2", "Nitơ", "Argon"], c: 1 },
-    { q: "Mục tiêu Net Zero của Việt Nam vào năm nào?", a: ["2030", "2045", "2050", "2060"], c: 2 }
+    { q: "Mục tiêu Net Zero 2050 là gì?", a: ["Phát thải bằng 0", "Không dùng xe máy", "Tắt điện", "Trồng 1 tỷ cây"], c: 0 },
+    { q: "Bụi mịn PM2.5 gây hại nhất cho?", a: ["Tim", "Phổi", "Gan", "Não"], c: 1 },
+    { q: "Ngày Môi trường Thế giới?", a: ["1/6", "5/6", "22/4", "10/10"], c: 1 }
 ];
+
 let qIdx = 0, score = 0;
 function showQuiz() {
     if(qIdx >= questions.length) {
-        document.getElementById('quiz-area').innerHTML = `<h3>Hoàn thành! Điểm: ${score}/${questions.length}</h3>`;
+        document.getElementById('quiz-area').innerHTML = `<h3>Xong! Điểm: ${score}/${questions.length}</h3>`;
         return;
     }
     const q = questions[qIdx];
@@ -26,21 +33,18 @@ function showQuiz() {
 // --- TRÒ 2: PHÂN LOẠI RÁC ---
 const trashList = [
     { n: "Vỏ cam", t: "organic" }, { n: "Chai nhựa", t: "inorganic" },
-    { n: "Lá cây", t: "organic" }, { n: "Túi nilon", t: "inorganic" }
+    { n: "Lá cây", t: "organic" }, { n: "Lon bia", t: "inorganic" }
 ];
 let tIdx = 0;
 function loadTrash() {
     const el = document.getElementById('trash-item');
     if(tIdx < trashList.length) { el.innerText = trashList[tIdx].n; }
-    else { el.innerText = "XONG!"; el.draggable = false; }
+    else { el.innerText = "HOÀN THÀNH!"; el.draggable = false; }
 }
 function allow(e) { e.preventDefault(); }
 function drop(e, type) {
-    if(trashList[tIdx].t === type) { 
-        tIdx++; 
-        document.getElementById('sort-progress').innerText = `Tiến độ: ${tIdx}/${trashList.length}`; 
-        loadTrash(); 
-    } else { alert("Nhầm thùng rồi bạn ơi!"); }
+    if(trashList[tIdx].t === type) { tIdx++; document.getElementById('sort-progress').innerText = `Tiến độ: ${tIdx}/${trashList.length}`; loadTrash(); }
+    else { alert("Sai rồi bạn ơi!"); }
 }
 
 // --- TRÒ 3: TRÍ NHỚ ---
