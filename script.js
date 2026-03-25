@@ -1,3 +1,4 @@
+code script.js // --- TRÒ 1: TRẮC NGHIỆM ---
 const questions = [
     { q: "Rác thải nhựa mất bao lâu để phân hủy?", a: ["10 năm", "100 năm", "450-500 năm", "Không bao giờ"], c: 2 },
     { q: "Mục tiêu Net Zero 2050 là gì?", a: ["Phát thải bằng 0", "Không dùng xe máy", "Tắt điện", "Trồng 1 tỷ cây"], c: 0 },
