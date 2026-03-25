@@ -1,72 +1,51 @@
-/* =========================================
-   JAVASCRIPT CHO TRÒ CHƠI MÔI TRƯỜNG
-   Giữ nguyên và sửa lỗi nhỏ
-   ========================================= */
-
 // --- TRÒ 1: TRẮC NGHIỆM ---
-const questions = [
-    { q: "Rác thải nhựa mất bao lâu để phân hủy?", a: ["10 năm", "100 năm", "450-500 năm", "Không bao giờ"], c: 2 },
-    { q: "Mục tiêu Net Zero 2050 là gì?", a: ["Phát thải bằng 0", "Không dùng xe máy", "Tắt điện", "Trồng 1 tỷ cây"], c: 0 },
-    { q: "Bụi mịn PM2.5 gây hại nhất cho?", a: ["Tim", "Phổi", "Gan", "Não"], c: 1 },
-    { q: "Ngày Môi trường Thế giới?", a: ["1/6", "5/6", "22/4", "10/10"], c: 1 }
+const quizData = [
+    { q: "Rác thải nhựa mất bao lâu để phân hủy?", a: ["10 năm", "100 năm", "500 năm"], c: 2 },
+    { q: "Net Zero 2050 là mục tiêu về?", a: ["Rác thải", "Phát thải khí nhà kính", "Trồng rừng"], c: 1 }
 ];
-
-let qIdx = 0, score = 0;
-function showQuiz() {
-    if(qIdx >= questions.length) {
-        document.getElementById('quiz-area').innerHTML = `<h3>Xong! Điểm: ${score}/${questions.length}</h3>`;
-        return;
-    }
-    const q = questions[qIdx];
+let curQ = 0;
+function loadQuiz() {
+    const q = quizData[curQ];
     document.getElementById('question').innerText = q.q;
-    document.getElementById('q-count').innerText = qIdx + 1;
-    const opts = document.getElementById('options');
-    opts.innerHTML = '';
+    const optBox = document.getElementById('options');
+    optBox.innerHTML = '';
     q.a.forEach((opt, i) => {
-        const b = document.createElement('button');
-        b.innerText = opt;
-        b.onclick = () => { if(i === q.c) score++; qIdx++; document.getElementById('q-score').innerText = score; showQuiz(); };
-        opts.appendChild(b);
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.onclick = () => {
+            if(i === q.c) alert("Chính xác!");
+            curQ = (curQ + 1) % quizData.length;
+            loadQuiz();
+        };
+        optBox.appendChild(btn);
     });
 }
 
-// --- TRÒ 2: PHÂN LOẠI RÁC ---
-const trashList = [
-    { n: "Vỏ cam", t: "organic" }, { n: "Chai nhựa", t: "inorganic" },
-    { n: "Lá cây", t: "organic" }, { n: "Lon bia", t: "inorganic" }
-];
-let tIdx = 0;
-function loadTrash() {
-    const el = document.getElementById('trash-item');
-    if(tIdx < trashList.length) { el.innerText = trashList[tIdx].n; }
-    else { el.innerText = "HOÀN THÀNH!"; el.draggable = false; }
-}
-function allow(e) { e.preventDefault(); }
-function drop(e, type) {
-    if(trashList[tIdx].t === type) { tIdx++; document.getElementById('sort-progress').innerText = `Tiến độ: ${tIdx}/${trashList.length}`; loadTrash(); }
-    else { alert("Sai rồi bạn ơi!"); }
+// --- TRÒ 2: PHÂN LOẠI ---
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.innerText); }
+function allow(ev) { ev.preventDefault(); }
+function drop(ev, type) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    if((data === "Vỏ Chuối" && type === 'organic') || (data === "Chai Nhựa" && type === 'inorganic')) {
+        alert("Đúng rồi!");
+        document.getElementById('trash-item').innerText = "Chai Nhựa";
+    } else {
+        alert("Thử lại nhé!");
+    }
 }
 
 // --- TRÒ 3: TRÍ NHỚ ---
-const icons = ['🌿','🌿','♻️','♻️','🌍','🌍','☀️','☀️','💧','💧','🍃','🍃','🔋','🔋','🚲','🚲'];
-let flipped = [];
+const icons = ['🌿','🌿','🌍','🌍','♻️','♻️','🔋','🔋'];
 function initMemory() {
-    const board = document.getElementById('memory-board'); board.innerHTML = ''; flipped = [];
+    const board = document.getElementById('memory-board');
     icons.sort(() => Math.random() - 0.5).forEach(icon => {
-        const card = document.createElement('div'); card.className = 'm-card'; card.dataset.v = icon;
-        card.onclick = () => {
-            if(flipped.length < 2 && !card.innerText) {
-                card.innerText = icon; card.classList.add('flipped'); flipped.push(card);
-                if(flipped.length === 2) {
-                    setTimeout(() => {
-                        if(flipped[0].dataset.v !== flipped[1].dataset.v) { flipped.forEach(c => {c.innerText=''; c.classList.remove('flipped');}); }
-                        flipped = [];
-                    }, 600);
-                }
-            }
-        };
+        const card = document.createElement('div');
+        card.className = 'm-card';
+        card.innerText = icon;
+        card.onclick = () => card.classList.toggle('flipped');
         board.appendChild(card);
     });
 }
 
-window.onload = () => { showQuiz(); loadTrash(); initMemory(); };
+window.onload = () => { loadQuiz(); initMemory(); };
