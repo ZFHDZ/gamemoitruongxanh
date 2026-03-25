@@ -2,433 +2,127 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Dự án Trí Tuệ Xanh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trí Tuệ Xanh - Dự án Môi trường</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="bg-forest"></div>
-    <main class="container">
-        <div id="content-area"></div> 
 
-        <div id="game-area"></div>
+    <main class="container">
+        <header class="main-header">
+            <h1>DỰ ÁN: TRÍ TUỆ XANH</h1>
+            <p>Hành trình 30 giây thay đổi nhận thức cộng đồng</p>
+        </header>
+
+        <div id="content-wrapper">
+            
+            <section class="glass-card" id="section-01">
+                <h2 class="num-title">01. THỰC TRẠNG: CON SỐ BÁO ĐỘNG</h2>
+                <div class="chart-area">
+                    <p>Lượng rác thải nhựa toàn cầu (Triệu tấn/năm)</p>
+                    <div class="bar-chart">
+                        <div class="bar-item"><div class="bar blue" style="height: 40%"><span class="val">118</span></div><p>2010</p></div>
+                        <div class="bar-item"><div class="bar blue" style="height: 60%"><span class="val">158</span></div><p>2020</p></div>
+                        <div class="bar-item"><div class="bar blue" style="height: 80%"><span class="val">238</span></div><p>2023</p></div>
+                        <div class="bar-item"><div class="bar orange" style="height: 100%"><span class="val">350</span></div><p>2026</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-02">
+                <h2 class="num-title">02. NGUYÊN NHÂN: DO ĐÂU?</h2>
+                <div class="grid-2">
+                    <div class="sub-card"><h3>Công nghiệp hóa</h3><p>Đốt nhiên liệu hóa thạch tạo CO2.</p></div>
+                    <div class="sub-card"><h3>Rác thải nhựa</h3><p>Sử dụng nhựa một lần quá mức.</p></div>
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-03">
+                <h2 class="num-title">03. HỆ SINH THÁI ĐANG KÊU CỨU</h2>
+                <div class="flex-row">
+                    <p>Hơn 700 loài sinh vật biển ăn phải rác nhựa hoặc bị mắc kẹt dẫn đến tử vong.</p>
+                    <img src="https://picsum.photos/400/200?random=1" alt="Sea Life">
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-04">
+                <h2 class="num-title">04. KẺ GIẾT NGƯỜI THẦM LẶNG: BỤI MỊN</h2>
+                <div class="aqi-box">
+                    <div class="aqi-meter"><div class="pointer" style="left: 85%;"></div></div>
+                    <p style="color:#e74c3c; font-weight:bold;">⚠️ Mức độ: NGUY HẠI (AQI > 200)</p>
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-05">
+                <h2 class="num-title">05. BIẾN ĐỔI KHÍ HẬU & BĂNG TAN</h2>
+                <div class="grid-2">
+                    <div class="stat-box"><h4>+1.1°C</h4><p>Nhiệt độ toàn cầu tăng.</p></div>
+                    <div class="stat-box"><h4>3.3mm</h4><p>Mực nước biển dâng mỗi năm.</p></div>
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-06">
+                <h2 class="num-title">06. HẠN HÁN: KHI ĐẤT MẸ KHÔ CẰN</h2>
+                <p>Nắng nóng kéo dài làm cạn kiệt nguồn nước và gây cháy rừng diện rộng.</p>
+                <img src="https://picsum.photos/400/200?random=2" alt="Drought">
+            </section>
+
+            <section class="glass-card" id="section-07">
+                <h2 class="num-title">07. SỰ TUYỆT CHỦNG HÀNG LOẠT</h2>
+                <p>68% quần thể động vật hoang dã đã biến mất trong vòng 50 năm qua.</p>
+            </section>
+
+            <section class="glass-card" id="section-08">
+                <h2 class="num-title">08. RÁC ĐIỆN TỬ: ĐỘC TỐ TIỀM ẨN</h2>
+                <p>Chì, thủy ngân trong linh kiện cũ đang ngấm vào mạch nước ngầm của bạn.</p>
+            </section>
+
+            <section class="glass-card" id="section-09">
+                <h2 class="num-title">09. THƯ VIỆN XANH: GIẢI PHÁP</h2>
+                <div class="grid-3">
+                    <div class="sol-card">♻️ Enzyme Bồ Hòn</div>
+                    <div class="sol-card">♻️ Gạch Sinh Thái</div>
+                    <div class="sol-card">♻️ Vườn Treo PET</div>
+                </div>
+            </section>
+
+            <section class="glass-card" id="section-10" style="text-align: center;">
+                <h2 class="num-title" style="border:none">10. HÀNH ĐỘNG VÌ TƯƠNG LAI</h2>
+                <button id="btn-commit" class="btn-shine">TÔI CAM KẾT HÀNH ĐỘNG</button>
+                <p id="commit-msg" class="hidden">✨ Cảm ơn Chiến Binh Xanh! ✨</p>
+            </section>
+        </div>
+
+        <section class="glass-card game-section">
+            <h2 class="num-title">🎮 TRUNG TÂM TRÒ CHƠI</h2>
+            <div class="game-tabs">
+                <button class="tab-btn active" onclick="switchGame(event, 'quiz-ui')">Trắc Nghiệm</button>
+                <button class="tab-btn" onclick="switchGame(event, 'sort-ui')">Phân Loại</button>
+                <button class="tab-btn" onclick="switchGame(event, 'memory-ui')">Trí Nhớ</button>
+            </div>
+
+            <div id="game-display">
+                <div id="quiz-ui" class="game-content">
+                    <h3 id="q-text">Đang tải câu hỏi...</h3>
+                    <div id="q-options"></div>
+                </div>
+                <div id="sort-ui" class="game-content hidden">
+                    <h3>Phân loại rác (Click chọn đúng thùng)</h3>
+                    <p style="font-size: 2.5rem;">🧴</p>
+                    <div class="bin-row">
+                        <button class="bin-btn blue" onclick="alert('Đúng!')">TÁI CHẾ</button>
+                        <button class="bin-btn green" onclick="alert('Sai!')">HỮU CƠ</button>
+                    </div>
+                </div>
+                <div id="memory-ui" class="game-content hidden">
+                    <h3>Lật thẻ tìm cặp giống nhau</h3>
+                    <div id="mem-board" class="mem-grid"></div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
-<section id="section-01" class="glass-card">
-    <div class="header-box">
-        <h2 class="num-title">01. THỰC TRẠNG: CON SỐ BIẾT NÓI</h2>
-    </div>
-
-    <div class="intro-text">
-        <p><b>Nguy trạng:</b> <span class="highlight">Con số biết nói</span> cuộn nhiệt đến mà môi trường đang bị bủa vây bởi nhựa. Lượng rác thải nhựa phát sinh không ngừng tăng cao, đe dọa trực tiếp đến hệ sinh thái và sức khỏe con người nếu không có hành động kịp thời.</p>
-    </div>
-
-    <div class="charts-container">
-        <div class="chart-item">
-            <h3>Plastic Pollution (Triệu tấn/năm)</h3>
-            <div class="bar-chart">
-                <div class="bar-wrapper">
-                    <div class="bar blue" style="height: 40%;"><span>118</span></div>
-                    <p>2010</p>
-                </div>
-                <div class="bar-wrapper">
-                    <div class="bar blue" style="height: 55%;"><span>158</span></div>
-                    <p>2020</p>
-                </div>
-                <div class="bar-wrapper">
-                    <div class="bar blue" style="height: 75%;"><span>238</span></div>
-                    <p>2023</p>
-                </div>
-                <div class="bar-wrapper">
-                    <div class="bar orange" style="height: 95%;"><span>350</span></div>
-                    <p>2026</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="chart-item">
-            <h3>Plastic Waste in Ocean (%)</h3>
-            <div class="donut-chart-box">
-                <div class="donut-chart"></div>
-                <div class="donut-info">
-                    <p><span class="dot blue"></span> Thấp</p>
-                    <p><span class="dot orange"></span> Cao</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="image-gallery">
-        <div class="img-box">
-            <img src="https://via.placeholder.com/300x200" alt="Nước thải nhựa">
-            <p>Nâng trạng diện số lượng nhựa đặc thải ra biển.</p>
-        </div>
-        <div class="img-box">
-            <img src="https://via.placeholder.com/300x200" alt="Rác sông ngòi">
-            <p>Năng lượng rác nhựa đổ ra sông ngòi mỗi ngày.</p>
-        </div>
-        <div class="img-box">
-            <img src="https://via.placeholder.com/300x200" alt="Thu gom rác">
-            <p>Bằng chứng kinh hoàng về lượng rác tích tụ.</p>
-        </div>
-    </div>
-</section>
-<section id="section-02" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">02. NGUYÊN NHÂN HƯ SÂU XA</h2>
-    </div>
-
-    <div class="intro-text">
-        <p><b>Nguyên nhân:</b> Sự gia tăng phát thải khí nhà kính và việc lạm dụng nhựa dùng một lần trong sản xuất, tiêu dùng là những tác nhân chính gây ra khủng hoảng.</p>
-    </div>
-
-    <div class="charts-grid-2">
-        <div class="chart-box-mini">
-            <h4>Năng lượng phát thải</h4>
-            <div class="donut-wrap">
-                <div class="donut-segment energy"></div>
-                <div class="donut-center"><span>83%</span></div>
-            </div>
-            <p class="chart-desc">Sử dụng nhiên liệu hóa thạch trong công nghiệp.</p>
-        </div>
-
-        <div class="chart-box-mini">
-            <h4>Nguồn gốc nhựa</h4>
-            <div class="donut-wrap">
-                <div class="donut-segment plastic"></div>
-                <div class="donut-center"><span>65%</span></div>
-            </div>
-            <p class="chart-desc">Nhựa dùng một lần và bao bì đóng gói.</p>
-        </div>
-    </div>
-
-    <div class="line-chart-container" style="margin-top: 30px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px;">
-        <h4 style="margin-bottom: 15px; font-size: 0.9rem;">01. Nguyên nhân phát thải (tấn/ms)</h4>
-        <div class="line-graph">
-            <svg viewBox="0 0 400 100" class="svg-line">
-                <polyline fill="none" stroke="#3498db" stroke-width="3" points="0,80 80,70 160,65 240,50 320,40 400,20" />
-                <polyline fill="none" stroke="#e67e22" stroke-width="3" points="0,95 80,90 160,85 240,80 320,75 400,70" />
-            </svg>
-            <div class="labels-x">
-                <span>2010</span><span>2019</span><span>2020</span><span>2023</span>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="section-03" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">03. TÁC HẠI: KẺ HỦY DIỆT ĐẠI DƯƠNG</h2>
-    </div>
-
-    <div class="impact-content" style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-        <div class="impact-visual" style="flex: 1; min-width: 300px; text-align: center; position: relative;">
-            <div class="fish-container" style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px;">
-                <img src="https://via.placeholder.com/400x250" alt="Tác hại rác nhựa" style="width: 100%; border-radius: 10px; filter: drop-shadow(0 0 10px rgba(231, 76, 60, 0.3));">
-                <p style="font-size: 0.8rem; margin-top: 10px; color: #e74c3c;">⚠️ Hàng triệu tấn nhựa đang "ngụy trang" thành thức ăn cho sinh vật biển.</p>
-            </div>
-        </div>
-
-        <div class="impact-stats" style="flex: 1; min-width: 300px;">
-            <div class="stat-card-mini" style="margin-bottom: 20px;">
-                <h4 style="color: #3498db; margin-bottom: 5px;">Hơn 700 loài</h4>
-                <p style="font-size: 0.9rem; margin: 0;">Sinh vật biển bị ảnh hưởng trực tiếp bởi rác thải nhựa.</p>
-            </div>
-            
-            <div class="stat-card-mini" style="margin-bottom: 20px;">
-                <h4 style="color: #e67e22; margin-bottom: 5px;">90% Chim biển</h4>
-                <p style="font-size: 0.9rem; margin: 0;">Được phát hiện có các mảnh nhựa trong dạ dày.</p>
-            </div>
-
-            <div class="stat-card-mini" style="background: rgba(231, 76, 60, 0.1); border-left: 4px solid #e74c3c; padding: 15px; border-radius: 0 10px 10px 0;">
-                <p style="font-size: 0.85rem; line-height: 1.5;"><b>Hệ quả:</b> Rác nhựa không chỉ giết chết sinh vật mà còn quay trở lại bàn ăn của con người thông qua chuỗi thức ăn (vi nhựa).</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="section-04" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">04. Ô NHIỄM KHÔNG KHÍ: KẺ GIẾT NGƯỜI THẦM LẶNG</h2>
-    </div>
-
-    <div class="air-content" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; align-items: center; margin-top: 20px;">
-        <div class="pm-info">
-            <div class="pm-box" style="background: rgba(231, 76, 60, 0.2); padding: 20px; border-radius: 15px; border-left: 5px solid #e74c3c;">
-                <h3 style="color: #e74c3c; margin: 0;">Bụi mịn PM2.5</h3>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Có kích thước siêu nhỏ (dưới 2.5 micromet), có khả năng đi sâu vào phế nang và mạch máu.</p>
-            </div>
-            
-            <div class="aqi-meter" style="margin-top: 20px; text-align: center;">
-                <p style="font-size: 0.8rem; color: #bdc3c7; margin-bottom: 5px;">Chỉ số chất lượng không khí (AQI)</p>
-                <div class="meter-bar" style="height: 10px; background: linear-gradient(to right, #2ecc71, #f1c40f, #e67e22, #e74c3c, #8e44ad); border-radius: 5px; position: relative;">
-                    <div class="meter-pointer" style="position: absolute; left: 75%; top: -5px; width: 4px; height: 20px; background: white; box-shadow: 0 0 10px white;"></div>
-                </div>
-                <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">Mức Nguy Hại (150 - 200+)</p>
-            </div>
-        </div>
-
-        <div class="air-visual" style="text-align: center;">
-            <div class="image-mask" style="border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                <img src="https://via.placeholder.com/400x200" alt="Ô nhiễm không khí" style="width: 100%; display: block;">
-            </div>
-            <ul style="text-align: left; font-size: 0.85rem; margin-top: 15px; list-style: none; padding: 0;">
-                <li style="margin-bottom: 8px;">😷 <b>Hệ hô hấp:</b> Gây viêm phổi, hen suyễn cấp tính.</li>
-                <li style="margin-bottom: 8px;">❤️ <b>Tim mạch:</b> Tăng nguy cơ đột quỵ và nhồi máu cơ tim.</li>
-                <li>🧠 <b>Não bộ:</b> Ảnh hưởng đến sự phát triển trí não ở trẻ nhỏ.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-<section id="section-05" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">05. BIẾN ĐỔI KHÍ HẬU: HÀNH TINH RỰC LỬA</h2>
-    </div>
-
-    <div class="climate-content" style="margin-top: 25px;">
-        <p style="margin-bottom: 20px; line-height: 1.6;">
-            <b>Báo động:</b> Nhiệt độ toàn cầu đã tăng trung bình <b>1.1°C</b> kể từ thời kỳ tiền công nghiệp. Nếu không hành động, con số này có thể chạm mức 1.5°C vào năm 2030.
-        </p>
-
-        <div class="climate-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="climate-visual" style="position: relative; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.3);">
-                <img src="https://via.placeholder.com/400x300" alt="Băng tan" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
-                <div class="overlay-text" style="position: absolute; bottom: 15px; left: 15px;">
-                    <span style="background: #e67e22; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold;">🔥 GLOBAL WARMING</span>
-                </div>
-            </div>
-
-            <div class="consequences">
-                <div class="con-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #3498db;">
-                    <h4 style="margin: 0; color: #3498db; font-size: 1rem;">Mực nước biển dâng</h4>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">Khiến các thành phố ven biển và đồng bằng sông Cửu Long đối mặt nguy cơ ngập lụt.</p>
-                </div>
-                
-                <div class="con-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #f1c40f;">
-                    <h4 style="margin: 0; color: #f1c40f; font-size: 1rem;">Hạn hán & Cháy rừng</h4>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">Các hiện tượng thời tiết cực đoan xảy ra thường xuyên và khốc liệt hơn.</p>
-                </div>
-
-                <div class="con-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border-left: 4px solid #2ecc71;">
-                    <h4 style="margin: 0; color: #2ecc71; font-size: 1rem;">Mất đa dạng sinh học</h4>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">Môi trường sống thay đổi quá nhanh khiến các loài sinh vật không kịp thích nghi.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="section-06" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">06. DỮ LIỆU: NHỮNG CON SỐ BIẾT NÓI</h2>
-    </div>
-
-    <div class="stats-overview" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
-        
-        <div class="bar-chart-v2">
-            <h4 style="font-size: 0.9rem; margin-bottom: 20px; color: #2ecc71;">Tỉ lệ rác thải nhựa phát sinh (Triệu tấn)</h4>
-            <div class="chart-area" style="display: flex; align-items: flex-end; justify-content: space-between; height: 180px; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <div class="bar-col">
-                    <div class="bar-v2" style="height: 30%; background: #3498db;" data-value="12.5"></div>
-                    <span>2015</span>
-                </div>
-                <div class="bar-col">
-                    <div class="bar-v2" style="height: 50%; background: #3498db;" data-value="18.2"></div>
-                    <span>2020</span>
-                </div>
-                <div class="bar-col">
-                    <div class="bar-v2" style="height: 75%; background: #3498db;" data-value="25.0"></div>
-                    <span>2024</span>
-                </div>
-                <div class="bar-col">
-                    <div class="bar-v2" style="height: 90%; background: #e74c3c;" data-value="31.8"></div>
-                    <span>2026</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="percent-stats" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div class="p-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
-                <h3 style="margin: 0; color: #f1c40f; font-size: 1.8rem;">80%</h3>
-                <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Rác thải đại dương bắt nguồn từ các hoạt động trên đất liền.</p>
-            </div>
-            
-            <div class="p-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin-top: 15px;">
-                <h3 style="margin: 0; color: #e67e22; font-size: 1.8rem;">12%</h3>
-                <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Chỉ vỏn vẹn 12% lượng nhựa trên toàn cầu được đem đi tái chế thực sự.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="data-footer" style="margin-top: 25px; padding: 15px; background: rgba(46, 204, 113, 0.1); border: 1px dashed #2ecc71; border-radius: 10px; text-align: center;">
-        <p style="font-size: 0.85rem; margin: 0;">Số liệu được tổng hợp từ báo cáo môi trường quốc gia và các tổ chức bảo tồn thiên nhiên quốc tế (IUCN, WWF).</p>
-    </div>
-</section>
-<section id="section-07" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">07. ĐA DẠNG SINH HỌC: LỜI CẦU CỨU TỪ THIÊN NHIÊN</h2>
-    </div>
-
-    <div class="bio-content" style="display: flex; gap: 25px; margin-top: 25px; align-items: flex-start;">
-        <div class="bio-list" style="flex: 1.2;">
-            <div class="bio-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 15px; border-bottom: 2px solid #e74c3c;">
-                <span style="font-size: 2rem;">🪸</span>
-                <div>
-                    <h4 style="margin: 0; color: #ff7675;">Rạn san hô</h4>
-                    <p style="font-size: 0.8rem; margin: 3px 0 0 0;">50% diện tích san hô toàn cầu đã biến mất do nước biển ấm lên.</p>
-                </div>
-            </div>
-
-            <div class="bio-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 15px; border-bottom: 2px solid #fab1a0;">
-                <span style="font-size: 2rem;">🐘</span>
-                <div>
-                    <h4 style="margin: 0; color: #fab1a0;">Động vật hoang dã</h4>
-                    <p style="font-size: 0.8rem; margin: 3px 0 0 0;">Số lượng quần thể động vật giảm 68% trong vòng 50 năm qua.</p>
-                </div>
-            </div>
-
-            <div class="bio-item" style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; border-bottom: 2px solid #55efc4;">
-                <span style="font-size: 2rem;">🌳</span>
-                <div>
-                    <h4 style="margin: 0; color: #55efc4;">Rừng nguyên sinh</h4>
-                    <p style="font-size: 0.8rem; margin: 3px 0 0 0;">Mỗi phút trôi qua, diện tích rừng tương đương 27 sân bóng đá bị chặt hạ.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bio-visual" style="flex: 1; text-align: center;">
-            <div class="animal-frame" style="position: relative; border-radius: 15px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1);">
-                <img src="https://via.placeholder.com/350x450" alt="Động vật tuyệt chủng" style="width: 100%; display: block; filter: sepia(0.5);">
-                <div class="warning-tag" style="position: absolute; top: 15px; right: -30px; background: #d63031; color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.7rem; font-weight: bold;">EXTINCT RISKS</div>
-            </div>
-            <p style="font-style: italic; font-size: 0.75rem; margin-top: 10px; color: #bdc3c7;">"Chúng ta không thừa kế trái đất từ tổ tiên, chúng ta mượn nó từ con cháu."</p>
-        </div>
-    </div>
-</section>
-<section id="section-08" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">08. RÁC THẢI ĐIỆN TỬ: MẶT TỐI CỦA CÔNG NGHỆ</h2>
-    </div>
-
-    <div class="ewaste-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
-        <div class="ewaste-visual" style="text-align: center; background: rgba(0, 255, 255, 0.05); border-radius: 15px; padding: 20px; border: 1px solid rgba(0, 255, 255, 0.2);">
-            <div class="circuit-bg" style="position: relative; overflow: hidden; height: 200px; border-radius: 10px;">
-                <img src="https://via.placeholder.com/400x250" alt="E-waste" style="width: 100%; height: 100%; object-fit: cover;">
-                <div class="scan-line"></div>
-            </div>
-            <p style="font-size: 0.8rem; margin-top: 15px; color: #00cec9;">Chỉ 17.4% rác thải điện tử được thu gom và tái chế đúng cách trên toàn cầu.</p>
-        </div>
-
-        <div class="toxic-list">
-            <h4 style="color: #00cec9; margin-bottom: 15px; font-size: 1rem;">Mối nguy từ kim loại nặng:</h4>
-            
-            <div class="toxic-item" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
-                <span>Chì (Pb) - Trong pin/màn hình</span>
-                <span class="danger-level" style="color: #e74c3c;">Cao</span>
-            </div>
-
-            <div class="toxic-item" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
-                <span>Thủy ngân (Hg) - Trong cảm biến</span>
-                <span class="danger-level" style="color: #e74c3c;">Rất cao</span>
-            </div>
-
-            <div class="toxic-item" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
-                <span>Cadmium (Cd) - Trong bảng mạch</span>
-                <span class="danger-level" style="color: #f1c40f;">Trung bình</span>
-            </div>
-
-            <p style="font-size: 0.8rem; line-height: 1.4; color: #bdc3c7; border-top: 1px solid rgba(0,255,255,0.2); pt: 10px; margin-top: 10px;">
-                <b>Hậu quả:</b> Ngấm vào mạch nước ngầm và đất, gây tổn thương hệ thần kinh và các bệnh nan y cho con người.
-            </p>
-        </div>
-    </div>
-</section>
-<section id="section-09" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">09. THƯ VIỆN: RÁC THẢI LÀ TÀI NGUYÊN</h2>
-    </div>
-
-    <div class="intro-text">
-        <p><b>Giải pháp:</b> Thay vì vứt bỏ, chúng ta có thể biến rác thành những vật phẩm hữu ích. Dưới đây là các ý tưởng sáng tạo giúp kéo dài vòng đời của sản phẩm.</p>
-    </div>
-
-    <div class="solution-grid">
-        <div class="sol-card">
-            <div class="sol-img">
-                <img src="https://via.placeholder.com/300x350" alt="Enzyme bồ hòn">
-                <div class="sol-tag">Tự nhiên</div>
-            </div>
-            <h4>Enzyme Bồ Hòn</h4>
-            <p>Nước tẩy rửa sinh học an toàn từ vỏ trái cây.</p>
-        </div>
-
-        <div class="sol-card">
-            <div class="sol-img">
-                <img src="https://via.placeholder.com/300x350" alt="Tái chế chai nhựa">
-                <div class="sol-tag">Sáng tạo</div>
-            </div>
-            <h4>Vườn treo chai nhựa</h4>
-            <p>Tận dụng chai PET cũ để trồng rau và cây cảnh.</p>
-        </div>
-
-        <div class="sol-card">
-            <div class="sol-img">
-                <img src="https://via.placeholder.com/300x350" alt="Eco-brick">
-                <div class="sol-tag">Bền vững</div>
-            </div>
-            <h4>Gạch sinh thái (Eco-brick)</h4>
-            <p>Nén rác nhựa vào chai để làm vật liệu xây dựng.</p>
-        </div>
-    </div>
-
-    <div class="more-solutions" style="margin-top: 25px; text-align: center;">
-        <p style="font-size: 0.8rem; color: #2ecc71; font-style: italic;">"Hành động nhỏ, thay đổi lớn - Bắt đầu từ chính ngôi nhà của bạn."</p>
-    </div>
-</section>
-<section id="section-10" class="glass-card" style="margin-top: 40px; text-align: center; background: rgba(46, 204, 113, 0.15);">
-    <div class="header-box">
-        <h2 class="num-title" style="border-bottom: none;">10. THÔNG ĐIỆP: HÀNH ĐỘNG VÌ TƯƠNG LAI</h2>
-    </div>
-
-    <div class="final-message" style="margin-top: 20px;">
-        <h3 style="color: #2ecc71; font-size: 1.5rem; margin-bottom: 15px;">Chúng ta không có hành tinh B</h3>
-        <p style="font-size: 1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 30px;">
-            Mỗi lựa chọn nhỏ ngày hôm nay của bạn — từ việc từ chối một chiếc ống hút nhựa đến việc phân loại rác tại nguồn — đều là một viên gạch xây dựng nên tương lai bền vững. 
-            <b>Bạn đã sẵn sàng trở thành Chiến Binh Xanh?</b>
-        </p>
-
-        <button id="btn-commit" class="btn-shine">TÔI CAM KẾT BẢO VỆ MÔI TRƯỜNG</button>
-        
-        <div id="commit-badge" class="hidden" style="margin-top: 20px; color: #f1c40f; font-weight: bold; animation: zoomIn 0.5s;">
-            ✨ Cảm ơn bạn! Bạn là một phần của sự thay đổi. ✨
-        </div>
-    </div>
-
-    <div class="footer-visual" style="margin-top: 40px; opacity: 0.6;">
-        <img src="https://via.placeholder.com/600x150" alt="Môi trường xanh" style="width: 100%; border-radius: 10px;">
-    </div>
-</section>
-<section id="game-section" class="glass-card" style="margin-top: 40px;">
-    <div class="header-box">
-        <h2 class="num-title">🕹️ THỬ THÁCH CHIẾN BINH XANH</h2>
-    </div>
-
-    <div class="game-tabs" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
-        <button class="tab-btn active" onclick="switchGame('quiz')">Trắc Nghiệm</button>
-        <button class="tab-btn" onclick="switchGame('sort')">Phân Loại Rác</button>
-        <button class="tab-btn" onclick="switchGame('memory')">Trí Nhớ Xanh</button>
-    </div>
-
-    <div id="quiz-game" class="game-content">
-        <div id="question-container">
-            <h3 id="question" style="color: #f1c40f; margin-bottom: 15px;">Đang tải câu hỏi...</h3>
-            <div id="answer-buttons" class="btn-grid">
-                </div>
-        </div>
-        <div id="result-container" class="hidden">
-            <h3>Kết quả: <span id="score">0</span>/5</h3>
-            <button onclick="startQuiz()" class="btn-shine">Chơi lại</button>
-        </div>
-    </div>
-
-    <div id="sort-game" class="game-content hidden"> <p>Game Phân Loại Rác đang được cập nhật...</p> </div>
-    <div id="memory-game" class="game-content hidden"> <p>Game Trí Nhớ đang được cập nhật...</p> </div>
-</section>
