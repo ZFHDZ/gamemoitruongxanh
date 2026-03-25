@@ -3,150 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trí Tuệ Xanh - Educational Platform</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TRÍ TUỆ XANH - CHIẾN BINH MÔI TRƯỜNG</title>
+    <style>
+        :root { --p: #2ecc71; --s: #27ae60; --warn: #e67e22; --danger: #e74c3c; --dark: #05140b; --glass: rgba(255, 255, 255, 0.07); }
+        body { background: var(--dark); color: #fff; font-family: 'Arial', sans-serif; margin: 0; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Glassmorphism */
+        .glass-card { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 25px; padding: 35px; margin-bottom: 50px; transition: 0.3s; }
+        .num-title { color: var(--p); border-left: 6px solid var(--p); padding-left: 15px; text-transform: uppercase; margin-bottom: 25px; font-size: 1.6rem; }
+
+        /* Biểu đồ cột 3D */
+        .chart-container { display: flex; align-items: flex-end; justify-content: space-around; height: 300px; border-bottom: 2px solid #444; padding: 20px; margin: 20px 0; }
+        .bar-col { width: 15%; text-align: center; position: relative; }
+        .bar-fill { width: 100%; border-radius: 8px 8px 0 0; transition: height 1.5s; position: relative; }
+        .bar-fill.blue { background: linear-gradient(to top, #3498db, #5dade2); }
+        .bar-fill.orange { background: linear-gradient(to top, #e67e22, #f39c12); box-shadow: 0 0 20px rgba(230,126,34,0.5); }
+        .bar-val { position: absolute; top: -30px; width: 100%; font-weight: bold; color: var(--p); }
+
+        /* Grid & Images */
+        .flex-grid { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+        .info-img { flex: 1; min-width: 300px; height: 250px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .info-text { flex: 1.2; font-size: 1.1rem; }
+
+        /* Game System */
+        .game-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: #222; color: #fff; border: 1px solid #444; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        .tab-btn.active { background: var(--p); box-shadow: 0 0 15px var(--p); border: none; }
+        .game-view { background: rgba(0,0,0,0.4); border-radius: 20px; padding: 30px; min-height: 350px; text-align: center; }
+        
+        /* Drag Drop & Memory */
+        .trash-item { background: #fff; color: #000; padding: 15px 25px; border-radius: 10px; display: inline-block; cursor: grab; font-weight: bold; }
+        .bin-area { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
+        .bin { width: 150px; height: 180px; border: 3px dashed #666; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 350px; margin: 0 auto; }
+        .mem-card { height: 80px; background: #333; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+
+        .hidden { display: none; }
+        .btn-action { background: var(--p); color: #fff; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(46,204,113,0.4); }
+        #score-board { position: fixed; top: 20px; right: 20px; background: var(--p); color: #000; padding: 10px 20px; border-radius: 10px; font-weight: bold; z-index: 1000; }
+    </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <main class="container">
-        <header class="main-header">
-            <div class="logo-area">🌱 TRÍ TUỆ XANH</div>
-            <p>Hành trình 30 giây thay đổi nhận thức - Dự án giáo dục môi trường</p>
-        </header>
 
-        <div id="content-scroll">
-            
-            <section class="glass-card" id="section-01">
-                <h2 class="num-title">01. THỰC TRẠNG: CON SỐ BIẾT NÓI</h2>
-                <div class="infographic-box">
-                    <div class="chart-desc">Dự báo lượng rác thải nhựa rò rỉ ra đại dương (Triệu tấn/năm)</div>
-                    <div class="bar-chart-v3">
-                        <div class="bar-col"><div class="fill blue" style="height: 45%"><span class="num">11.8</span></div><p>2010</p></div>
-                        <div class="bar-col"><div class="fill blue" style="height: 65%"><span class="num">15.8</span></div><p>2020</p></div>
-                        <div class="bar-col"><div class="fill blue" style="height: 85%"><span class="num">23.8</span></div><p>2023</p></div>
-                        <div class="bar-col"><div class="fill orange" style="height: 100%"><span class="num">35.0</span></div><p>2026</p></div>
-                    </div>
-                </div>
-                <div class="image-row">
-                    <div class="img-item"><img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=500" alt="Plastic Pollution"><p>Rác thải nhựa đại dương</p></div>
-                    <div class="img-item"><img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=500" alt="River Trash"><p>Ô nhiễm nguồn nước</p></div>
-                </div>
-            </section>
+<div id="score-board">ĐIỂM: 0 <br> <small>Tập Sự Xanh 🌱</small></div>
 
-            <section class="glass-card" id="section-02">
-                <h2 class="num-title">02. NGUYÊN NHÂN: GỐC RỄ VẤN ĐỀ</h2>
-                <div class="cause-grid">
-                    <div class="cause-card">
-                        <img src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?auto=format&fit=crop&w=400" alt="Industry">
-                        <h3>Khí thải Công nghiệp</h3>
-                        <p>Việc sử dụng nhiên liệu hóa thạch không kiểm soát làm tăng nồng độ CO2.</p>
-                    </div>
-                    <div class="cause-card">
-                        <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&w=400" alt="Consumerism">
-                        <h3>Tiêu dùng nhanh</h3>
-                        <p>Văn hóa "dùng rồi vứt" khiến nhựa một lần trở thành gánh nặng vĩnh viễn.</p>
-                    </div>
-                </div>
-            </section>
+<div class="container">
+    <header style="text-align:center; margin-bottom:60px;">
+        <h1 style="font-size:3.5rem; color:var(--p); margin:0;">TRÍ TUỆ XANH</h1>
+        <p style="letter-spacing:4px; color:#888;">DỰ ÁN GIÁO DỤC MÔI TRƯỜNG TOÀN DIỆN</p>
+    </header>
 
-            <section class="glass-card" id="section-03">
-                <h2 class="num-title">03. HỆ SINH THÁI ĐANG KÊU CỨU</h2>
-                <div class="impact-content">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600" alt="Coral Bleaching">
-                    <p>Hơn <b>700 loài</b> sinh vật biển bị đe dọa. Rạn san hô - "rừng nhiệt đới dưới đáy biển" - đang bị tẩy trắng hàng loạt do nhiệt độ nước tăng cao.</p>
-                </div>
-            </section>
-
-            <section class="glass-card" id="section-04">
-                <h2 class="num-title">04. KẺ GIẾT NGƯỜI THẦM LẶNG: BỤI MỊN PM2.5</h2>
-                <div class="aqi-dashboard">
-                    <div class="aqi-meter">
-                        <div class="aqi-pointer" style="left: 88%;"></div>
-                        <div class="labels"><span>Tốt</span><span>Kém</span><span>Nguy hại</span></div>
-                    </div>
-                    <p class="warning-text">⚠️ AQI > 200: Cực kỳ nguy hiểm cho hệ tim mạch và hô hấp.</p>
-                </div>
-            </section>
-
-            <section class="glass-card" id="section-05">
-                <h2 class="num-title">05. BIẾN ĐỔI KHÍ HẬU: BĂNG TAN</h2>
-                <div class="ice-melting">
-                    <div class="data-point"><h4>+1.1°C</h4><p>Nhiệt độ Trái Đất tăng</p></div>
-                    <div class="data-point"><h4>-13%</h4><p>Diện tích băng Bắc Cực mỗi thập kỷ</p></div>
-                </div>
-                <img src="https://images.unsplash.com/photo-1473081556163-2a17241f7198?auto=format&fit=crop&w=800" alt="Ice Melting">
-            </section>
-
-            <section class="glass-card" id="section-06">
-                <h2 class="num-title">06. HẠN HÁN & CHÁY RỪNG</h2>
-                <div class="flex-container">
-                    <img src="https://images.unsplash.com/photo-1500052601235-98561129b870?auto=format&fit=crop&w=400" alt="Forest Fire">
-                    <p>Những đợt nắng nóng kéo dài kỷ lục thiêu rụi hàng triệu hecta rừng tại Amazon và Úc, làm mất đi nơi cư trú của hàng tỷ sinh vật.</p>
-                </div>
-            </section>
-
-            <section class="glass-card" id="section-07">
-                <h2 class="num-title">07. ĐA DẠNG SINH HỌC SUY GIẢM</h2>
-                <div class="extinction-box">
-                    <p>Tốc độ tuyệt chủng hiện nay nhanh gấp <b>1.000 lần</b> so với mức tự nhiên do các hoạt động của con người.</p>
-                </div>
-            </section>
-
-            <section class="glass-card" id="section-08">
-                <h2 class="num-title">08. MẶT TỐI CỦA CÔNG NGHỆ</h2>
-                <p>Mỗi năm có 50 triệu tấn rác điện tử bị vứt bỏ. Chỉ 20% được tái chế đúng cách, số còn lại đầu độc nguồn đất và nước ngầm bằng chì và thủy ngân.</p>
-            </section>
-
-            <section class="glass-card" id="section-09">
-                <h2 class="num-title">09. THƯ VIỆN GIẢI PHÁP XANH</h2>
-                <div class="sol-grid-v3">
-                    <div class="card">♻️ Enzyme Bồ Hòn</div>
-                    <div class="card">♻️ Gạch Sinh Thái (Eco-bricks)</div>
-                    <div class="card">♻️ Vườn Treo Chai Nhựa</div>
-                    <div class="card">♻️ Năng lượng Mặt Trời</div>
-                </div>
-            </section>
-
-            <section class="glass-card" id="section-10" style="text-align: center;">
-                <h2 class="num-title" style="border:none">10. THÔNG ĐIỆP: HÀNH ĐỘNG NGAY</h2>
-                <p>Chúng ta không có Hành tinh B. Bạn đã sẵn sàng thay đổi?</p>
-                <button id="btn-commit" class="glow-button">TÔI CAM KẾT BẢO VỆ MÔI TRƯỜNG</button>
-                <p id="commit-msg" class="hidden">🌿 Cảm ơn Chiến Binh Xanh! Bạn là một phần của sự thay đổi. 🌿</p>
-            </section>
-        </div>
-
-        <section class="glass-card game-center">
-            <h2 class="num-title">🕹️ THỬ THÁCH TRÍ TUỆ XANH</h2>
-            <div class="game-tabs">
-                <button class="tab-link active" onclick="openGame(event, 'quiz-area')">Quiz Kiến Thức</button>
-                <button class="tab-link" onclick="openGame(event, 'sort-area')">Phân Loại Rác</button>
-                <button class="tab-link" onclick="openGame(event, 'memory-area')">Trí Nhớ Xanh</button>
-            </div>
-
-            <div class="game-viewport">
-                <div id="quiz-area" class="game-pane">
-                    <h3 id="q-txt">Đang chuẩn bị câu hỏi...</h3>
-                    <div id="q-options" class="options-grid"></div>
-                </div>
-
-                <div id="sort-area" class="game-pane hidden">
-                    <h3>Phân loại rác vào đúng thùng</h3>
-                    <div class="drag-zone">
-                        <div id="item" draggable="true" ondragstart="drag(event)" class="trash-item">🧴 Chai nhựa</div>
-                    </div>
-                    <div class="bin-zone">
-                        <div class="bin recycled" ondrop="drop(event, 'recycled')" ondragover="allow(event)">TÁI CHẾ</div>
-                        <div class="bin organic" ondrop="drop(event, 'organic')" ondragover="allow(event)">HỮU CƠ</div>
-                    </div>
-                </div>
-
-                <div id="memory-area" class="game-pane hidden">
-                    <div id="mem-grid" class="memory-grid"></div>
-                </div>
+    <div id="sections">
+        <section class="glass-card">
+            <h2 class="num-title">01. THỰC TRẠNG: RÁC THẢI NHỰA</h2>
+            <div class="chart-container">
+                <div class="bar-col"><div class="bar-fill blue" style="height:40%"><span class="bar-val">118M</span></div><p>2010</p></div>
+                <div class="bar-col"><div class="bar-fill blue" style="height:60%"><span class="bar-val">158M</span></div><p>2020</p></div>
+                <div class="bar-col"><div class="bar-fill blue" style="height:80%"><span class="bar-val">238M</span></div><p>2023</p></div>
+                <div class="bar-col"><div class="bar-fill orange" style="height:100%"><span class="bar-val">350M</span></div><p>2026</p></div>
             </div>
         </section>
-    </main>
 
-    <script src="script.js"></script>
+        <section class="glass-card">
+            <h2 class="num-title">02. NGUYÊN NHÂN: CÔNG NGHIỆP</h2>
+            <div class="flex-grid">
+                <img src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?w=500" class="info-img">
+                <div class="info-text"><p>Khí thải từ các nhà máy nhiệt điện than và thói quen dùng nhựa một lần là hai nguyên nhân chính gây nên thảm họa môi trường hiện nay.</p></div>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">03. TÁC HẠI: HỆ SINH THÁI BIỂN</h2>
+            <div class="flex-grid" style="flex-direction:row-reverse">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500" class="info-img">
+                <div class="info-text"><p>Hơn 700 loài sinh vật biển đang ăn nhầm rác nhựa, dẫn đến tử vong và phá hủy chuỗi thức ăn tự nhiên.</p></div>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">04. Ô NHIỄM: BỤI MỊN PM2.5</h2>
+            <p>Kẻ giết người thầm lặng gây bệnh tim mạch và phổi cho hàng triệu người mỗi năm.</p>
+            <div style="height:20px; background:linear-gradient(to right, green, yellow, red); border-radius:10px; margin-top:20px;"></div>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">05. BIẾN ĐỔI: BĂNG TAN</h2>
+            <div class="flex-grid">
+                <img src="https://images.unsplash.com/photo-1473081556163-2a17241f7198?w=500" class="info-img">
+                <div class="info-text"><p>Nhiệt độ tăng làm tan chảy các khối băng vĩnh cửu, khiến mực nước biển dâng cao đe dọa các vùng đồng bằng.</p></div>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">06. HẠN HÁN & CHÁY RỪNG</h2>
+            <img src="https://images.unsplash.com/photo-1500052601235-98561129b870?w=800" class="info-img" style="width:100%; height:300px; margin-bottom:20px;">
+            <p>Nắng nóng kỷ lục làm bốc cháy các cánh rừng nguyên sinh, mất đi "lá phổi" của Trái Đất.</p>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">07. ĐA DẠNG: TUYỆT CHỦNG</h2>
+            <p>68% quần thể động vật hoang dã đã biến mất trong vòng 50 năm qua. Chúng ta đang ở trong đợt tuyệt chủng hàng loạt thứ 6.</p>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">08. ĐỘC TỐ: RÁC ĐIỆN TỬ</h2>
+            <p>Chì và thủy ngân từ linh kiện cũ đang đầu độc nguồn nước ngầm của nhân loại.</p>
+        </section>
+
+        <section class="glass-card">
+            <h2 class="num-title">09. GIẢI PHÁP: TÁI CHẾ XANH</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <div style="background:rgba(255,255,255,0.1); padding:15px; border-radius:15px;">♻️ Gạch sinh thái</div>
+                <div style="background:rgba(255,255,255,0.1); padding:15px; border-radius:15px;">🧼 Enzyme bồ hòn</div>
+            </div>
+        </section>
+
+        <section class="glass-card" style="text-align:center;">
+            <h2 class="num-title" style="border:none">10. THÔNG ĐIỆP: HÀNH ĐỘNG</h2>
+            <button class="btn-action" onclick="alert('Chào mừng Chiến Binh Xanh!')">TÔI CAM KẾT BẢO VỆ MÔI TRƯỜNG</button>
+        </section>
+    </div>
+
+    <section class="glass-card">
+        <h2 class="num-title">🎮 TRUNG TÂM TRÒ CHƠI</h2>
+        <div class="game-tabs">
+            <button class="tab-btn active" onclick="tab(event, 'sort')">Phân Loại</button>
+            <button class="tab-btn" onclick="tab(event, 'quiz')">Quiz</button>
+            <button class="tab-btn" onclick="tab(event, 'memo')">Trí Nhớ</button>
+        </div>
+
+        <div id="game-sort" class="game-view">
+            <h3>Kéo rác vào thùng!</h3>
+            <div id="item" draggable="true" ondragstart="drag(event)" class="trash-item">🧴 CHAI NHỰA</div>
+            <div class="bin-area">
+                <div class="bin" ondrop="drop(event, 're')" ondragover="allow(event)" style="border-color:#3498db">TÁI CHẾ</div>
+                <div class="bin" ondrop="drop(event, 'or')" ondragover="allow(event)" style="border-color:#2ecc71">HỮU CƠ</div>
+            </div>
+        </div>
+
+        <div id="game-quiz" class="game-view hidden">
+            <h3 id="q">Loại rác nào mất 500 năm để phân hủy?</h3>
+            <button class="btn-action" onclick="ans(false)" style="margin:10px">Vỏ táo</button>
+            <button class="btn-action" onclick="ans(true)" style="margin:10px">Túi nilon</button>
+        </div>
+
+        <div id="game-memo" class="game-view hidden">
+            <div class="mem-grid" id="m-grid"></div>
+        </div>
+    </section>
+</div>
+
+<script>
+    let score = 0;
+    function up(p) { score += p; document.getElementById('score-board').innerHTML = `ĐIỂM: ${score} <br> <small>${score >= 30 ? 'Chiến Binh Xanh 👑' : 'Tập Sự 🌱'}</small>`; }
+    
+    function tab(e, id) {
+        document.querySelectorAll('.game-view').forEach(v => v.classList.add('hidden'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('game-'+id).classList.remove('hidden');
+        e.target.classList.add('active');
+        if(id === 'memo') startMemo();
+    }
+
+    // Drag
+    function allow(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData("text", e.target.id); }
+    function drop(e, type) {
+        e.preventDefault();
+        if(type === 're') { alert('Đúng! +10đ'); up(10); } else alert('Sai rồi!');
+    }
+
+    // Quiz
+    function ans(c) { if(c) { alert('Chính xác! +10đ'); up(10); } else alert('Sai!'); }
+
+    // Memory
+    function startMemo() {
+        const grid = document.getElementById('m-grid'); grid.innerHTML = '';
+        const icons = ['♻️','♻️','🌿','🌿','🌊','🌊'];
+        icons.sort(() => Math.random() - 0.5);
+        icons.forEach(i => {
+            const card = document.createElement('div'); card.className = 'mem-card'; card.innerText = '?';
+            card.onclick = () => { card.innerText = i; card.style.background = '#2ecc71'; };
+            grid.appendChild(card);
+        });
+    }
+</script>
 </body>
 </html>
