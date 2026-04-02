@@ -59,50 +59,148 @@ function resetQuiz() {
 // ==========================================
 // --- TRÒ 2: PHÂN LOẠI RÁC (KÉO & THẢ) ---
 // ==========================================
-const trashData = [
-    { n: "Vỏ cam héo", t: "organic" }, 
-    { n: "Chai nhựa trà sữa", t: "inorganic" },
-    { n: "Lá cây khô", t: "organic" }, 
-    { n: "Lon nước ngọt", t: "inorganic" },
-    { n: "Cơm thừa", t: "organic" }, 
-    { n: "Túi nilon", t: "inorganic" },
-    { n: "Bã cà phê", t: "organic" }, 
-    { n: "Pin cũ (Rác độc hại)", t: "inorganic" },
-    { n: "Rau cải hỏng", t: "organic" }, 
-    { n: "Mảnh thủy tinh", t: "inorganic" }
-];
-
-let tIdx = 0;
-
-function loadTrash() {
-    const trashItem = document.getElementById('trash-item');
-    if (tIdx < trashData.length) {
-        trashItem.innerText = trashData[tIdx].n;
-        trashItem.style.display = "block";
-    } else {
-        trashItem.innerText = "BẠN ĐÃ PHÂN LOẠI XONG!";
-        trashItem.draggable = false;
-    }
-}
-
-function allow(e) { e.preventDefault(); }
-
-function drag(e) {
-    e.dataTransfer.setData("text", e.target.id);
-}
-
-function drop(e, type) {
-    e.preventDefault();
-    if (tIdx < trashData.length) {
-        if (trashData[tIdx].t === type) {
-            tIdx++;
-            document.getElementById('sort-progress').innerText = `Tiến độ: ${tIdx}/10`;
-            loadTrash();
-        } else {
-            alert("Rác này không thuộc thùng này! Hãy thử lại.");
+<div id="game-sort-container" class="glass" style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 25px; border: 2px solid #27ae60;">
+    <style>
+        /* Tên trò chơi nổi bật */
+        .game-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-    }
-}
+        .game-title { 
+            text-align: center; 
+            color: #1e8449; 
+            margin-bottom: 5px; 
+            font-weight: 900; 
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+        .game-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-container { width: 100%; background: #eee; height: 12px; border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+        #progress-fill { width: 0%; height: 100%; background: #2ecc71; transition: 0.4s; }
+        
+        .trash-display {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px dashed #27ae60;
+        }
+
+        #current-trash {
+            padding: 15px 30px;
+            background: #f1c40f;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 900;
+            border-radius: 12px;
+            cursor: grab;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .bins-row { display: flex; justify-content: space-between; gap: 20px; }
+        .bin-box {
+            flex: 1;
+            height: 180px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            border: 4px solid transparent;
+        }
+        .bin-box i { font-size: 3rem; margin-bottom: 10px; pointer-events: none; }
+        .bin-box span { font-weight: 900; pointer-events: none; }
+
+        .bin-org { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+        .bin-inorg { background: #fff3cd; color: #856404; border-color: #ffeeba; }
+
+        .drag-over { transform: scale(1.05); background: #fff !important; border-style: dashed; }
+        .wrong { animation: shake 0.4s ease-in-out; border-color: #e74c3c !important; }
+        @keyframes shake { 0%, 100% {transform: x(0);} 25% {transform: translateX(-8px);} 75% {transform: translateX(8px);} }
+    </style>
+
+    <div style="text-align: center;">
+        <div class="game-badge">LEVEL: EASY</div>
+        <h2 class="game-title">TRÒ CHƠI 02: HIỆP SĨ PHÂN LOẠI</h2>
+        <p class="game-subtitle">Kéo rác vào đúng thùng để làm sạch môi trường!</p>
+    </div>
+    
+    <div class="progress-bar-container">
+        <div id="progress-fill"></div>
+    </div>
+
+    <div class="trash-display">
+        <div id="current-trash" draggable="true" ondragstart="event.dataTransfer.setData('text', event.target.id)">
+            Đang tải rác...
+        </div>
+    </div>
+
+    <div class="bins-row">
+        <div class="bin-box bin-org" id="organic" ondragover="event.preventDefault()" ondrop="handleDrop(event, 'organic')" ondragenter="this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')">
+            <i>🍎</i>
+            <span>RÁC HỮU CƠ</span>
+        </div>
+        <div class="bin-box bin-inorg" id="inorganic" ondragover="event.preventDefault()" ondrop="handleDrop(event, 'inorganic')" ondragenter="this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')">
+            <i>🥤</i>
+            <span>RÁC VÔ CƠ</span>
+        </div>
+    </div>
+
+    <script>
+        const trashes = [
+            { n: "🍐 Vỏ trái cây", t: "organic" }, { n: "🥤 Ly nhựa trà sữa", t: "inorganic" },
+            { n: "🍂 Lá khô", t: "organic" }, { n: "🥫 Lon nhôm", t: "inorganic" },
+            { n: "🍚 Cơm nguội", t: "organic" }, { n: "🛍️ Túi nilon", t: "inorganic" },
+            { n: "☕ Bã trà", t: "organic" }, { n: "🔋 Pin cũ", t: "inorganic" }
+        ];
+        let idx = 0;
+
+        function updateUI() {
+            const el = document.getElementById('current-trash');
+            if (idx < trashes.length) {
+                el.innerText = trashes[idx].n;
+                document.getElementById('progress-fill').style.width = (idx / trashes.length * 100) + "%";
+            } else {
+                el.innerText = "🏆 CHIẾN THẮNG!";
+                el.style.background = "#27ae60"; el.style.color = "white";
+                document.getElementById('progress-fill').style.width = "100%";
+            }
+        }
+
+        function handleDrop(e, type) {
+            e.preventDefault();
+            const bin = e.currentTarget;
+            bin.classList.remove('drag-over');
+            if (idx < trashes.length) {
+                if (trashes[idx].t === type) {
+                    idx++; updateUI();
+                    bin.style.transform = "scale(1.1)";
+                    setTimeout(() => bin.style.transform = "scale(1)", 200);
+                } else {
+                    bin.classList.add('wrong');
+                    setTimeout(() => bin.classList.remove('wrong'), 400);
+                }
+            }
+        }
+        updateUI();
+    </script>
+</div>
 
 // ==========================================
 // --- TRÒ 3: TRÍ NHỚ SIÊU PHÀM (LẬT THẺ) ---
