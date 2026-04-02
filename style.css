@@ -1,261 +1,162 @@
-/* ==========================================
-   --- CẤU HÌNH CHUNG ---
-   ========================================== */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Be Vietnam Pro', sans-serif; 
+// ==========================================
+// --- TRÒ 1: TRẮC NGHIỆM ĐA LĨNH VỰC ---
+// ==========================================
+const questions = [
+    { q: "Rác thải nhựa mất bao lâu để phân hủy?", a: ["10 năm", "100 năm", "450-500 năm", "Không bao giờ"], c: 2 },
+    { q: "Mục tiêu Net Zero 2050 của Việt Nam là gì?", a: ["Phát thải bằng 0", "Không dùng xe máy", "Tắt điện toàn cầu", "Trồng 1 tỷ cây"], c: 0 },
+    { q: "Bụi mịn PM2.5 gây hại trực tiếp nhất cho hệ cơ quan nào?", a: ["Hệ tiêu hóa", "Hệ hô hấp", "Hệ bài tiết", "Hệ vận động"], c: 1 },
+    { q: "Nhóm tình nguyện nào nổi tiếng với việc dọn kênh rạch tại TP.HCM?", a: ["Hà Nội Xanh", "Sài Gòn Xanh", "Đội Xanh", "Thanh Niên Xanh"], c: 1 },
+    { q: "Khí thải chính gây ra hiệu ứng nhà kính là?", a: ["Oxy", "Nitơ", "Carbon Dioxide (CO2)", "Argon"], c: 2 },
+    { q: "Lượng rác thải nhựa phát sinh tại VN năm 2026 ước tính là?", a: ["3.2 triệu tấn", "1.8 triệu tấn", "500 nghìn tấn", "10 triệu tấn"], c: 0 },
+    { q: "Loại rác nào sau đây có thể dùng làm phân bón hữu cơ?", a: ["Hộp xốp", "Vỏ trái cây", "Pin cũ", "Thủy tinh"], c: 1 },
+    { q: "Ngày Môi trường Thế giới là ngày nào?", a: ["1/6", "5/6", "22/4", "10/10"], c: 1 },
+    { q: "Vi nhựa (microplastic) đã được tìm thấy ở đâu?", a: ["Muối biển", "Hải sản", "Máu người", "Tất cả các phương án"], c: 3 },
+    { q: "Nguồn năng lượng nào sau đây là năng lượng tái tạo?", a: ["Than đá", "Dầu mỏ", "Điện gió", "Khí đốt"], c: 2 }
+];
+
+let qIdx = 0, qScore = 0;
+
+function showQuiz() {
+    const quizArea = document.getElementById('quiz-area');
+    if (!quizArea) return; 
+
+    if (qIdx >= questions.length) {
+        quizArea.innerHTML = `<div class="game-result" style="text-align:center; padding:20px;">
+            <h3>HOÀN THÀNH BÀI KIỂM TRA!</h3>
+            <p>Điểm số của bạn: <strong>${qScore}/${questions.length}</strong></p>
+            <button onclick="resetQuiz()" class="btn-reset" style="padding:10px 20px; cursor:pointer;">Làm lại</button>
+        </div>`;
+        return;
+    }
+
+    const q = questions[qIdx];
+    document.getElementById('question').innerText = q.q;
+    document.getElementById('q-count').innerText = qIdx + 1;
+    
+    const opts = document.getElementById('options');
+    opts.innerHTML = '';
+    
+    q.a.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.className = "quiz-btn";
+        btn.onclick = () => {
+            if (i === q.c) {
+                qScore++;
+                document.getElementById('q-score').innerText = qScore;
+            }
+            qIdx++;
+            showQuiz();
+        };
+        opts.appendChild(btn);
+    });
 }
 
-body { 
-    background: #000; 
-    color: #333; 
-    line-height: 1.6; 
-    overflow-x: hidden; 
+function resetQuiz() {
+    qIdx = 0; qScore = 0;
+    document.getElementById('q-score').innerText = "0";
+    showQuiz();
 }
 
-/* Nền rừng hiệu ứng mờ */
-.forest-bg {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
-    z-index: -1; 
-    filter: brightness(0.4) blur(2px);
+// ==========================================
+// --- TRÒ 2: HIỆP SĨ PHÂN LOẠI (ĐÃ FIX) ---
+// ==========================================
+const trashes = [
+    { n: "🍐 Vỏ trái cây", t: "organic" }, { n: "🥤 Ly nhựa trà sữa", t: "inorganic" },
+    { n: "🍂 Lá khô", t: "organic" }, { n: "🥫 Lon nhôm", t: "inorganic" },
+    { n: "🍚 Cơm nguội", t: "organic" }, { n: "🛍️ Túi nilon", t: "inorganic" },
+    { n: "☕ Bã trà", t: "organic" }, { n: "🔋 Pin cũ", t: "inorganic" }
+];
+let tIdx = 0;
+
+function loadTrash() {
+    const el = document.getElementById('current-trash');
+    const progress = document.getElementById('progress-fill');
+    if (!el) return;
+
+    if (tIdx < trashes.length) {
+        el.innerText = trashes[tIdx].n;
+        if(progress) progress.style.width = (tIdx / trashes.length * 100) + "%";
+    } else {
+        el.innerText = "🏆 CHIẾN THẮNG!";
+        el.style.background = "#27ae60"; el.style.color = "white";
+        if(progress) progress.style.width = "100%";
+    }
 }
 
-.container { 
-    max-width: 1100px; 
-    margin: auto; 
-    padding: 20px; 
+function handleDrop(e, type) {
+    e.preventDefault();
+    const bin = e.currentTarget;
+    bin.classList.remove('drag-over');
+    if (tIdx < trashes.length) {
+        if (trashes[tIdx].t === type) {
+            tIdx++; 
+            loadTrash();
+            bin.style.transform = "scale(1.1)";
+            setTimeout(() => bin.style.transform = "scale(1)", 200);
+        } else {
+            bin.classList.add('wrong');
+            setTimeout(() => bin.classList.remove('wrong'), 400);
+        }
+    }
 }
 
-/* Thanh điều hướng */
-.navbar { 
-    background: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(15px); 
-    padding: 15px 5%; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    position: fixed; 
-    width: 100%; 
-    top: 0; 
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+// ==========================================
+// --- TRÒ 3: TRÍ NHỚ SIÊU PHÀM ---
+// ==========================================
+const icons = ['🌿','🌿','♻️','♻️','🌍','🌍','☀️','☀️','💧','💧','🍃','🍃','🔋','🔋','🚲','🚲'];
+let flippedCards = [];
+let matchedCount = 0;
+
+function initMemory() {
+    const board = document.getElementById('memory-board');
+    if (!board) return;
+    board.innerHTML = '';
+    flippedCards = [];
+    matchedCount = 0;
+    
+    const shuffledIcons = [...icons].sort(() => Math.random() - 0.5);
+    
+    shuffledIcons.forEach(icon => {
+        const card = document.createElement('div');
+        card.className = 'm-card';
+        card.dataset.icon = icon;
+        card.innerHTML = `<span class="icon-hidden" style="display:none;">${icon}</span>`;
+        
+        card.onclick = () => {
+            if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+                card.classList.add('flipped');
+                card.querySelector('span').style.display = 'block';
+                flippedCards.push(card);
+                
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 600);
+                }
+            }
+        };
+        board.appendChild(card);
+    });
 }
 
-.logo { font-weight: 900; color: #2ecc71; font-size: 24px; letter-spacing: 1px; }
-.logo span { color: #27ae60; }
-
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 25px; }
-.nav-links a { 
-    text-decoration: none; 
-    color: #333; 
-    font-weight: 700; 
-    font-size: 13px; 
-    transition: 0.3s;
-}
-.nav-links a:hover { color: #2ecc71; }
-
-/* Hero Section */
-.hero { 
-    height: 65vh; 
-    margin-top: 60px; 
-    position: relative; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-    border-radius: 0 0 50px 50px; 
+function checkMatch() {
+    const [c1, c2] = flippedCards;
+    if (c1.dataset.icon === c2.dataset.icon) {
+        matchedCount += 2;
+        if (matchedCount === icons.length) {
+            alert("Tuyệt vời! Bạn có trí nhớ rất tốt về môi trường.");
+        }
+    } else {
+        c1.classList.remove('flipped');
+        c1.querySelector('span').style.display = 'none';
+        c2.classList.remove('flipped');
+        c2.querySelector('span').style.display = 'none';
+    }
+    flippedCards = [];
 }
 
-.hero-img-main { 
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    z-index: -1; 
-}
-
-.hero-text { 
-    color: #fff; 
-    text-align: center; 
-    padding: 20px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-}
-
-.hero-text h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
-
-/* Các thẻ Glassmorphism */
-.glass { 
-    background: rgba(255, 255, 255, 0.92); 
-    padding: 40px; 
-    border-radius: 30px; 
-    margin-bottom: 40px; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-h2 { 
-    color: #27ae60; 
-    margin-bottom: 25px; 
-    border-left: 10px solid #2ecc71; 
-    padding-left: 15px; 
-    font-weight: 900; 
-    text-transform: uppercase;
-}
-
-/* Layout Grid & Media */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-.reverse { direction: rtl; }
-.reverse .text { direction: ltr; }
-
-img { border-radius: 20px; transition: 0.5s; }
-img:hover { transform: scale(1.02); }
-
-.img-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-.img-group img { height: 250px; object-fit: cover; width: 100%; }
-
-/* ==========================================
-   --- UI TRÒ CHƠI (GAME BOX) ---
-   ========================================== */
-.game-box { 
-    background: rgba(15, 25, 35, 0.95); 
-    color: #fff; 
-    padding: 40px; 
-    border-radius: 40px; 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-.game-inner { 
-    background: rgba(255,255,255,0.08); 
-    padding: 30px; 
-    border-radius: 25px; 
-    margin-bottom: 30px; 
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Quiz Buttons */
-.quiz-btn { 
-    display: block; 
-    width: 100%; 
-    padding: 15px; 
-    margin: 10px 0; 
-    border: none; 
-    border-radius: 12px; 
-    background: rgba(255,255,255,0.1); 
-    color: #fff; 
-    font-weight: 700;
-    cursor: pointer; 
-    transition: 0.3s;
-    text-align: left;
-}
-.quiz-btn:hover { background: #2ecc71; transform: translateX(10px); }
-
-/* Drag & Drop */
-#trash-item { 
-    background: #fff; 
-    color: #222; 
-    padding: 20px; 
-    width: 250px; 
-    margin: 20px auto; 
-    text-align: center; 
-    border-radius: 15px; 
-    font-weight: 900; 
-    cursor: grab; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.bins-wrapper { display: flex; justify-content: space-around; gap: 20px; margin-top: 20px; }
-.bin { 
-    flex: 1; 
-    height: 150px; 
-    border: 3px dashed rgba(255,255,255,0.3); 
-    border-radius: 20px; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    font-weight: 900;
-    transition: 0.3s;
-}
-.bin-organic { background: rgba(46, 204, 113, 0.2); border-color: #2ecc71; }
-.bin-inorganic { background: rgba(231, 76, 60, 0.2); border-color: #e74c3c; }
-
-/* Memory Game Grid */
-.memory-grid { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 12px; 
-    max-width: 450px; 
-    margin: 20px auto; 
-}
-
-.m-card { 
-    aspect-ratio: 1/1; 
-    background: #27ae60; 
-    border-radius: 12px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 30px; 
-    cursor: pointer; 
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.m-card.flipped { 
-    background: #fff; 
-    transform: rotateY(180deg); 
-}
-
-.icon-hidden { visibility: hidden; }
-.flipped .icon-hidden { visibility: visible; }
-
-/* Chart Animation */
-.stats-container { 
-    display: flex; 
-    align-items: flex-end; 
-    justify-content: space-around; 
-    height: 200px; 
-    margin: 30px 0; 
-}
-.stat-bar { 
-    width: 60px; 
-    background: #2ecc71; 
-    position: relative; 
-    border-radius: 10px 10px 0 0; 
-    transition: 1s ease-out;
-}
-.stat-bar span { 
-    position: absolute; 
-    top: -30px; 
-    width: 100%; 
-    text-align: center; 
-    font-weight: 900; 
-    font-size: 12px; 
-}
-.stat-bar.warning { background: #e74c3c; box-shadow: 0 0 20px rgba(231,76,60,0.5); }
-
-/* Footer */
-footer { text-align: center; padding: 50px; color: rgba(255,255,255,0.6); font-size: 14px; }
-
-.btn-reset {
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: #2ecc71;
-    border: none;
-    color: #fff;
-    font-weight: 900;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn-reset:hover { background: #27ae60; transform: scale(1.05); }
+// --- KHỞI CHẠY TỔNG ---
+window.onload = () => {
+    showQuiz();   // Chạy Trò 1
+    loadTrash();  // Chạy Trò 2
+    initMemory(); // Chạy Trò 3
+};
