@@ -17,7 +17,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* SỬA LẠI ẢNH NỀN: Làm sáng để thấy rừng, bỏ mờ quá mức */
+/* SỬA LẠI ẢNH NỀN: Làm sáng để thấy rõ rừng phía sau */
 .forest-bg {
     position: fixed;
     top: 0; left: 0;
@@ -26,7 +26,7 @@ body {
     background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920') no-repeat center center;
     background-size: cover; 
     z-index: -1;
-    filter: brightness(0.6) blur(1px); 
+    filter: brightness(0.65) blur(1px); 
 }
 
 .container {
@@ -100,17 +100,18 @@ body {
 
 .hero-text h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
 
-/* SỬA KÍCH THƯỚC ẢNH MỤC 01: To rõ, dàn ngang, không che Header */
+/* FIX TRIỆT ĐỂ MỤC 1: ẢNH TO, DÀN NGANG, KHÔNG ĐÈ HEADER */
 #thuctrang .img-group {
     display: flex; 
     gap: 20px;
     margin-top: 25px;
     width: 100%;
+    overflow: hidden; /* Ngăn chặn ảnh tràn ra ngoài phá layout */
 }
 
 #thuctrang .img-group img {
     flex: 1;
-    height: 380px; 
+    height: 350px; /* Độ cao chuẩn để ảnh to nhưng gọn */
     object-fit: cover;
     border-radius: 20px;
     border: 4px solid #fff;
@@ -147,7 +148,6 @@ h2 {
     height: 350px;
     object-fit: cover;
     border-radius: 20px;
-    transition: 0.5s;
 }
 
 /* ==========================================
