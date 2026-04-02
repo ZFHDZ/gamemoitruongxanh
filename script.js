@@ -161,3 +161,4 @@ window.onload = () => {
     loadTrash();
     initMemory();
 };
+xem lại code sao chỉ nhờ m sửa code trò 2 thôi sao mà m làm cho nó lỗi vậy
