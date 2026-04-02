@@ -1,5 +1,5 @@
 /* ==========================================
-   1. CÀI ĐẶT CHUNG & PHÔNG CHỮ
+   1. CÀI ĐẶT CHUNG & PHÔNG CHỮ (GIỮ NGUYÊN)
    ========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&display=swap');
 
@@ -17,7 +17,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* SỬA PHẦN ẢNH NỀN: Chỉnh độ sáng (brightness) để nhìn rõ rừng phía sau */
+/* SỬA LẠI ẢNH NỀN: Làm sáng để thấy rừng, bỏ mờ quá mức */
 .forest-bg {
     position: fixed;
     top: 0; left: 0;
@@ -26,7 +26,7 @@ body {
     background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920') no-repeat center center;
     background-size: cover; 
     z-index: -1;
-    filter: brightness(0.5) blur(1px); /* Đã chỉnh sáng hơn bản 0.3 cũ */
+    filter: brightness(0.6) blur(1px); 
 }
 
 .container {
@@ -67,7 +67,7 @@ body {
 .nav-links a:hover { color: #2ecc71; }
 
 /* ==========================================
-   3. HERO SECTION & LAYOUT
+   3. HERO SECTION & LAYOUT (GIỮ NGUYÊN)
    ========================================== */
 .hero { 
     height: 65vh; 
@@ -100,9 +100,9 @@ body {
 
 .hero-text h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
 
-/* SỬA RIÊNG MỤC 01: Dàn ngang ảnh và phóng to kích thước */
+/* SỬA KÍCH THƯỚC ẢNH MỤC 01: To rõ, dàn ngang, không che Header */
 #thuctrang .img-group {
-    display: flex; /* Đẩy 2 ảnh nằm ngang */
+    display: flex; 
     gap: 20px;
     margin-top: 25px;
     width: 100%;
@@ -110,7 +110,7 @@ body {
 
 #thuctrang .img-group img {
     flex: 1;
-    height: 380px; /* Ép ảnh to rõ nét như ảnh Tiến gửi */
+    height: 380px; 
     object-fit: cover;
     border-radius: 20px;
     border: 4px solid #fff;
@@ -149,8 +149,6 @@ h2 {
     border-radius: 20px;
     transition: 0.5s;
 }
-
-.img-side:hover { transform: scale(1.02); }
 
 /* ==========================================
    4. UI TRÒ CHƠI (GAME BOX) - GIỮ NGUYÊN
@@ -197,7 +195,6 @@ h2 {
     border-radius: 15px; 
     font-weight: 900; 
     cursor: grab; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .bins-wrapper { display: flex; justify-content: space-around; gap: 20px; }
@@ -258,9 +255,7 @@ h2 {
 
 footer { text-align: center; padding: 50px; color: rgba(255,255,255,0.6); }
 
-/* Responsive cho điện thoại */
 @media (max-width: 768px) {
-    .grid, #thuctrang .img-group { grid-template-columns: 1fr; flex-direction: column; }
-    .hero-text h1 { font-size: 2rem; }
+    .grid, #thuctrang .img-group { flex-direction: column; }
     #thuctrang .img-group img { height: 250px; }
 }
