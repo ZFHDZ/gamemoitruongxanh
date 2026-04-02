@@ -319,41 +319,34 @@
 
     <section id="games" class="section game-box glass game-section">
         <h2>TRUNG TÂM GIẢI TRÍ SINH THÁI</h2>
-        <div class="game-inner quiz-inner">
-            <h3>🎮 TRÒ 1: TRẮC NGHIỆM ĐA LĨNH VỰC</h3>
-            <div id="quiz-area">
-                <p id="question">Đang chuẩn bị câu hỏi...</p>
-                <div id="options"></div>
-                <p id="quiz-info">Câu: <span id="q-count">1</span>/10 | Điểm: <span id="q-score">0</span></p>
-            </div>
-        </div>
+<section id="eco-games" class="glass" style="margin-top: 50px; padding: 30px;">
+    <h2 style="text-align: center; color: #27ae60;">TRUNG TÂM GIẢI TRÍ SINH THÁI</h2>
 
-        <div class="game-inner drag-inner">
-            <h3>🗑️ TRÒ 2: PHÂN LOẠI RÁC (KÉO & THẢ)</h3>
-            <div id="trash-item" draggable="true" ondragstart="drag(event)">Vỏ cam</div>
-            <div class="bins-wrapper">
-                <div class="bin bin-organic" ondrop="drop(event, 'organic')" ondragover="allow(event)">
-                    <div class="bin-label">HỮU CƠ</div>
-                </div>
-                <div class="bin bin-inorganic" ondrop="drop(event, 'inorganic')" ondragover="allow(event)">
-                    <div class="bin-label">VÔ CƠ</div>
-                </div>
-            </div>
-            <p id="sort-progress">Tiến độ: 0/10</p>
+    <div class="game-block">
+        <h3>🎮 TRÒ 1: TRẮC NGHIỆM ĐA LĨNH VỰC</h3>
+        <div id="quiz-area">
+            <p id="question">Đang tải...</p>
+            <div id="options"></div>
+            <p>Câu: <span id="q-count">1</span>/10 | Điểm: <span id="q-score">0</span></p>
         </div>
+    </div>
 
-        <div class="game-inner memory-inner">
-            <h3>🧩 TRÒ 3: TRÍ NHỚ SIÊU PHÀM (LẬT THẺ)</h3>
-            <div id="memory-board" class="memory-grid"></div>
-            <button onclick="initMemory()" class="btn-reset">Chơi lại</button>
+    <div class="game-block" style="text-align: center;">
+        <h3>🗑️ TRÒ 2: PHÂN LOẠI RÁC (KÉO & THẢ)</h3>
+        <div id="trash-item" draggable="true" ondragstart="drag(event)">Đang tải rác...</div>
+        <div class="bins-container">
+            <div class="bin bin-org" ondrop="drop(event, 'organic')" ondragover="allow(event)">HỮU CƠ</div>
+            <div class="bin bin-inorg" ondrop="drop(event, 'inorganic')" ondragover="allow(event)">VÔ CƠ</div>
         </div>
-    </section>
+        <p id="sort-progress">Tiến độ: 0/10</p>
+    </div>
 
-    <section class="glass final-box conclusion-section" style="text-align: center; border-radius: 30px; padding: 40px; margin-top: 50px;">
-        <h2>LỜI KẾT</h2>
-        <p style="font-size: 1.2rem; font-weight: bold;">"Chúng ta không thừa kế trái đất từ tổ tiên, chúng ta mượn nó từ con cháu."</p>
-        <p>Môi trường Việt Nam có hồi sinh hay không phụ thuộc hoàn toàn vào hành động của bạn ngày hôm nay. Hãy bắt đầu từ việc nhỏ nhất: Bỏ rác đúng nơi quy định, giảm thiểu nhựa và trân trọng từng nguồn tài nguyên thiên nhiên. Việt Nam xanh, sạch, đẹp bắt đầu từ chính bạn!</p>
-    </section>
+    <div class="game-block">
+        <h3>🧩 TRÒ 3: TRÍ NHỚ SIÊU PHÀM</h3>
+        <div id="memory-board" class="memory-grid"></div>
+        <button onclick="initMemory()" class="btn-reset" style="margin-top: 15px;">Chơi lại</button>
+    </div>
+</section>
 </main>
 
 <footer><p>© 2026 VIETNAM GREEN PROJECT - HỆ THỐNG TRÍ TUỆ XANH</p></footer>
