@@ -261,74 +261,66 @@
         </div>
     </div>
 </section>
-  <style>
-    /* Style chung cho các khung nội dung */
-    .glass-section {
+<style>
+    /* Đoạn này dùng để điều khiển riêng cho mục 09 */
+    .carbon-section-fixed {
         background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(10px);
         border-radius: 20px;
-        padding: 35px;
+        padding: 30px;
         margin-bottom: 40px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        color: #333;
+        display: block; /* Đảm bảo không bị ẩn */
     }
 
-    .content-grid {
+    .carbon-layout {
         display: flex;
-        gap: 30px;
+        gap: 25px;
         align-items: center;
         margin-top: 20px;
     }
 
-    .text-side { width: 60%; line-height: 1.6; }
-    .img-side { width: 40%; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .carbon-info { width: 60%; line-height: 1.6; color: #333; }
     
-    .img-side img { width: 100%; height: 300px; object-fit: cover; transition: 0.3s; }
-    .img-side img:hover { transform: scale(1.05); }
-
-    .section-title {
-        color: #1e8449;
-        border-left: 8px solid #2ecc71;
-        padding-left: 15px;
-        margin-bottom: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
+    .carbon-img-box { 
+        width: 40%; 
+        height: 280px; 
+        overflow: hidden; 
+        border-radius: 15px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
     }
 
-    ul.eco-list { margin-top: 15px; padding-left: 20px; list-style: none; }
-    ul.eco-list li { margin-bottom: 10px; }
+    .carbon-img-box img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+    }
+
+    .carbon-list { list-style: none; padding-left: 5px; margin-top: 15px; }
+    .carbon-list li { margin-bottom: 10px; }
 
     @media (max-width: 768px) {
-        .content-grid { flex-direction: column; }
-        .text-side, .img-side { width: 100%; }
+        .carbon-layout { flex-direction: column; }
+        .carbon-info, .carbon-img-box { width: 100%; }
     }
 </style>
 
-<section id="bien-phap" class="glass-section">
-    <h2 class="section-title">04. BIỆN PHÁP VÀ HÀNH ĐỘNG CHIẾN LƯỢC</h2>
-    <div class="content-grid">
-        <div class="text-side">
-            <p>Việt Nam đang đẩy mạnh lộ trình <strong>Net Zero 2050</strong> bằng cách: Tăng tỷ trọng năng lượng tái tạo (điện gió, mặt trời), áp dụng thuế carbon nặng đối với các đơn vị xả thải, và xây dựng nền kinh tế tuần hoàn nơi "mọi rác thải đều là tài nguyên".</p>
-            <p style="margin-top:10px;">Công nghệ đốt rác phát điện đang được nhân rộng để thay thế phương pháp chôn lấp truyền thống. Mỗi cá nhân cần thực hiện "Sống xanh" bằng cách: Hạn chế rác thải, sử dụng phương tiện công cộng và phân loại rác tại nguồn.</p>
-        </div>
-        <div class="img-side">
-            <img src="https://images.unsplash.com/photo-1466611653911-95282fc3656b?q=80&w=1000" alt="Năng lượng sạch">
-        </div>
-    </div>
-</section>
+<section id="carbon-footprint" class="carbon-section-fixed">
+    <h2 style="color: #1e8449; border-left: 8px solid #2ecc71; padding-left: 15px; margin-bottom: 20px; text-transform: uppercase; font-weight: bold;">
+        09. DẤU CHÂN CARBON (CARBON FOOTPRINT)
+    </h2>
 
-<section id="carbon-footprint" class="glass-section">
-    <h2 class="section-title">09. DẤU CHÂN CARBON (CARBON FOOTPRINT)</h2>
-    <div class="content-grid">
-        <div class="text-side">
+    <div class="carbon-layout">
+        <div class="carbon-info">
             <p>Bạn có biết: Mỗi hành động nhỏ của bạn đều phát thải khí nhà kính? Một người Việt Nam trung bình phát thải khoảng <strong>3.5 tấn CO2/năm</strong>. Để trung hòa lượng này, bạn cần trồng ít nhất <strong>15 cây xanh</strong> mỗi năm.</p>
-            <ul class="eco-list">
+            <ul class="carbon-list">
                 <li>🛵 <strong>Giao thông:</strong> Xe máy chiếm 60% lượng phát thải đô thị.</li>
                 <li>⚡ <strong>Năng lượng:</strong> Lãng phí điện tương đương với việc đốt hàng tấn than đá.</li>
                 <li>🥩 <strong>Ăn uống:</strong> Sản xuất thịt bò phát thải gấp 10 lần thực vật.</li>
             </ul>
         </div>
-        <div class="img-side">
+
+        <div class="carbon-img-box">
             <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000" alt="Dấu chân Carbon">
         </div>
     </div>
