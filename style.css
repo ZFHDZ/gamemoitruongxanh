@@ -88,20 +88,4 @@
 
         window.onload = () => { showQuiz(); loadTrash(); initMemory(); };
     </script>
-</div>
-/* Giao diện chung trò chơi */
-.game-block { background: #2c3e50; color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-.bins-container { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
 
-/* Thùng rác Trò 2 */
-.bin { flex: 1; height: 100px; border: 2px dashed #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-.bin-org { background: #27ae60 !important; } /* Ép màu xanh hữu cơ */
-.bin-inorg { background: #e74c3c !important; } /* Ép màu đỏ vô cơ */
-
-/* Cục rác */
-#trash-item { background: #f1c40f; color: #333; padding: 10px 20px; display: inline-block; border-radius: 8px; cursor: grab; font-weight: bold; margin: 10px 0; }
-
-/* Trò 3 */
-.memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.m-card { height: 60px; background: #34495e; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: transparent; border: 1px solid #fff; }
-.m-card.flipped { color: white; background: #1abc9c; }
