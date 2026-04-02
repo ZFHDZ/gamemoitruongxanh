@@ -1,5 +1,5 @@
 /* ==========================================
-   1. CÀI ĐẶT CHUNG & PHÔNG CHỮ (GIỮ NGUYÊN)
+   1. CÀI ĐẶT CHUNG & PHÔNG CHỮ
    ========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&display=swap');
 
@@ -17,31 +17,26 @@ body {
     overflow-x: hidden; 
 }
 
-/* ===== FIX 1: ẢNH NỀN ===== */
+/* Nền rừng hiệu ứng mờ (Fixed Background) */
 .forest-bg {
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920') no-repeat center center;
+    background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
     background-size: cover; 
-
-    z-index: -1000; /* FIX: đẩy nền xuống dưới hẳn */
-    filter: brightness(0.5); /* FIX: giảm sáng để chữ nổi */
+    z-index: -1;
+    filter: brightness(0.3) blur(2px);
 }
 
-/* FIX: container nổi lên trên nền */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 100px 20px 40px 20px;
-
-    position: relative; /* FIX */
-    z-index: 10; /* FIX */
 }
 
 /* ==========================================
-   2. THANH ĐIỀU HƯỚNG (NAVBAR) - GIỮ NGUYÊN + FIX
+   2. THANH ĐIỀU HƯỚNG (NAVBAR)
    ========================================== */
 .navbar { 
     background: rgba(255, 255, 255, 0.85); 
@@ -53,9 +48,7 @@ body {
     position: fixed; 
     width: 100%; 
     top: 0; 
-
-    z-index: 9999; /* FIX: luôn nằm trên cùng */
-
+    z-index: 1000;
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
 }
 
@@ -74,7 +67,7 @@ body {
 .nav-links a:hover { color: #2ecc71; }
 
 /* ==========================================
-   3. HERO SECTION & LAYOUT (GIỮ NGUYÊN)
+   3. HERO SECTION & LAYOUT
    ========================================== */
 .hero { 
     height: 65vh; 
@@ -107,45 +100,7 @@ body {
 
 .hero-text h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
 
-/* ===== FIX 2: ẢNH MỤC 1 ===== */
-#thuctrang {
-    padding-top: 100px;  /* FIX: tránh navbar đè */
-    margin-top: -80px;   /* FIX */
-}
-
-#thuctrang .img-group {
-    display: flex; 
-    gap: 20px;
-    margin-top: 25px;
-    width: 100%;
-
-    position: relative; /* FIX */
-    z-index: 1; /* FIX */
-    overflow: hidden;
-}
-
-#thuctrang .img-group img {
-    flex: 1;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-    max-width: 100%;
-    display: block; /* FIX: tránh lỗi ảnh inline */
-}
-
-/* ==========================================
-   3.5 FIX: TÁCH CÁC SECTION (THÊM MỚI)
-   ========================================== */
-.section {
-    margin-bottom: 60px; /* FIX: không dính section */
-}
-
-/* ==========================================
-   CÁC PHẦN DƯỚI GIỮ NGUYÊN
-   ========================================== */
+/* Các thẻ nội dung hiệu ứng Glassmorphism */
 .glass { 
     background: rgba(255, 255, 255, 0.92); 
     padding: 40px; 
@@ -164,9 +119,10 @@ h2 {
     text-transform: uppercase;
 }
 
+/* Grid layout cho các phần chia cột */
 .grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    display: grid;
+grid-template-columns: 1fr 1fr; 
     gap: 30px; 
     align-items: center; 
 }
@@ -176,10 +132,13 @@ h2 {
     height: 350px;
     object-fit: cover;
     border-radius: 20px;
+    transition: 0.5s;
 }
 
+.img-side:hover { transform: scale(1.02); }
+
 /* ==========================================
-   4. UI TRÒ CHƠI (GIỮ NGUYÊN)
+   4. UI TRÒ CHƠI (GAME BOX)
    ========================================== */
 .game-box { 
     background: rgba(15, 25, 35, 0.95); 
@@ -198,6 +157,7 @@ h2 {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Quiz Buttons */
 .quiz-btn { 
     display: block; 
     width: 100%; 
@@ -213,6 +173,7 @@ h2 {
 }
 .quiz-btn:hover { background: #2ecc71; transform: translateX(10px); }
 
+/* Phân loại rác */
 #trash-item { 
     background: #fff; 
     color: #222; 
@@ -223,6 +184,7 @@ h2 {
     border-radius: 15px; 
     font-weight: 900; 
     cursor: grab; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .bins-wrapper { display: flex; justify-content: space-around; gap: 20px; }
@@ -239,6 +201,7 @@ h2 {
 .bin-organic { background: rgba(46, 204, 113, 0.2); border-color: #2ecc71; }
 .bin-inorganic { background: rgba(231, 76, 60, 0.2); border-color: #e74c3c; }
 
+/* Lật thẻ (Memory Game) */
 .memory-grid { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
@@ -260,7 +223,7 @@ h2 {
 .m-card.flipped { background: #fff; color: #333; }
 
 /* ==========================================
-   5. BIỂU ĐỒ & FOOTER (GIỮ NGUYÊN)
+   5. BIỂU ĐỒ & FOOTER
    ========================================== */
 .stats-container { 
     display: flex; 
@@ -283,17 +246,9 @@ h2 {
 
 footer { text-align: center; padding: 50px; color: rgba(255,255,255,0.6); }
 
-/* ==========================================
-   MOBILE (GIỮ NGUYÊN)
-   ========================================== */
+/* Responsive */
 @media (max-width: 768px) {
-    .grid { flex-direction: column; }
-
-    #thuctrang .img-group {
-        flex-direction: column;
-    }
-
-    #thuctrang .img-group img {
-        height: 220px;
-    }
+.grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 2rem; }
+    .memory-grid { grid-template-columns: repeat(3, 1fr); }
 }
