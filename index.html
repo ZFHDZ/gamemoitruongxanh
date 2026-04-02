@@ -141,9 +141,64 @@
 
     <section id="carbon-footprint" class="section glass carbon-section">
         <section id="carbon-footprint" class="section glass carbon-section">
-    <h2>09. DẤU CHÂN CARBON (CARBON FOOTPRINT)</h2>
-    <div class="content grid">
-        <div class="text">
+    <style>
+    .carbon-section {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 35px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .carbon-grid {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .carbon-text {
+        width: 60%;
+    }
+
+    .carbon-text ul {
+        margin-top: 15px;
+        padding-left: 20px;
+    }
+
+    .carbon-text li {
+        margin-bottom: 10px;
+    }
+
+    /* FIX LỖI ẢNH: Ép chiều cao, không cho phóng to vỡ hình */
+    .carbon-img-container {
+        width: 40%;
+        height: 300px; /* Chiều cao cố định để cân với chữ */
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .carbon-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Giữ ảnh sắc nét, không bị méo */
+    }
+
+    @media (max-width: 768px) {
+        .carbon-grid { flex-direction: column; }
+        .carbon-text, .carbon-img-container { width: 100%; }
+    }
+</style>
+
+<section id="carbon-footprint" class="carbon-section">
+    <h2 style="color: #1e8449; border-left: 8px solid #2ecc71; padding-left: 15px; margin-bottom: 20px;">
+        09. DẤU CHÂN CARBON (CARBON FOOTPRINT)
+    </h2>
+    
+    <div class="carbon-grid">
+        <div class="carbon-text">
             <p>Bạn có biết: Mỗi hành động nhỏ của bạn đều phát thải khí nhà kính? Một người Việt Nam trung bình phát thải khoảng <b>3.5 tấn CO2/năm</b>. Để trung hòa lượng này, bạn cần trồng ít nhất <b>15 cây xanh</b> mỗi năm.</p>
             <ul>
                 <li>🛵 <b>Giao thông:</b> Xe máy chiếm 60% lượng phát thải đô thị.</li>
@@ -151,11 +206,9 @@
                 <li>🥩 <b>Ăn uống:</b> Sản xuất thịt bò phát thải gấp 10 lần thực vật.</li>
             </ul>
         </div>
-        <div class="carbon-visual-wrapper">
-            <img src="data:image/jpeg;base64,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" 
-                 alt="Minh họa dấu chân Carbon" 
-                 class="carbon-img">
-            <div class="footprint-icon-overlay">👣</div>
+
+        <div class="carbon-img-container">
+            <img src="https://images.unsplash.com/photo-1542601906-9eb9d9b6264d?q=80&w=600&auto=format&fit=crop" alt="Dấu chân Carbon">
         </div>
     </div>
 </section>
