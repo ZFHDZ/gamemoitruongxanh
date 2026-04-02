@@ -105,27 +105,48 @@
     </section>
 
     <section id="data-visual" class="section glass">
+ <section id="data-visual" class="section glass">
+    <style>
+        /* CSS gộp chung để hiển thị ảnh biểu đồ chuyên nghiệp */
+        .chart-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* FIX LỖI ẢNH VỠ: Ép chiều cao, không cho ảnh phình to */
+        .img-chart-fix {
+            width: 100%;
+            max-height: 480px; /* Ép chiều cao để giữ độ nét HD */
+            object-fit: contain; /* Giữ toàn bộ biểu đồ, không bị cắt */
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Bóng đổ cho "xịn" */
+        }
+
+        .analysis-text-fix {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.05); /* Nền mờ nhẹ */
+            border-radius: 15px;
+            width: 100%;
+            border-left: 5px solid #e74c3c; /* Vạch đỏ cảnh báo */
+        }
+    </style>
+
+    <div class="chart-section">
         <h2>06. BIỂU ĐỒ BÁO ĐỘNG ĐỎ (2020 - 2026)</h2>
-        <div class="chart-wrapper">
-            <p>Lượng rác thải nhựa phát sinh (Triệu tấn/năm)</p>
-            <div class="stats-container" style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px; padding: 20px; border-bottom: 2px solid #ccc;">
-                <div class="stat-bar" style="background: #2ecc71; width: 60px; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 8px 8px 0 0; position: relative; --h: 40%; height: var(--h);">
-                    <span style="position: absolute; top: -25px; width: 100%; text-align: center;">2020: 1.8T</span>
-                </div>
-                <div class="stat-bar" style="background: #2ecc71; width: 60px; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 8px 8px 0 0; position: relative; --h: 65%; height: var(--h);">
-                    <span style="position: absolute; top: -25px; width: 100%; text-align: center;">2023: 2.4T</span>
-                </div>
-                <div class="stat-bar warning" style="background: #e74c3c; width: 60px; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 0 20px rgba(231, 76, 60, 0.5); --h: 95%; height: var(--h);">
-                    <span style="position: absolute; top: -25px; width: 100%; text-align: center;">2026: 3.2T</span>
-                </div>
-            </div>
-        </div>
-        <div class="analysis-text" style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.05); border-radius: 15px;">
+        <p style="font-weight: bold; color: #555;">Lượng rác thải nhựa phát sinh (Triệu tấn/năm)</p>
+        
+        <img src="https://moitruongachau.com/vnt_upload/news/03_2023/Untitled_1_01.png" 
+             class="img-chart-fix" 
+             alt="Biểu đồ báo động rác thải nhựa 2026">
+             
+        <div class="analysis-text-fix">
             <p>⚠️ <b>Phân tích:</b> Tốc độ tăng trưởng rác thải nhựa tại Việt Nam đang ở mức 5% mỗi năm. Nếu không có biện pháp can thiệp quyết liệt, đến năm 2030, lượng rác thải sẽ vượt ngưỡng chịu đựng của hệ thống hạ tầng xử lý hiện tại.</p>
         </div>
-    </section>
-
-    <section id="lifecycle" class="section glass dark-section">
+    </div>
+</section>
         <h2>07. VÒNG ĐỜI CỦA RÁC: NỖI ÁM ẢNH THẾ KỶ</h2>
         <div class="waste-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
             <div class="waste-card" style="background: rgba(0,0,0,0.05); padding: 20px; border-radius: 15px; border-left: 5px solid #27ae60;">
