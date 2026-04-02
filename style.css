@@ -17,7 +17,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* SỬA PHẦN ẢNH NỀN: Bỏ mờ, chỉnh độ sáng để nhìn rõ rừng phía sau */
+/* SỬA PHẦN ẢNH NỀN: Chỉnh độ sáng (brightness) để nhìn rõ rừng phía sau */
 .forest-bg {
     position: fixed;
     top: 0; left: 0;
@@ -26,7 +26,7 @@ body {
     background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920') no-repeat center center;
     background-size: cover; 
     z-index: -1;
-    filter: brightness(0.5); /* Chỉnh sáng hơn mức 0.3 cũ để thấy rõ nền */
+    filter: brightness(0.5) blur(1px); /* Đã chỉnh sáng hơn bản 0.3 cũ */
 }
 
 .container {
@@ -100,20 +100,21 @@ body {
 
 .hero-text h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
 
-/* SỬA KÍCH CỠ ẢNH MỤC 1: Dàn ngang và phóng to ảnh */
+/* SỬA RIÊNG MỤC 01: Dàn ngang ảnh và phóng to kích thước */
 #thuctrang .img-group {
-    display: flex;
+    display: flex; /* Đẩy 2 ảnh nằm ngang */
     gap: 20px;
     margin-top: 25px;
+    width: 100%;
 }
 
 #thuctrang .img-group img {
     flex: 1;
-    height: 380px; /* Ép ảnh to rõ nét */
+    height: 380px; /* Ép ảnh to rõ nét như ảnh Tiến gửi */
     object-fit: cover;
     border-radius: 20px;
     border: 4px solid #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .glass { 
@@ -146,10 +147,13 @@ h2 {
     height: 350px;
     object-fit: cover;
     border-radius: 20px;
+    transition: 0.5s;
 }
 
+.img-side:hover { transform: scale(1.02); }
+
 /* ==========================================
-   4. UI TRÒ CHƠI (GAME BOX) - CHÉP LẠI Y HỆT
+   4. UI TRÒ CHƠI (GAME BOX) - GIỮ NGUYÊN
    ========================================== */
 .game-box { 
     background: rgba(15, 25, 35, 0.95); 
@@ -193,6 +197,7 @@ h2 {
     border-radius: 15px; 
     font-weight: 900; 
     cursor: grab; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .bins-wrapper { display: flex; justify-content: space-around; gap: 20px; }
@@ -230,7 +235,7 @@ h2 {
 .m-card.flipped { background: #fff; color: #333; }
 
 /* ==========================================
-   5. BIỂU ĐỒ & FOOTER - CHÉP LẠI Y HỆT
+   5. BIỂU ĐỒ & FOOTER - GIỮ NGUYÊN
    ========================================== */
 .stats-container { 
     display: flex; 
@@ -253,7 +258,9 @@ h2 {
 
 footer { text-align: center; padding: 50px; color: rgba(255,255,255,0.6); }
 
+/* Responsive cho điện thoại */
 @media (max-width: 768px) {
-    .grid, #thuctrang .img-group { flex-direction: column; }
+    .grid, #thuctrang .img-group { grid-template-columns: 1fr; flex-direction: column; }
+    .hero-text h1 { font-size: 2rem; }
     #thuctrang .img-group img { height: 250px; }
 }
